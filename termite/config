@@ -1,0 +1,7 @@
+[colors]
+background = rgba(0, 0, 0, 0.6)
+
+[options]
+font = Terminess Powerline 10 
+browser = inox
+clickable_url = true
