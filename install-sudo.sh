@@ -24,6 +24,9 @@ cp FixIntel.sh /usr/bin/ &&  cp FixAlpha.sh /usr/bin/ &&  cp configure.sh /usr/b
 # Blacklisting webcam and bluetooth modules
 cp -rf blacklist*.conf /etc/modprobe.d/
 
+# Copying hosts file to block specific domains / sites
+cp -rf hosts /etc/hosts
+
 
 # TODO 
 # 1) Automate /etc/default/grub with flags from grub_conf
