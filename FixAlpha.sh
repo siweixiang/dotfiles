@@ -10,6 +10,7 @@ killall thermald;
 thermald --exclusive-control;
 wait;
 
+#TODO 1) Check module is loaded or not before unloading
 # Removing all known drivers
 rmmod ath9k;
 rmmod rt2800usb;

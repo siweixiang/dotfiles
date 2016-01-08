@@ -1,0 +1,10 @@
+
+[Unit]
+Description=Mac Spoof
+Before=dhcpcd.service
+ 
+[Service]
+ExecStart=/bin/bash /usr/bin/randomize-mac.sh 
+ 
+[Install]
+WantedBy=network.target
