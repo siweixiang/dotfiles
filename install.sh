@@ -3,7 +3,7 @@
 
 
 # Installing stuff from AUR
-#yaourt -S termite-git infinality-bundle;  
+yaourt -S termite-git infinality-bundle;  
 yaourt -S --noconfirm --needed terminess-powerline-font-git netdiscover ettercap mlocate extra-cmake-modules;  
 
 # Copying various configs

@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
 # Infinality fonts installation
-#echo '[infinality-bundle]' >> /etc/pacman.conf;
-#echo 'Server = http://bohoomil.com/repo/$arch' >> /etc/pacman.conf;
-#pacman-key --populate && pacman-key --refresh && pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58 && pacman -Syy; 
+echo '[infinality-bundle]' >> /etc/pacman.conf;
+echo 'Server = http://bohoomil.com/repo/$arch' >> /etc/pacman.conf;
+pacman-key --populate && pacman-key --refresh && pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58 && pacman -Syy; 
 
 
 # Installing Required Packages
