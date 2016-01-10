@@ -1,0 +1,2 @@
+1. Make automated installation more reliable so they don't break in places.
+2. Merge both wireless scripts into one. 

@@ -2,13 +2,14 @@
 
 # Installing stuff from AUR
 yaourt -S termite-git infinality-bundle;  
-yaourt -S --noconfirm --needed terminess-powerline-font-git netdiscover ettercap mlocate extra-cmake-modules;  
+yaourt -S --noconfirm --needed terminess-powerline-font-git netdiscover ettercap mlocate extra-cmake-modules mpv-git;  
 
 # Copying various configs
 cp -rf compton.conf ~/.config/;
 cp -rf dunst ~/.config/;
 cp -rf ranger ~/.config/;
 cp -rf termite ~/.config/;
+cp -rf livestreamerrc ~/.config/.livestreamerrc;
 
 # i3 Wm Stuff
 cp -rf i3config ~/.i3/config 

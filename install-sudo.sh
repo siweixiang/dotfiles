@@ -8,7 +8,7 @@ pacman-key --populate && pacman-key --refresh && pacman-key -r 962DDE58 && pacma
 
 
 # Installing Required Packages
-pacman -S --force --noconfirm --needed zsh thunderbird vlc wireshark-gtk cmus mplayer youtube-viewer calibre livestreamer nethogs nodejs npm lm_sensors transmission-gtk macchanger aircrack-ng gcolor2 calibre arp-scan whois nmap automake cmake clang llvm ranger wine redshift dunst ufw gufw;
+pacman -S --force --noconfirm --needed zsh thunderbird vlc wireshark-gtk cmus mplayer youtube-viewer calibre livestreamer nethogs nodejs npm lm_sensors transmission-gtk macchanger aircrack-ng gcolor2 calibre arp-scan whois nmap automake cmake clang llvm ranger wine redshift dunst ufw gufw libva-intel-driver;
 
 
 # Rolling back to old interface naming convention for usability purposes

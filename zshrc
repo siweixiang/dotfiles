@@ -35,14 +35,17 @@ alias fix1="configure.sh wlan1 managed"
 alias pen0="configure.sh wlan0 monitor"
 alias pen1="configure.sh wlan1 monitor"
 
-# Pacman & Yaourt shortcuts for root
+# Pacman & Yaourt shortcuts 
 alias pacu="pacman -Syyu --noconfirm"
 alias pacs="pacman -sS $1"
-alias paci="pacman -S $1 --noconfirm"
-alias pacr="pacman -R $1 --noconfirm"
+alias paci="pacman -S $1"
+alias pacif="pacman -S $1 --noconfirm"
+alias pacr="pacman -R $1"
+alias pacrf="pacman -R $1 --noconfirm"
 alias yaou="yaourt -Syyu --noconfirm"
 alias yaos="yaourt -sS $1"
-alias yaoi="yaourt -S $1 --noconfirm"
+alias yaoi="yaourt -S $1"
+alias yaoif="yaourt -S $1 --noconfirm"
 alias yaor="yaourt -R $1 --noconfirm"
 
 
@@ -51,17 +54,11 @@ wkill() {systemctl stop NetworkManager.service; killall NetworkManager; killall 
 wnet() {netstat "-naultp"}
 wmon() {nethogs "wlan0"}
 
-powersave() {wkill; killall thermald; thermald --exclusive-control; cpupower frequency-set -g powersave}
+Powersave() {wkill; killall thermald; thermald --exclusive-control; cpupower frequency-set -g powersave}
 
-twitch_source() {livestreamer --hls-segment-threads 4 --retry-streams 2 --player "vlc --file-caching=5000" "$1" "source"}
-
-twitch_high() {livestreamer --hls-segment-threads 3 --retry-streams 2 --player "vlc --file-caching=5000" "$1" "high"}
-
-twitch_medium() {livestreamer --hls-segment-threads 2 --retry-streams 2 --player "vlc --file-caching=5000" "$1" "medium"}
-
-twitch_low() {livestreamer --hls-segment-threads 2 --retry-streams 2 --player "vlc --file-caching=5000" "$1" "low"}
-
-
+Lss() {livestreamer "$1" "source"}
+Lsh() {livestreamer "$1" "high"}
+Lsm() {livestreamer "$1" "medium"}
 
 # Note taking app
 n() {
