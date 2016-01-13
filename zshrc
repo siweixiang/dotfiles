@@ -26,6 +26,7 @@ eval $(dircolors ~/.dircolors)
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+BROWSER=/usr/bin/inox
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
@@ -59,6 +60,77 @@ Powersave() {wkill; killall thermald; thermald --exclusive-control; cpupower fre
 Lss() {livestreamer "$1" "source"}
 Lsh() {livestreamer "$1" "high"}
 Lsm() {livestreamer "$1" "medium"}
+
+
+# Screencasting with ffmpeg 
+# https://github.com/gotbletu/shownotes/blob/master/ffmpeg_x11grab_screencast.txt
+#
+FFX_MONO="1"		# mono
+FFX_DUAL="2"		# dual channel
+FFX_HW="hw:1,0" 	# alsa; run 'cat /proc/asound/pcm' to change to the correct numbers
+FFX_PULSE="pulse" 	# pulseaudio; might have to install pavucontrol to change volume
+FFX_FPS="30"		# frame per seconds
+FFX_WIN_FULL=$(xwininfo -root | grep 'geometry' |awk '{print $2;}')	# record fullscreen
+FFX_AUDIO="pcm_s16le"	# audio codec
+FFX_VIDEO="libx264"	# video codec
+FFX_PRESET="ultrafast"	# preset error? run 'x264 -h' replace with fast,superfast, slow ..etc
+FFX_CRF="0"
+FFX_THREADS="0"
+FFX_SCALE="scale=1280:720"	# scale resolution, no black bars on sides of video on youtube
+FFX_OUTPUT=~/Public/screencast/aa_screencast_baking.avi
+# Note: -vf is optional delete if you want, -y is to overwrite existing file
+
+# capture fullscreen using alsa or pulseaudio
+ffx-full-hw() { ffmpeg -f alsa -ac $FFX_MONO \
+	-i $FFX_HW -f x11grab -r $FFX_FPS -s $FFX_WIN_FULL -i :0.0 \
+	-acodec $FFX_AUDIO -vcodec $FFX_VIDEO \
+       	-preset $FFX_PRESET -crf $FFX_CRF -threads $FFX_THREADS \
+	-vf $FFX_SCALE \
+	-y $FFX_OUTPUT
+}
+ffx-full-pa() { ffmpeg -f alsa -ac $FFX_MONO \
+	-i $FFX_PULSE -f x11grab -r $FFX_FPS -s $FFX_WIN_FULL -i :0.0 \
+	-acodec $FFX_AUDIO -vcodec $FFX_VIDEO \
+       	-preset $FFX_PRESET -crf $FFX_CRF -threads $FFX_THREADS \
+	-vf $FFX_SCALE \
+	-y $FFX_OUTPUT
+}
+
+# capture single window, use mouse cursor to select window you want to record
+ffx-winselect-hw() { 
+	FFX_INFO=$(xwininfo -frame)
+
+	ffmpeg -f alsa -ac $FFX_MONO \
+	-i $FFX_HW -f x11grab -r $FFX_FPS \
+	-s $(echo $FFX_INFO | grep -oEe 'geometry [0-9]+x[0-9]+'\
+	| grep -oEe '[0-9]+x[0-9]+') \
+	-i :0.0+$(echo $FFX_INFO | grep -oEe 'Corners:\s+\+[0-9]+\+[0-9]+' \
+	| grep -oEe '[0-9]+\+[0-9]+' | sed -e 's/\+/,/' ) \
+	-acodec $FFX_AUDIO -vcodec $FFX_VIDEO \
+       	-preset $FFX_PRESET -crf $FFX_CRF -threads $FFX_THREADS \
+	-vf $FFX_SCALE \
+	-y $FFX_OUTPUT
+}
+ffx-winselect-pa() { 
+	FFX_INFO=$(xwininfo -frame)
+
+	ffmpeg -f alsa -ac $FFX_MONO \
+	-i $FFX_PULSE -f x11grab -r $FFX_FPS \
+	-s $(echo $FFX_INFO | grep -oEe 'geometry [0-9]+x[0-9]+'\
+	| grep -oEe '[0-9]+x[0-9]+') \
+	-i :0.0+$(echo $FFX_INFO | grep -oEe 'Corners:\s+\+[0-9]+\+[0-9]+' \
+	| grep -oEe '[0-9]+\+[0-9]+' | sed -e 's/\+/,/' ) \
+	-acodec $FFX_AUDIO -vcodec $FFX_VIDEO \
+       	-preset $FFX_PRESET -crf $FFX_CRF -threads $FFX_THREADS \
+	-vf $FFX_SCALE \
+	-y $FFX_OUTPUT
+}
+
+
+
+
+
+
 
 # Note taking app
 n() {
