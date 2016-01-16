@@ -49,6 +49,10 @@ alias yaoi="yaourt -S $1"
 alias yaoif="yaourt -S $1 --noconfirm"
 alias yaor="yaourt -R $1 --noconfirm"
 
+# Custom app shortcuts
+alias df="df -h"
+
+
 
 # Custom Functions that I use regularly
 wkill() {systemctl stop NetworkManager.service; killall NetworkManager; killall wpa_supplicant; killall dhclient; rfkill block wifi all}
@@ -127,11 +131,6 @@ ffx-winselect-pa() {
 }
 
 
-
-
-
-
-
 # Note taking app
 n() {
   if [ "$1" = "today" ];
@@ -153,6 +152,12 @@ nrd() {
 nwr() {
   $EDITOR ~/notes/"$*"
 }
+
+
+# Pyrit functions for WPA handshakes
+pirate(){pyrit -r $1 -o $2 -b $3 strip}
+
+
 
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
