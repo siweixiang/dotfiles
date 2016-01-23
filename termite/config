@@ -1,7 +1,10 @@
 [colors]
-background = rgba(0, 0, 0, 0.6)
+background = rgba(33, 33, 33, 0.6)
+cursor = #279CCA
 
 [options]
-font = Terminess Powerline 10 
+font = Terminess Powerline 9
 browser = inox
 clickable_url = true
+allow_bold = true
+mouse_autohide = true
