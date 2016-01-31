@@ -17,7 +17,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='vi'
 else
   export EDITOR='vim'
 fi
@@ -29,7 +29,7 @@ eval $(dircolors ~/.dircolors)
 BROWSER=/usr/bin/inox
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
+alias rasp="ssh root@172.16.2.118"
 alias wip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias fix0="configure.sh wlan0 managed"
 alias fix1="configure.sh wlan1 managed"
@@ -49,9 +49,12 @@ alias yaoi="yaourt -S $1"
 alias yaoif="yaourt -S $1 --noconfirm"
 alias yaor="yaourt -R $1 --noconfirm"
 
-# Custom app shortcuts
+## Custom app shortcuts
 alias df="df -h"
-
+# Youtube single track audio download
+alias youm="youtube-dl --no-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
+# Youtube playlist audio download
+alias yoump="youtube-dl --yes-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
 
 
 # Custom Functions that I use regularly
@@ -155,9 +158,12 @@ nwr() {
 
 
 # Pyrit functions for WPA handshakes
+# pirate [source] [destination] [BSSID]
 pirate(){pyrit -r $1 -o $2 -b $3 strip}
 
-
+# Reaver & Bully shortcuts
+# Pix [bssid] [channel] [interface]
+Pix(){bully -b $1 -c $2 -d $3}
 
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
