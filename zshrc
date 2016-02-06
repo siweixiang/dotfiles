@@ -35,6 +35,7 @@ alias fix0="configure.sh wlan0 managed"
 alias fix1="configure.sh wlan1 managed"
 alias pen0="configure.sh wlan0 monitor"
 alias pen1="configure.sh wlan1 monitor"
+alias pen2="configure.sh wlan2 monitor"
 
 # Pacman & Yaourt shortcuts 
 alias pacu="pacman -Syyu --noconfirm"
@@ -55,7 +56,8 @@ alias df="df -h"
 alias youm="youtube-dl --no-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
 # Youtube playlist audio download
 alias yoump="youtube-dl --yes-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
-
+# Optimizing PDF books for Kindle Paperwhite 2
+alias kin="k2pdfopt $1 -dev kp2 -cmax 2 -s -g 0.5 -wt -1 -wrap+ -hy -ws -0.2"
 
 # Custom Functions that I use regularly
 wkill() {systemctl stop NetworkManager.service; killall NetworkManager; killall wpa_supplicant; killall dhclient; rfkill block wifi all}
