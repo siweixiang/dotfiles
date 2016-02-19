@@ -24,8 +24,16 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
 cp -rf vimrc ~/.vimrc;
 
 
+# Disable pulse audio from listening on the network by comment out the line below from /etc/pulse/default.pa
+# load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1
+
 # ZSH Stuff
 cp -rf zshrc ~/.zshrc; 
 dircolors -p > ~/.dircolors;
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+
+# Firefox nightly extensions
+# SSleuth, UBlock Origin, Self Destructing Cookies, NoScript, HTTPS Everywhere, Ghostery, Random Agent Spoofer
+
 
