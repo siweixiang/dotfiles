@@ -30,7 +30,7 @@ BROWSER=/usr/bin/inox
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 alias rasp="ssh root@172.16.2.118"
-alias wip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias wip="curl -s icanhazip.com"
 alias fix0="configure.sh wlan0 managed"
 alias fix1="configure.sh wlan1 managed"
 alias pen0="configure.sh wlan0 monitor"
@@ -58,6 +58,8 @@ alias youm="youtube-dl --no-playlist -x --write-all-thumbnails --audio-quality 0
 alias yoump="youtube-dl --yes-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
 # Optimizing PDF books for Kindle Paperwhite 2
 alias kin="k2pdfopt $1 -dev kp2 -cmax 2 -s -g 0.5 -wt -1 -wrap+ -hy -ws -0.2"
+# Wget with proper output file naming
+alias wget="wget -c --content-disposition $1"
 
 # Custom Functions that I use regularly
 wkill() {systemctl stop NetworkManager.service; killall NetworkManager; killall wpa_supplicant; killall dhclient; rfkill block wifi all}
