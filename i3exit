@@ -1,12 +1,14 @@
 #!/bin/sh
+# /usr/bin/i3exit
+
 
 lock() {
-    i3lock
+    blurlock
 }
 
 case "$1" in
     lock)
-        blurlock
+        lock
         ;;
     logout)
         i3-msg exit
@@ -16,16 +18,16 @@ case "$1" in
 	;;
     suspend)
 	if [ $(cat /proc/1/comm) = "systemd" ]; then 
-	blurlock && systemctl suspend
+	lock && systemctl suspend
 	else
-	blurlock && dbus-send --system --dest=org.freedesktop.ConsoleKit --type=method_call --print-reply --reply-timeout=2000 /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Suspend boolean:true
+	lock && dbus-send --system --dest=org.freedesktop.ConsoleKit --type=method_call --print-reply --reply-timeout=2000 /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Suspend boolean:true
 	fi
         ;;
     hibernate)
 	if [ $(cat /proc/1/comm) = "systemd" ]; then
-	blurlock && systemctl hibernate
+	lock && systemctl hibernate
 	else
-	blurlock && dbus-send --system --dest=org.freedesktop.ConsoleKit --type=method_call --print-reply --reply-timeout=2000 /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Hibernate boolean:true
+	lock && dbus-send --system --dest=org.freedesktop.ConsoleKit --type=method_call --print-reply --reply-timeout=2000 /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Hibernate boolean:true
 	fi
         ;;
     reboot)
@@ -43,7 +45,8 @@ case "$1" in
 	fi
 	;;
     *)
-        echo "Usage: $0 {lock|logout|switch_user|suspend|hibernate|reboot|shutdown}"
+        echo "== ! i3exit: missing or wrong argument ! ==
+Try again with: lock | logout | switch_user | suspend | hibernate | reboot | shutdown"
         exit 2
 esac
 
