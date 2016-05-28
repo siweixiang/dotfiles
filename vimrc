@@ -46,7 +46,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 " Required for clang autocomplete to work with YouCompleteMe plugin.
 " Place that file on home directory
-let g:ycm_global_ycm_extra_conf = '~/.ycm_global_ycm_extra_conf'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 
 Plugin 'bling/vim-airline'
@@ -67,8 +67,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 Plugin 'easymotion/vim-easymotion'
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
 let g:EasyMotion_smartcase = 1
 
 "Track the engine.
@@ -97,12 +95,12 @@ filetype plugin indent on    " required
 
 
 " Mapping tab switch keys changed due to Airline
-map <C-Left> <Esc>:bprev<CR>
-map <C-Right> <Esc>:bnext<CR>
-map <C-Down> <Esc>:bdelete<CR>
+map <C-Left> <Esc>:tabprevious<CR>
+map <C-Right> <Esc>:tabnext<CR>
+map <C-Down> <Esc>:tabclose<CR>
 
 
-colorscheme elflord
+colorscheme Benokai
 
 " For further vim extensability go through this page for useful plugin list for c/c++:
 " http://stackoverflow.com/questions/4237817/help-with-configuring-vim-for-c
