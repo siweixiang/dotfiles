@@ -44,16 +44,15 @@ echo "==================================================================="
 sleep 1;
 
 echo "[+] Stopping Network Manager... ";
-systemctl stop NetworkManager.service; #1>/dev/null;
+systemctl stop NetworkManager.service 1>/dev/null;
 wait;
-killall NetworkManager; killall wpa_supplicant; killall dhclient; 
 
 # Disabling RFKILL on Wifi
 rfkill unblock wifi all;
 
 # Reloading modules from kernel
 echo "[+] Reloading modules";
-rmmod $intel;
+rmmod $intel 1>/dev/null;
 modprobe $intel;
 
 
