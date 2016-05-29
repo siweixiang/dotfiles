@@ -51,7 +51,7 @@ alias pacs="pacman -sS $1"
 alias paci="pacman -S $1"
 alias pacif="pacman -S $1 --noconfirm"
 alias pacr="pacman -R $1"
-alias pacrf="pacman -R $1 --noconfirm"
+alias pacrf="pacman -Rs $1"
 alias pacl="pacman -Sc && pacman-optimize"
 alias yaou="yaourt -Syyu --noconfirm"
 alias yaos="yaourt -sS $1"
@@ -77,7 +77,7 @@ wkill() {systemctl stop NetworkManager.service; killall NetworkManager; killall 
 wnet() {netstat "-naultp"}
 wmon() {nethogs "wlan0"}
 
-Powersave() {wkill; killall thermald; thermald --exclusive-control; x86_energy_perf_policy powersave}
+Powersave() {wkill; killall thermald; thermald --exclusive-control; x86_energy_perf_policy powersave; killall dhsmasq;}
 
 Lss() {livestreamer "$1" "source"}
 Lsh() {livestreamer "$1" "high"}

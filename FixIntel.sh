@@ -53,8 +53,8 @@ rfkill unblock wifi all;
 
 # Reloading modules from kernel
 echo "[+] Reloading modules";
-rmmod $driver;
-modprobe $driver;
+rmmod $intel;
+modprobe $intel;
 
 
 echo "[+] Taking down your card offline";
@@ -65,19 +65,19 @@ echo "[+] Changing mac-address";
 macchanger -r $interface;
 
 iwconfig $interface mode managed;
-iwconfig $interface power off;
+iw dev $interface  set power_save on;
 
+sleep 2;
 echo "[+] Bringing up wireless card online";
 ifconfig $interface up;
 
+sleep 2;
 wait;
 systemctl daemon-reload;
 wait;
 echo "[+] Starting Network Manager... ";
 systemctl start NetworkManager.service; #1>/dev/null;
 wait;
-NetworkManager;
-sleep 1;
 
 echo "[+] All patched up and done, have a nice day! ;)";
 echo "===================================================================\n"
