@@ -67,7 +67,7 @@ bindsym $mod+b workspace back_and_forth
 
 
 # Start Applications
-bindsym $mod+c exec firefox
+bindsym $mod+c exec firefox-nightly
 bindsym $mod+p exec chromium
 bindsym $mod+F1 exec pcmanfm
 bindsym $mod+n exec nitrogen 
@@ -75,13 +75,14 @@ bindsym $mod+F2 exec termite -e ranger
 bindsym $mod+m exec thunderbird
 bindsym $mod+Ctrl+k exec --no-startup-id compton -b
 bindsym $mod+t exec transmission-gtk 
-bindsym $mod+o exec termite -e 'youtube-viewer'
-
-
+bindsym $mod+o exec termite -e 'mpsyt'
+bindsym $mod+g exec termite -e 'elinks https://classic.startpage.com/uk/protect-privacy.html'
+bindsym $mod+Shift+g exec termite -e 'elinks https://www.google.com/?hl=en'
+bindsym $mod+i	exec termite -e 'wicd-curses'
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 exec --no-startup-id pulseaudio
