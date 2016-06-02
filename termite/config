@@ -5,12 +5,13 @@ cursor = #DA1F26
 
 [options]
 #font = Terminess Powerline 11
-font = Hack Regular 10
+#font = Hack Regular 10
 #font = Ubuntu Mono Regular 11
 #font = Consolas for Powerline Regular 11
-#font = Inconsolata-g Bold 10
+font = Inconsolata-g Bold 10
 #font = Source Code Pro Semibold 10
 #font = Hermit medium 10
+#font = Envy Code R Regular 10 
 browser = inox
 clickable_url = true
 allow_bold = true
