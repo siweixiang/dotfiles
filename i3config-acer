@@ -79,6 +79,11 @@ bindsym $mod+o exec termite -e 'mpsyt'
 bindsym $mod+g exec termite -e 'elinks https://classic.startpage.com'
 bindsym $mod+Shift+g exec termite -e 'elinks https://www.google.com/?hl=en'
 bindsym $mod+i	exec termite -e 'wicd-curses'
+bindsym $mod+Shift+F4 exec termite -e 'elinks https://wiki.gentoo.org/wiki/Main_Page'
+bindsym $mod+F4 exec termite -e 'elinks https://wiki.archlinux.org/index.php'
+bindsym $mod+Shift+F5 exec dwb 'https://wiki.gentoo.org/wiki/Main_Page'
+bindsym $mod+F5 exec dwb 'https://wiki.archlinux.org/index.php'
+
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
