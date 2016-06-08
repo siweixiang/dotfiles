@@ -21,6 +21,7 @@ export PATH="/usr/lib/ccache/bin/:$PATH"
 export VDPAU_DRIVER=va_gl
 export LIBVA_DRIVER_NAME=i965
 
+export TERM="xterm-termite"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
@@ -37,7 +38,7 @@ eval $(dircolors ~/.dircolors)
 BROWSER=/usr/bin/inox
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-alias rasp="ssh boris@192.168.1.35 -p6969"
+alias rasp="ssh boris@192.168.1.50 -p6969"
 alias wip="curl -s icanhazip.com"
 alias fix0="configure.sh wlan0 managed"
 alias fix1="configure.sh wlan1 managed"
@@ -60,7 +61,12 @@ alias yaoif="yaourt -S $1 --noconfirm"
 alias yaor="yaourt -R $1 --noconfirm"
 
 ## Custom app shortcuts
+
+# Install scrot and pbpst
+alias scrotp="scrot -cd5 /tmp/screenshot.png && pbpst -S -e png -f /tmp/screenshot.png"
+
 alias df="df -h"
+
 # Youtube single track audio download
 alias youm="youtube-dl --no-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
 # Youtube playlist audio download
@@ -73,7 +79,8 @@ alias kin="k2pdfopt $1 -dev kp2 -cmax 2 -s -g 0.5 -wt -1 -wrap+ -hy -ws -0.2"
 alias wget="wget -c --content-disposition $1"
 
 # Custom Functions that I use regularly
-wkill() {systemctl stop NetworkManager.service; rfkill block wifi all}
+#wkill() {systemctl stop NetworkManager.service; rfkill block wifi all}
+wkill() {systemctl stop wicd.service; rfkill block wifi all}
 wnet() {netstat "-naultp"}
 wmon() {nethogs "wlan0"}
 
