@@ -62,9 +62,17 @@ alias yaor="yaourt -R $1 --noconfirm"
 
 ## Custom app shortcuts
 
+alias mount="mount | column -t"
+
 # Install scrot and pbpst
 alias scrotp="scrot -cd5 /tmp/screenshot.png && pbpst -S -e png -f /tmp/screenshot.png"
 
+# File encryption/decryption using SSL
+# ssle [input] [output]
+ssle() {openssl enc -aes-256-cbc -in $1 -out $2}
+ssld() {openssl enc -aes-256-cbc -d -in $1 > $2}
+
+alias du="du -h"
 alias df="df -h"
 
 # Youtube single track audio download
