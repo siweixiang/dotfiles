@@ -88,6 +88,8 @@ alias wget="wget -c --content-disposition $1"
 
 # Custom Functions that I use regularly
 #wkill() {systemctl stop NetworkManager.service; rfkill block wifi all}
+getlog() {grep -A3 -i $1 ~/.weechat/logs/*log | grep -v joined | grep -v "has quit" | cut -f2,3 | less}
+getip() {grep -i $1 ~/.weechat/logs/*log | grep "joined" | cut -f3 | sort| uniq -u}
 wkill() {systemctl stop wicd.service; rfkill block wifi all}
 wnet() {netstat "-naultp"}
 wmon() {nethogs "wlan0"}
