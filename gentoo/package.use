@@ -1,0 +1,23 @@
+net-misc/networkmanager -nss -dhclient dhcpcd -ppp -modemmanager -systemd consolekit bluetooth 
+media-libs/libcanberra udev alsa
+net-firewall/iptables conntrack -ipv6 
+# required by sys-power/suspend-1.0_p20150810::gentoo[lzo]
+# required by sys-power/suspend (argument)
+>=dev-libs/lzo-2.08 static-libs
+# required by sys-power/suspend-1.0_p20150810::gentoo[crypt]
+# required by sys-power/suspend (argument)
+>=dev-libs/libgpg-error-1.19 static-libs
+# required by sys-power/suspend-1.0_p20150810::gentoo[crypt]
+# required by sys-power/suspend (argument)
+>=dev-libs/libgcrypt-1.6.5 static-libs
+# required by mail-client/thunderbird-38.8.0::gentoo
+# required by mail-client/thunderbird (argument)
+>=dev-lang/python-2.7.10-r1:2.7 sqlite
+x11-misc/slim pam consolekit branding -systemd 
+x11-misc/compton dbus opengl xinerama
+media-gfx/imagemagick jpeg png lzma fontconfig raw svg xml pango
+media-libs/imlib2 jpeg png tiff gif doc
+media-video/ffmpegthumbnailer jpeg png
+# required by app-text/evince-3.18.2::gentoo
+# required by app-text/evince (argument)
+>=app-text/poppler-0.42.0 cairo

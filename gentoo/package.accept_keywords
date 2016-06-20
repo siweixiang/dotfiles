@@ -1,0 +1,47 @@
+# required by thermald (argument)
+=sys-power/thermald-1.4.2-r1 ~amd64
+# required by x11-terms/termite-11::eroen
+# required by x11-terms/termite (argument)
+=x11-libs/vte-0.42.4 ~amd64
+# required by x11-terms/termite (argument)
+=x11-terms/termite-11 ~amd64
+# required by app-laptop/tlp-0.8::tlp
+# required by app-laptop/tlp (argument)
+=sys-power/linux-x86-power-tools-3.17 ~amd64
+# required by app-laptop/tlp (argument)
+=app-laptop/tlp-0.8 ~amd64
+# required by media-fonts/inconsolata-hellenic (argument)
+=media-fonts/inconsolata-hellenic-1.19 ~amd64
+# required by media-fonts/infinality-ultimate-meta (argument)
+=media-fonts/infinality-ultimate-meta-1 ~amd64
+# required by media-fonts/infinality-ultimate-meta-1::gentoo[latin,free]
+# required by media-fonts/infinality-ultimate-meta (argument)
+=media-fonts/tex-gyre-2.005 ~amd64
+# required by media-fonts/infinality-ultimate-meta-1::gentoo
+# required by media-fonts/infinality-ultimate-meta (argument)
+=media-libs/fontconfig-ultimate-2015.08.01 ~amd64
+# required by sys-power/phc-intel (argument)
+=sys-power/phc-intel-0.3.2.12.21 ~amd64
+# required by media-fonts/infinality-ultimate-meta-1::gentoo[latin,free]
+# required by media-fonts/infinality-ultimate-meta (argument)
+=media-fonts/signika-1.001 ~amd64
+# required by media-fonts/infinality-ultimate-meta-1::gentoo[latin,free]
+# required by media-fonts/infinality-ultimate-meta (argument)
+=media-fonts/courier-prime-1.203 ~amd64
+# required by media-fonts/infinality-ultimate-meta-1::gentoo[free]
+# required by media-fonts/infinality-ultimate-meta (argument)
+=media-fonts/heuristica-0.2.1 ~amd64
+# required by elementary-xfce-icon-theme (argument)
+=x11-themes/elementary-xfce-icon-theme-0.7_p20160321 ~amd64
+# required by pulse-glass (argument)
+=x11-themes/pulse-glass-20100616 ~amd64
+# required by sys-power/acpi_call (argument)
+=sys-power/acpi_call-1.1.0-r1 ~amd64
+# required by app-crypt/veracrypt (argument)
+=app-crypt/veracrypt-1.17 **
+# required by inxi (argument)
+=sys-apps/inxi-2.2.19 ~amd64
+# required by app-admin/pass (argument)
+=app-admin/pass-1.6.5 ~amd64
+# required by sys-apps/mount-gtk (argument)
+=sys-apps/mount-gtk-1.4.2 ~amd64
