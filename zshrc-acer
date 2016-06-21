@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-ZSH="/usr/share/oh-my-zsh/"
+ZSH="/home/tazhik/.oh-my-zsh"
 
 ZSH_THEME="clean"
 
@@ -35,10 +35,10 @@ eval $(dircolors ~/.dircolors)
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-BROWSER=/usr/bin/inox
+BROWSER=/usr/bin/chromium
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-alias rasp="ssh boris@192.168.1.50 -p6969"
+alias rasp='mosh boris@192.168.1.50 --ssh="ssh -p6969" --port 60001'
 alias wip="curl -s icanhazip.com"
 alias fix0="configure.sh wlan0 managed"
 alias fix1="configure.sh wlan1 managed"
@@ -69,8 +69,10 @@ alias scrotp="scrot -cd5 /tmp/screenshot.png && pbpst -S -e png -f /tmp/screensh
 
 # File encryption/decryption using SSL
 # ssle [input] [output]
-ssle() {openssl enc -aes-256-cbc -in $1 -out $2}
-ssld() {openssl enc -aes-256-cbc -d -in $1 > $2}
+encbin() {openssl enc -aes-256-cbc -salt -in $1 -out $2}
+decbin() {openssl enc -aes-256-cbc -d -in $1 > $2}
+enctxt() {openssl enc -aes-256-cbc -a -salt -in $1 -out $2}
+dectxt() {openssl enc -aes-256-cbc -a -d -in $1 > $2}
 
 alias du="du -h"
 alias df="df -h"
@@ -80,6 +82,12 @@ alias youm="youtube-dl --no-playlist -x --write-all-thumbnails --audio-quality 0
 # Youtube playlist audio download
 alias yoump="youtube-dl --yes-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
 alias youmv="youtube-dl -f \"bestvideo[height<=?1080][vcodec!=vp9]+bestaudio/best\""
+
+# MPV youtube playlist playback
+mpvp() {
+	playID="`echo -e "$1" | cut -d'=' -f3`";
+	mpv "https://www.youtube.com/playlist?list=$playID";
+}
 
 # Optimizing PDF books for Kindle Paperwhite 2
 alias kin="k2pdfopt $1 -dev kp2 -cmax 2 -s -g 0.5 -wt -1 -wrap+ -hy -ws -0.2"
@@ -99,72 +107,6 @@ Powersave() {wkill; killall thermald; thermald --exclusive-control 1>/dev/null; 
 Lss() {livestreamer "$1" "source"}
 Lsh() {livestreamer "$1" "high"}
 Lsm() {livestreamer "$1" "medium"}
-
-
-# Screencasting with ffmpeg 
-# https://github.com/gotbletu/shownotes/blob/master/ffmpeg_x11grab_screencast.txt
-#
-FFX_MONO="1"		# mono
-FFX_DUAL="2"		# dual channel
-FFX_HW="hw:1,0" 	# alsa; run 'cat /proc/asound/pcm' to change to the correct numbers
-FFX_PULSE="pulse" 	# pulseaudio; might have to install pavucontrol to change volume
-FFX_FPS="30"		# frame per seconds
-FFX_WIN_FULL=$(xwininfo -root | grep 'geometry' |awk '{print $2;}')	# record fullscreen
-FFX_AUDIO="pcm_s16le"	# audio codec
-FFX_VIDEO="libx264"	# video codec
-FFX_PRESET="ultrafast"	# preset error? run 'x264 -h' replace with fast,superfast, slow ..etc
-FFX_CRF="0"
-FFX_THREADS="0"
-FFX_SCALE="scale=1280:720"	# scale resolution, no black bars on sides of video on youtube
-FFX_OUTPUT=~/Public/screencast/aa_screencast_baking.avi
-# Note: -vf is optional delete if you want, -y is to overwrite existing file
-
-# capture fullscreen using alsa or pulseaudio
-ffx-full-hw() { ffmpeg -f alsa -ac $FFX_MONO \
-	-i $FFX_HW -f x11grab -r $FFX_FPS -s $FFX_WIN_FULL -i :0.0 \
-	-acodec $FFX_AUDIO -vcodec $FFX_VIDEO \
-       	-preset $FFX_PRESET -crf $FFX_CRF -threads $FFX_THREADS \
-	-vf $FFX_SCALE \
-	-y $FFX_OUTPUT
-}
-ffx-full-pa() { ffmpeg -f alsa -ac $FFX_MONO \
-	-i $FFX_PULSE -f x11grab -r $FFX_FPS -s $FFX_WIN_FULL -i :0.0 \
-	-acodec $FFX_AUDIO -vcodec $FFX_VIDEO \
-       	-preset $FFX_PRESET -crf $FFX_CRF -threads $FFX_THREADS \
-	-vf $FFX_SCALE \
-	-y $FFX_OUTPUT
-}
-
-# capture single window, use mouse cursor to select window you want to record
-ffx-winselect-hw() { 
-	FFX_INFO=$(xwininfo -frame)
-
-	ffmpeg -f alsa -ac $FFX_MONO \
-	-i $FFX_HW -f x11grab -r $FFX_FPS \
-	-s $(echo $FFX_INFO | grep -oEe 'geometry [0-9]+x[0-9]+'\
-	| grep -oEe '[0-9]+x[0-9]+') \
-	-i :0.0+$(echo $FFX_INFO | grep -oEe 'Corners:\s+\+[0-9]+\+[0-9]+' \
-	| grep -oEe '[0-9]+\+[0-9]+' | sed -e 's/\+/,/' ) \
-	-acodec $FFX_AUDIO -vcodec $FFX_VIDEO \
-       	-preset $FFX_PRESET -crf $FFX_CRF -threads $FFX_THREADS \
-	-vf $FFX_SCALE \
-	-y $FFX_OUTPUT
-}
-ffx-winselect-pa() { 
-	FFX_INFO=$(xwininfo -frame)
-
-	ffmpeg -f alsa -ac $FFX_MONO \
-	-i $FFX_PULSE -f x11grab -r $FFX_FPS \
-	-s $(echo $FFX_INFO | grep -oEe 'geometry [0-9]+x[0-9]+'\
-	| grep -oEe '[0-9]+x[0-9]+') \
-	-i :0.0+$(echo $FFX_INFO | grep -oEe 'Corners:\s+\+[0-9]+\+[0-9]+' \
-	| grep -oEe '[0-9]+\+[0-9]+' | sed -e 's/\+/,/' ) \
-	-acodec $FFX_AUDIO -vcodec $FFX_VIDEO \
-       	-preset $FFX_PRESET -crf $FFX_CRF -threads $FFX_THREADS \
-	-vf $FFX_SCALE \
-	-y $FFX_OUTPUT
-}
-
 
 # Note taking app
 n() {
