@@ -21,3 +21,11 @@ media-video/ffmpegthumbnailer jpeg png
 # required by app-text/evince-3.18.2::gentoo
 # required by app-text/evince (argument)
 >=app-text/poppler-0.42.0 cairo
+sys-libs/ncurses tinfo
+app-emulation/virtualbox extensions qt4
+net-p2p/transmission gtk lightweight
+# required by x11-wm/i3-4.10.4::gentoo[pango]
+# required by @selected
+# required by @world (argument)
+>=x11-libs/cairo-1.14.6-r20150311 xcb
+sys-boot/grub device-mapper

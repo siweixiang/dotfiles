@@ -1,4 +1,0 @@
-1. Make automated installation more reliable so they don't break in places.
-2. Merge both wireless scripts into one and allow it to auto detect which modules are loaded
-	without having to manually enter the module.
-

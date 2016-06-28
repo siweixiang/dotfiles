@@ -1,11 +1,5 @@
 Dotfiles
 =========================================
-* The installation scripts should work fine on Manjaro / Arch Linux installation without much hiccups. 
-* Work in progress, need to optimize some of the scripts later. 
+* Mix of scripts, configs, etc. that I use on my system.
+* Please do not blindly copy the config files and expect them to work. 
 
-
-
-Installation
-------------
-* Run `sudo ./install-sudo.sh` to install all required packages.
-* Run `./install.sh` to finalize configuration.

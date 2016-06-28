@@ -5,4 +5,5 @@ export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 xset r rate 200 30
 xbacklight -set 5
+export PATH="${PATH}:$HOME/.local/bin/"
 exec i3

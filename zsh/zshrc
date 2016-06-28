@@ -11,8 +11,9 @@ HIST_STAMPS="mm/dd/yyyy"
 
 plugins=(git)
 
-# User configuration
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# User configuration for pip, don't run pip as root
+# Use "pip2 install --user [package]" to install locally
+export PATH="${PATH}:$HOME/.local/bin/"
 
 # For ccache config: https://wiki.archlinux.org/index.php/Ccache
 export PATH="/usr/lib/ccache/bin/:$PATH"
@@ -47,18 +48,38 @@ alias pen1="configure.sh wlan1 monitor"
 alias pen2="configure.sh wlan2 monitor"
 
 # Pacman & Yaourt shortcuts 
-alias pacu="pacman -Syyu --noconfirm"
-alias pacs="pacman -sS $1"
-alias paci="pacman -S $1"
-alias pacif="pacman -S $1 --noconfirm"
-alias pacr="pacman -R $1"
-alias pacrf="pacman -Rs $1"
-alias pacl="pacman -Sc && pacman-optimize"
-alias yaou="yaourt -Syyu --noconfirm"
-alias yaos="yaourt -sS $1"
-alias yaoi="yaourt -S $1"
-alias yaoif="yaourt -S $1 --noconfirm"
-alias yaor="yaourt -R $1 --noconfirm"
+#alias pacu="pacman -Syyu --noconfirm"
+#alias pacs="pacman -sS $1"
+#alias paci="pacman -S $1"
+#alias pacif="pacman -S $1 --noconfirm"
+#alias pacr="pacman -R $1"
+#alias pacrf="pacman -Rs $1"
+#alias pacl="pacman -Sc && pacman-optimize"
+#alias yaou="yaourt -Syyu --noconfirm"
+#alias yaos="yaourt -sS $1"
+#alias yaoi="yaourt -S $1"
+#alias yaoif="yaourt -S $1 --noconfirm"
+#alias yaor="yaourt -R $1 --noconfirm"
+
+# Gentoo Linux portage shortcuts
+# Searching for a package
+alias qs="qsearch $1"
+alias qss="emerge -sS $1"
+
+# Searching for all available versions of a package
+alias qa="equery list -po $1"
+
+# Autounmasking a package, run dispatch-conf to apply changes
+alias qum="emerge --ask --autounmask-write $1"
+
+# Updating portage
+alias qu="emerge -uDNA --with-bdeps=y @world"
+
+# Installing
+alias qi="emerge -av $1"
+
+# Dispatch-conf shortcut for updating configurations
+alias qdc="dispatch-conf"
 
 ## Custom app shortcuts
 
@@ -78,10 +99,11 @@ alias du="du -h"
 alias df="df -h"
 
 # Youtube single track audio download
-alias youm="youtube-dl --no-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
-# Youtube playlist audio download
-alias yoump="youtube-dl --yes-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
-alias youmv="youtube-dl -f \"bestvideo[height<=?1080][vcodec!=vp9]+bestaudio/best\""
+alias youa="youtube-dl --no-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
+alias youap="youtube-dl --yes-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
+# Youtube video download
+alias youv="youtube-dl -f \"bestvideo[height<=?1080][vcodec!=vp9]+bestaudio/best\""
+alias youvp="youtube-dl --yes-playlist -f \"bestvideo[height<=?1080][vcodec!=vp9]+bestaudio/best\""
 
 # MPV youtube playlist playback
 mpvp() {
