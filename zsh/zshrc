@@ -79,7 +79,11 @@ alias qu="emerge -uDNA --with-bdeps=y @world"
 alias qi="emerge -av $1"
 
 # Dispatch-conf shortcut for updating configurations
-alias qdc="dispatch-conf"
+alias qcu="dispatch-conf"
+
+alias qr="emerge -c $1"
+
+
 
 ## Custom app shortcuts
 
