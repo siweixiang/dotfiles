@@ -65,6 +65,7 @@ alias pen2="configure.sh wlan2 monitor"
 # Searching for a package
 alias qs="qsearch $1"
 alias qss="emerge -sS $1"
+alias qp="emerge -pv $1"
 
 # Searching for all available versions of a package
 alias qa="equery list -po $1"
@@ -73,7 +74,8 @@ alias qa="equery list -po $1"
 alias qum="emerge --ask --autounmask-write $1"
 
 # Updating portage
-alias qu="emerge -uDNA --with-bdeps=y @world"
+alias qu="emerge --sync"
+alias qui="emerge -uDNA --with-bdeps=y @world"
 
 # Installing
 alias qi="emerge -av $1"
