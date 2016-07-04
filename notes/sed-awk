@@ -1,0 +1,41 @@
+Sed:
+----
+- Mainly for search and replace
+- Stores active lines in pattern space and maintains 
+	a hold space for usage
+- Loops through all lines
+- Accpepts from STDIN, Pipe or FILE
+- p is for printing matched lines
+- I is case insensitive search
+- Escape quantifiers in regex using '\' character
+- Whenever using -n specifier you need to use p to print.
+
+Sed commandline usage:
+	sed -ne '1p' file.txt // Print first line
+	sed -ne '/something/p' file.txt // Print all lines with something
+	sed -ne 'something!p' file.txt // Print all lines without something
+	sed -e '/^$/d' file.txt // Delete blank lines from file, drop n when deleting to show the actual output
+	sed -e '1-4d' file.txt // Deletes lines 1-4 from file.txt
+
+	Search and Replace:
+	sed -e 's/pattern1/pattern2/g' file.txt // Search and replace pattern1 with pattern2 in every line
+	
+	
+
+
+
+
+
+Awk:
+----
+- Field processor based on white space (by default)
+- Can extract specific columns
+- Has support for:
+	* Loops
+	* Conditions
+	* Arrays
+	* Functions (String, Numeric, User Defined)
+- Automatically tokenizes fields in a line for later usage
+- Execute shell commands using system() function
+
+

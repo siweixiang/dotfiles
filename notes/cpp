@@ -1,0 +1,16 @@
+# Notes of advanced programming (C++)
+
+const (constant) usage:
+=======================
+-	const int* var = 50;  // Constant data of type (int) which means the value can not be modified but the pointer can be modified to point to something else;
+
+-   const int* const var = 50; // Same as above but also constant pointer which means the pointer can not me modified to point to something else.
+	e.g var2 = 30; // Would fail cos of const int* declaration
+		var = &var2; // Would also fail cos of const var declaration
+
+- member functions should be set to const if it operates on const objects of the class otherwise compiler will complain
+	e.g: 	int Time:getHour() const
+- compiler will only allow const functions to be called on const objects
+
+
+

@@ -1,0 +1,86 @@
+- Layer 3 (Network Layer) focuses on source and destination addresses
+- Layer 4 (Transport Layer) focuses on protocols, e.g port 80, 443, etc.
+
+Default Tables:
+==============
+( Rules are part of chains, and chains are part of tables )
+a) Mangle Table (Alter packet with in TCP/UDP/ICMP like TTL (Time to live), TOS (Type of Service))
+b) Nat Tabe ( Allows us to change source and destination IP addresses and ports)
+c) Filter Table ( IP packet filtering - INPUT, FORWARD, OUTPUT)
+
+Iptables command format for creating rules:
+1) Name of table (Default table is filter, if not specified)
+2) Name of chain ( What to do with the chain, e.g Append, Insert, Replace)
+3) Layer 3 object (Source / Destination address where -s for source and -d for destination)
+4) Optionally layer 4 object (TCP / UDP ports or protocols with -p / --sport / --dport)
+5) Jump / Target ( -j  with ACCEPT, DROP, REJECT, DENY, LOG)
+
+Example:
+--------
+1) Block a source IP from communicating with our host
+
+iptables -A INPUT -s 192.168.1.30 -j DROP
+
+Saving / Managing iptables rules by text files
+==============================================
+a) iptables-save (Allows us to save iptables rules for later use, default dumps to stdout, iptables-save > files.txt)
+b) iptables-restore (Allows us to restore iptables ruleset into a currently running kernel, default reads rules from STDIN. iptables-restore < files.txt)
+c) iptables -F (Flushes all rules in all chains in the filter table)
+ 
+Chain Management in various Tables:
+===================================
+a) List various tables / chains (-L for listing, -v for more information regarding number of packets, etc.)
+	1) INPUT chain of the filter table corresponds traffic that are destined for our host.
+	2) OUTPUT chain of the filter table corresponds to traffic that are 
+
+b) Insert rule with -I followed by chain type and line number adds rule to a particular line in the list
+	e.g: iptables -I INPUT 1 -s 192.168.1.30 -j DROP
+
+c) Appending rules with -A followed by chain type adds rule to end of the list
+	iptables -A INPUT -s 192.168.1.30 -j DROP
+	
+d) Deleting a given rule with -D followed by chain type deletes the rule from list
+	- Rule can be deleted based on line number or the exact rule
+	iptables -D INPUT 2 
+	iptables -D INPUT -p tcp --dport telnet -j DROP
+
+e) Replacing a rule with -R option replaces the rule from list, need to specify the line number
+	iptables -R INPUT 2 -p tcp --dport telnet -j ACCEPT
+
+f) Zero-ing out packet data from iptables
+	- Executing with -Z by default zeroes out all packet data from Filter table
+	-Z can be executed with chain name, or table name, etc.
+		e.g: iptables -Z INPUT -p tcp --dport telnet -j DROP
+
+g) User Defined Chains( -N chainname / Rename chains -E old new)
+	iptables -N INTRANET 
+	iptables -A INTRANET -p tcp --dport telnet -j ACCEPT
+
+h) Chain Policies ( -P  ACCEPT/DROP)
+	iptables -P INPUT DROP
+
+Basic Matches:
+==============
+ Blocking / Accepting traffic based on ip address / interface / negation
+	iptables -A INPUT -s 192.168.1.70 -j DROP
+	iptables -A OUTPUT -d 192.168.1.25 -j ACCEPT
+	iptables -A INPUT -i wlan0 -s 192.168.2.1/24 -j DROP
+	iptables -A INPUT -s ! 192.168.0.0/24 -j DROP	
+
+TCP Matches:
+============
+-p tcp 
+-sport 
+-dport 
+--tcp-flags SYN, FIN, ACK, ACK SYN
+
+* UDP based traffic generally have the same source / destination port
+* Protocol help can be seen by --help after protocol type
+	e.g: iptables -p icmp --help
+
+Loading various modules
+=====================================
+ -m option specifies which module to load
+ "-m multiport" option loads the module multiport where we can specify multiple ports
+	e.g: iptables -A INPUT -m multiport -dport 8080,23 -j DROP
+ "-m mac --mac-source 00:11:22:33:44" options sets filtering based on mac address 

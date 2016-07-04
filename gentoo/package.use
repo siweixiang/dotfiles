@@ -29,3 +29,17 @@ net-p2p/transmission gtk lightweight
 # required by @world (argument)
 >=x11-libs/cairo-1.14.6-r20150311 xcb
 sys-boot/grub device-mapper
+# required by net-libs/webkit-gtk-2.4.11-r200::gentoo[webgl]
+# required by www-client/dwb-2014.03.07-r1::gentoo[-gtk3]
+# required by dwb (argument)
+>=x11-libs/cairo-1.14.6-r20150311 opengl
+media-gfx/gimp dbus doc exif jpeg jpeg2k pdf png postscript svg 
+# required by app-text/calibre-1.20::gentoo
+# required by app-text/calibre (argument)
+>=app-text/poppler-0.42.0 qt4
+# required by app-text/calibre-1.20::gentoo
+# required by app-text/calibre (argument)
+>=dev-python/PyQt4-4.11.1 webkit svg
+dev-qt/qtwebkit icu
+www-client/chromium -hangouts
+>=dev-libs/libpcre-8.38-r1 pcre16

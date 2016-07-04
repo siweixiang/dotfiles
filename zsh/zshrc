@@ -62,28 +62,38 @@ alias pen2="configure.sh wlan2 monitor"
 #alias yaor="yaourt -R $1 --noconfirm"
 
 # Gentoo Linux portage shortcuts
-# Searching for a package
+# Searching for a packages
+# Fast search
 alias qs="qsearch $1"
+# Thorough time consuming search
 alias qss="emerge -sS $1"
+
+# Preview useflags & version of a package
 alias qp="emerge -pv $1"
 
 # Searching for all available versions of a package
 alias qa="equery list -po $1"
 
-# Autounmasking a package, run dispatch-conf to apply changes
+# Autounmasking a package, run dispatch-conf (qcu) to apply changes
 alias qum="emerge --ask --autounmask-write $1"
 
 # Updating portage
 alias qu="emerge --sync"
-alias qui="emerge -uDNA --with-bdeps=y @world"
 
-# Installing
+# Installing updates
+alias qui="emerge -uDNAav --with-bdeps=y @world"
+
+# Installing package
 alias qi="emerge -av $1"
 
 # Dispatch-conf shortcut for updating configurations
 alias qcu="dispatch-conf"
 
+# Removing package
 alias qr="emerge -c $1"
+
+# Cleaning 
+alias qcl="emerge --depclean && eclean-dist"
 
 
 
@@ -126,7 +136,9 @@ alias wget="wget -c --content-disposition $1"
 #wkill() {systemctl stop NetworkManager.service; rfkill block wifi all}
 getlog() {grep -A3 -i $1 ~/.weechat/logs/*log | grep -v joined | grep -v "has quit" | cut -f2,3 | less}
 getip() {grep -i $1 ~/.weechat/logs/*log | grep "joined" | cut -f3 | sort| uniq -u}
-wkill() {systemctl stop wicd.service; rfkill block wifi all}
+#wkill() {systemctl stop wicd.service; rfkill block wifi all}
+wkill() {/etc/init.d/NetworkManager stop; rfkill block wifi all}
+wstart() {rfkill unblock wifi all; /etc/init.d/NetworkManager start}
 wnet() {netstat "-naultp"}
 wmon() {nethogs "wlan0"}
 
