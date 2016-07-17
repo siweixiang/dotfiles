@@ -90,7 +90,7 @@ alias qi="emerge -av $1"
 alias qcu="dispatch-conf"
 
 # Removing package
-alias qr="emerge -c $1"
+alias qr="emerge -C $1"
 
 # Cleaning 
 alias qcl="emerge --depclean && eclean-dist"
@@ -98,6 +98,10 @@ alias qcl="emerge --depclean && eclean-dist"
 
 
 ## Custom app shortcuts
+
+# Killing chromium zombie processes (run as root)
+alias ckill="killall chrome; ps aux |  grep chrome | grep -v 'grep' | awk '{print $2}' | xargs kill;"
+
 
 alias mount="mount | column -t"
 
@@ -138,7 +142,7 @@ getlog() {grep -A3 -i $1 ~/.weechat/logs/*log | grep -v joined | grep -v "has qu
 getip() {grep -i $1 ~/.weechat/logs/*log | grep "joined" | cut -f3 | sort| uniq -u}
 #wkill() {systemctl stop wicd.service; rfkill block wifi all}
 wkill() {/etc/init.d/NetworkManager stop; rfkill block wifi all}
-wstart() {rfkill unblock wifi all; /etc/init.d/NetworkManager start}
+wstart() {rfkill unblock wifi all; fix0; /etc/init.d/NetworkManager start}
 wnet() {netstat "-naultp"}
 wmon() {nethogs "wlan0"}
 

@@ -74,7 +74,9 @@ bindsym $mod+Shift+c exec firefox
 bindsym $mod+F1 exec pcmanfm
 bindsym $mod+n exec nitrogen 
 bindsym $mod+F2 exec termite -e ranger
-bindsym $mod+m exec thunderbird
+bindsym $mod+m exec termite -e 'cmus'
+bindsym $mod+Shift+m exec thunderbird
+bindsym $mod+y exec /usr/bin/mpv-dialog.sh
 bindsym $mod+Ctrl+k exec --no-startup-id compton -b
 bindsym $mod+t exec transmission-gtk 
 bindsym $mod+o exec termite -e 'youtube-viewer'
@@ -83,8 +85,7 @@ bindsym $mod+Shift+g exec termite -e 'elinks https://www.google.com/?hl=en'
 bindsym $mod+i	exec termite -e 'wicd-curses'
 bindsym $mod+Shift+F4 exec termite -e 'elinks https://wiki.gentoo.org/wiki/Main_Page'
 bindsym $mod+F4 exec termite -e 'elinks https://wiki.archlinux.org/index.php'
-bindsym $mod+Shift+F5 exec dwb 'https://wiki.gentoo.org/wiki/Main_Page'
-bindsym $mod+F5 exec dwb 'https://wiki.archlinux.org/index.php'
+bindsym $mod+Shift+w exec wireshark-gtk
 bindsym XF86MonBrightnessUp  exec "xbacklight -dec 10";
 bindsym XF86MonBrightnessDown  exec "xbacklight -inc 10";
 bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume 0 -10%";
@@ -107,7 +108,7 @@ exec --no-startup-id compton -b
 exec --no-startup-id xautolock -time 10 -locker blurlock
 #exec --no-startup-id unclutter -idle 10 -grab
 exec --no-startup-id  dunst -conf ~/.config/dunst/dunstrc
-exec --no-startup-id udiskie -2 -s -t & 
+#exec --no-startup-id udiskie -2 -s -t & 
 #exec --no-startup-id mount-gtk -s & 
 #exec --no-startup-id wicd-gtk
 
@@ -200,7 +201,7 @@ bindsym $mod+Shift+8 move container to workspace number 8; workspace 8
 bindsym $mod+Shift+9 move container to workspace number 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace number 10; workspace 10
 
-
+# To find out name of window use xprop
 for_window [title="alsamixer"] floating enable border pixel 2
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
@@ -214,6 +215,7 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="(?i)Wicd"] floating enable border normal
+for_window [class="Gpicview"] floating enable border normal
 
 # reload the configuration file
 #bindsym $mod+Shift+c reload
