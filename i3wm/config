@@ -69,17 +69,18 @@ bindsym $mod+b workspace back_and_forth
 
 # Start Applications
 bindsym $mod+p exec pavucontrol
-bindsym $mod+c exec chromium
-bindsym $mod+Shift+c exec firefox
+bindsym $mod+c exec firefox-bin
 bindsym $mod+F1 exec pcmanfm
 bindsym $mod+n exec nitrogen 
 bindsym $mod+F2 exec termite -e ranger
 bindsym $mod+m exec termite -e 'cmus'
 bindsym $mod+Shift+m exec thunderbird
 bindsym $mod+y exec /usr/bin/mpv-nodialog.sh
-bindsym $mod+Shift+y exec /usr/bin/mpv-dialog.sh
+bindsym $mod+Shift+y exec /usr/bin/getfile.sh
+bindsym $mod+u exec /usr/bin/open-elinks.sh
 bindsym $mod+Ctrl+k exec --no-startup-id compton -b
 bindsym $mod+t exec transmission-gtk 
+bindsym $mod+Shift+v exec Virtualbox
 bindsym $mod+o exec termite -e 'youtube-viewer'
 bindsym $mod+g exec termite -e 'elinks https://classic.startpage.com'
 bindsym $mod+Shift+g exec termite -e 'elinks https://www.google.com/?hl=en'

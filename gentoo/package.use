@@ -18,6 +18,7 @@ x11-misc/compton dbus opengl xinerama
 media-gfx/imagemagick jpeg png lzma fontconfig raw svg xml pango
 media-libs/imlib2 jpeg png tiff gif doc
 media-video/ffmpegthumbnailer jpeg png
+app-text/evince djvu
 # required by app-text/evince-3.18.2::gentoo
 # required by app-text/evince (argument)
 >=app-text/poppler-0.42.0 cairo
@@ -41,5 +42,29 @@ media-gfx/gimp dbus doc exif jpeg jpeg2k pdf png postscript svg
 # required by app-text/calibre (argument)
 >=dev-python/PyQt4-4.11.1 webkit svg
 dev-qt/qtwebkit icu
-www-client/chromium -hangouts
+#www-client/chromium -hangouts
 >=dev-libs/libpcre-8.38-r1 pcre16
+xfce-base/thunar libnotify
+media-plugins/gst-plugins-meta ogg opus vpx flac wavpack
+media-sound/clementine lastfm moodbar 
+>=media-libs/liblastfm-1.0.9 qt4
+>=app-crypt/qca-2.1.1 qt4
+sys-apps/dstat wifi
+media-sound/cmus opus wavpack
+media-video/mpv jpeg zsh-completion
+# required by net-libs/webkit-gtk-2.10.9::gentoo[gstreamer]
+# required by www-client/midori-0.5.11-r1::gentoo[-deprecated,webkit2]
+# required by midori (argument)
+>=media-libs/gst-plugins-bad-1.6.3 opengl
+www-client/links jpeg 
+www-client/elinks gc javascript xml
+# required by dev-ruby/metasploit_data_models-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+>=dev-ruby/activerecord-4.2.6 postgres
+app-doc/cppman python_single_target_python3_4
+# required by app-doc/cppman-0.4.8::gentoo[python_single_target_python3_4]
+# required by cppman (argument)
+>=dev-lang/python-3.4.3-r1 sqlite
+gnome-extra/zenity libnotify
