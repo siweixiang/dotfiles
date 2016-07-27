@@ -9,7 +9,7 @@ wget -c --content-disposition $url -O /tmp/$filename;
 
 if [ $? -eq 0 ] 
 then 
-	/usr/bin/xdg-open /tmp/$filename;
+	/usr/bin/gpicview /tmp/$filename;
 
 else 
 	exit 1;

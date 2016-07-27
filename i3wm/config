@@ -76,8 +76,8 @@ bindsym $mod+F2 exec termite -e ranger
 bindsym $mod+m exec termite -e 'cmus'
 bindsym $mod+Shift+m exec thunderbird
 bindsym $mod+y exec /usr/bin/mpv-nodialog.sh
-bindsym $mod+Shift+y exec /usr/bin/getfile.sh
 bindsym $mod+u exec /usr/bin/open-elinks.sh
+bindsym $mod+Shift+u exec /usr/bin/getpic.sh
 bindsym $mod+Ctrl+k exec --no-startup-id compton -b
 bindsym $mod+t exec transmission-gtk 
 bindsym $mod+Shift+v exec Virtualbox
