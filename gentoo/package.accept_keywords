@@ -45,3 +45,311 @@
 =app-admin/pass-1.6.5 ~amd64
 # required by sys-apps/mount-gtk (argument)
 =sys-apps/mount-gtk-1.4.2 ~amd64
+# required by media-fonts/powerline-symbols (argument)
+=media-fonts/powerline-symbols-20150224 ~amd64
+# required by media-fonts/infinality-ultimate-meta-1::gentoo[linguas_bn,-minimal,free]
+# required by @selected
+# required by @world (argument)
+=media-fonts/lohit-bengali-2.91.2 ~amd64
+# required by =www-client/lynx-2.8.9_pre6 (argument)
+=www-client/lynx-2.8.9_pre6 ~amd64
+# required by sys-apps/iucode_tool (argument)
+=sys-apps/iucode_tool-1.5 ~amd64
+# required by midori (argument)
+=www-client/midori-0.5.11-r1 ~amd64
+# required by net-wireless/reaver (argument)
+=net-wireless/reaver-1.4-r3 ~amd64
+# required by driftnet (argument)
+=net-analyzer/driftnet-0.1.6_p20090401-r1 ~amd64
+# required by =net-analyzer/nethogs-0.8.1 (argument)
+=net-analyzer/nethogs-0.8.1 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/msgpack-0.7.6 ~amd64
+# required by dev-ruby/activerecord-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/arel-helpers-2.3.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit_data_models-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/arel-6.0.3 ~amd64
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/actionpack-4.2.6 ~amd64
+# required by dev-ruby/actionview-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/actionpack-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/rails-html-sanitizer-1.0.3 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/metasploit_data_models-2.0.0 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/jsobfu-0.3.0-r1 ~amd64
+# required by dev-ruby/actionview-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/actionpack-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/rails-dom-testing-1.0.7 ~amd64
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/rubyntlm-0.6.0 ~amd64
+# required by dev-ruby/activesupport-4.2.6-r1::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/rails-deprecated_sanitizer-1.0.3::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/rails-dom-testing-1.0.7::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/actionview-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/actionpack-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/tzinfo-1.2.2 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/patch_finder-1.0.2 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/metasm-1.0.2-r3 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo
+# required by metasploit (argument)
+=app-eselect/eselect-metasploit-0.16 ~amd64
+# required by dev-ruby/rails-dom-testing-1.0.7::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/actionview-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/actionpack-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/rails-deprecated_sanitizer-1.0.3 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21,java]
+# required by metasploit (argument)
+=dev-ruby/rjb-1.5.4 ~amd64
+# required by dev-ruby/packetfu-1.1.11-r1::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/pcaprub-0.12.4 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/packetfu-1.1.11-r1 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/robots-0.10.1-r2 ~amd64
+# required by dev-ruby/metasploit_data_models-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/metasploit-model-2.0.0 ~amd64
+# required by dev-ruby/actionpack-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/rack-test-0.6.3 ~amd64
+# required by dev-ruby/actionview-4.2.6::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/actionpack-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/builder-3.2.2-r1 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/rkelly-remix-0.0.6 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/recog-2.0.14-r1 ~amd64
+# required by dev-ruby/actionpack-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/actionview-4.2.6 ~amd64
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/activesupport-4.2.6-r1 ~amd64
+# required by dev-ruby/sawyer-0.7.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/octokit-4.3.0-r1::gentoo[ruby_targets_ruby20]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/faraday-0.9.2-r1 ~amd64
+# required by dev-ruby/activerecord-4.2.6::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/arel-helpers-2.3.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit_data_models-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/activemodel-4.2.6 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/metasploit-credential-2.0.3 ~amd64
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/metasploit-concern-2.0.1 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/meterpreter_bins-0.0.22 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/metasploit-payloads-1.1.11 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/builder-3.0.4-r2 ~amd64
+# required by dev-ruby/activesupport-4.2.6-r1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/rails-deprecated_sanitizer-1.0.3::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/rails-dom-testing-1.0.7::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/actionview-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/actionpack-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/i18n-0.7.0-r2 ~amd64
+# required by dev-ruby/metasploit_data_models-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/postgres_ext-2.4.1 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/kissfft-0.0.2 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/octokit-4.3.0-r1 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/bcrypt-ruby-3.1.11 ~amd64
+# required by dev-ruby/tzinfo-1.2.2::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/activesupport-4.2.6-r1::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/rails-deprecated_sanitizer-1.0.3::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/rails-dom-testing-1.0.7::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/actionview-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/actionpack-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/thread_safe-0.3.5 ~amd64
+# required by dev-ruby/railties-4.2.6::gentoo
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=app-eselect/eselect-rails-0.21 ~amd64
+# required by metasploit (argument)
+=net-analyzer/metasploit-4.12.7 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/redcarpet-3.3.4 ~amd64
+# required by dev-ruby/metasploit-model-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/bundler-1.12.5 ~amd64
+# required by dev-ruby/postgres_ext-2.4.1::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit_data_models-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/activerecord-4.2.6 ~amd64
+# required by dev-ruby/sawyer-0.7.0::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/octokit-4.3.0-r1::gentoo[ruby_targets_ruby20]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/addressable-2.4.0-r1 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/sqlite3-1.3.11 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/openssl-ccm-1.2.1 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/rb-readline-r7-0.5.2.0 ~amd64
+# required by dev-ruby/packetfu-1.1.11-r1::gentoo[ruby_targets_ruby20]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/network_interface-0.0.1-r1 ~amd64
+# required by dev-ruby/postgres_ext-2.4.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit_data_models-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/pg_array_parser-0.0.9-r1 ~amd64
+# required by dev-ruby/metasploit_data_models-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/thor-0.19.1 ~amd64
+# required by dev-ruby/rails-html-sanitizer-1.0.3::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/actionview-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/actionpack-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/railties-4.2.6::gentoo[ruby_targets_ruby20]
+# required by dev-ruby/metasploit-concern-2.0.1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/loofah-2.0.3 ~amd64
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/filesize-0.1.1 ~amd64
+# required by dev-ruby/faraday-0.9.2-r1::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/sawyer-0.7.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/octokit-4.3.0-r1::gentoo[ruby_targets_ruby20]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/multipart-post-2.0.0-r1 ~amd64
+# required by dev-ruby/metasploit_data_models-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/arel-helpers-2.3.0 ~amd64
+# required by dev-ruby/octokit-4.3.0-r1::gentoo[ruby_targets_ruby20]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/sawyer-0.7.0 ~amd64
+# required by dev-ruby/metasploit-model-2.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/metasploit-credential-2.0.3::gentoo[ruby_targets_ruby21]
+# required by net-analyzer/metasploit-4.12.7::gentoo[ruby_targets_ruby21]
+# required by metasploit (argument)
+=dev-ruby/railties-4.2.6 ~amd64
+# required by cppman (argument)
+=app-doc/cppman-0.4.8 ~amd64
+# required by netdiscover (argument)
+=net-analyzer/netdiscover-0.3_beta6-r3 ~amd64
+# required by pyrit (argument)
+=net-wireless/pyrit-0.4.0-r1 ~amd64
+# required by skype (argument)
+=net-im/skype-4.3.0.37-r6 ~amd64
+# required by zgv (argument)
+=media-gfx/zgv-5.9 **
+# required by media-gfx/zgv-5.9::gentoo
+# required by zgv (argument)
+=media-libs/svgalib-1.9.25-r5 **
+# required by media-fonts/hack (argument)
+=media-fonts/hack-2.020 ~amd64
+# required by radare2 (argument)
+=dev-util/radare2-0.10.4 ~amd64
+# required by fantasque-sans-mono (argument)
+=media-fonts/fantasque-sans-mono-2014.07 ~amd64
