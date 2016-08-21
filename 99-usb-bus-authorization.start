@@ -1,0 +1,7 @@
+#!/bin/bash
+# Script to disable usb ports on boot, to prevent usb rubber ducky style of attacks
+# location of script: /etc/local.d/99-usb-bus-authorization.start
+# 1) Make sure script is set to executable
+# 2) To enable usb, do `sudo usbon`, refer to .zshrc usbon()
+echo 0 > /sys/bus/usb/devices/usb1/authorized_default; 
+echo 0 > /sys/bus/usb/devices/usb2/authorized_default;

@@ -146,8 +146,6 @@ wstart() {rfkill unblock wifi all; fix0; /etc/init.d/NetworkManager start}
 wnet() {netstat "-naultp"}
 wmon() {nethogs "wlan0"}
 
-Powersave() {wkill; killall thermald; thermald --exclusive-control 1>/dev/null; x86_energy_perf_policy powersave; killall dnsmasq 2>/dev/null;}
-
 Lss() {livestreamer "$1" "source"}
 Lsh() {livestreamer "$1" "high"}
 Lsm() {livestreamer "$1" "medium"}
@@ -182,6 +180,18 @@ pirate(){pyrit -r $1 -o $2 -b $3 strip}
 # Reaver & Bully shortcuts
 # Pix [bssid] [channel] [interface]
 Pix(){bully -b $1 -c $2 -d $3}
+
+
+
+# Disable usb devices to mitigate rubber ducky style attacks
+usboff(){echo 0 > /sys/bus/usb/devices/usb*/authorized_default}
+
+#Enable usb devices 
+usbon(){echo 1 > /sys/bus/usb/devices/usb*/authorized_default}
+
+
+
+
 
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
