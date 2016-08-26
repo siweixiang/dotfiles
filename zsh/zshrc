@@ -36,7 +36,7 @@ eval $(dircolors ~/.dircolors)
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-BROWSER=/usr/bin/chromium
+BROWSER=/usr/bin/firefox-bin
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 alias rasp='mosh boris@192.168.1.50 --ssh="ssh -p6969" --port 60001'
@@ -46,6 +46,10 @@ alias fix1="configure.sh wlan1 managed"
 alias pen0="configure.sh wlan0 monitor"
 alias pen1="configure.sh wlan1 monitor"
 alias pen2="configure.sh wlan2 monitor"
+
+
+
+
 
 # Pacman & Yaourt shortcuts 
 #alias pacu="pacman -Syyu --noconfirm"
@@ -150,6 +154,13 @@ Lss() {livestreamer "$1" "source"}
 Lsh() {livestreamer "$1" "high"}
 Lsm() {livestreamer "$1" "medium"}
 
+
+
+# Git shortcuts
+alias Gs="git status"
+alias Gc="git commit -m $1"
+alias Gp="git push"
+
 # Note taking app
 n() {
   if [ "$1" = "today" ];
@@ -188,9 +199,6 @@ usboff(){echo 0 > /sys/bus/usb/devices/usb*/authorized_default}
 
 #Enable usb devices 
 usbon(){echo 1 > /sys/bus/usb/devices/usb*/authorized_default}
-
-
-
 
 
 
