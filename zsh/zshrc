@@ -158,6 +158,7 @@ Lsm() {livestreamer "$1" "medium"}
 
 # Git shortcuts
 alias Gs="git status"
+alias Ga="git add ."
 alias Gc="git commit -m $1"
 alias Gp="git push"
 
