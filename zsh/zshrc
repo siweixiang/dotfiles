@@ -22,7 +22,7 @@ export PATH="/usr/lib/ccache/bin/:$PATH"
 export VDPAU_DRIVER=va_gl
 export LIBVA_DRIVER_NAME=i965
 
-export TERM="xterm-termite"
+export TERM="xterm"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
@@ -193,7 +193,7 @@ pirate(){pyrit -r $1 -o $2 -b $3 strip}
 # Pix [bssid] [channel] [interface]
 Pix(){bully -b $1 -c $2 -d $3}
 
-
+usbstat(){cat /sys/bus/usb/devices/usb*/authorized_default}
 
 # Disable usb devices to mitigate rubber ducky style attacks
 usboff(){echo 0 > /sys/bus/usb/devices/usb*/authorized_default}
