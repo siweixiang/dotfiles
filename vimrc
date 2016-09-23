@@ -10,10 +10,11 @@ set laststatus=2
 
 " Turning on syntax highlighting 
 syntax on
-
+set termguicolors
+highlight Normal ctermbg=NONE guibg=NONE 
+highlight NonText ctermbg=NONE guibg=NONE
 " For solarized theme, make sure it's installed first
 " Make sure you also setup solarized theme for your terminal
-set background=dark
 
 " For improved readability consider manually installing 
 " custom fonts from this repo:
@@ -23,7 +24,6 @@ set background=dark
 " source code pro for powerline medium 9
 
 " Note that powerline fonts above are required for plugin airline
-
 
 
 set nocompatible              " be iMproved, required
@@ -52,7 +52,7 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'kolor'
+let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 
 
@@ -86,8 +86,17 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<c-d>"
 
 " Color schemes for vim
-" Current favorite Monokai with molokai 
-Plugin 'flazz/vim-colorschemes'
+"Plugin 'flazz/vim-colorschemes'
+Plugin 'morhetz/gruvbox'
+Plugin 'joshdick/onedark.vim'
+
+Plugin 'vim-scripts/Solarized'
+set background=dark
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+"let g:solarized_style="dark"
+
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -100,13 +109,21 @@ map <C-Right> <Esc>:tabnext<CR>
 map <C-Down> <Esc>:tabclose<CR>
 
 
-colorscheme Benokai
 
+"colorscheme badwolf
+
+"colorscheme 256-grayvim
+"colorscheme 256_noir
 " For further vim extensability go through this page for useful plugin list for c/c++:
 " http://stackoverflow.com/questions/4237817/help-with-configuring-vim-for-c
 
-
-
+"This is needed for vim colors to work properly inside tmux,
+" to fall back to supporting 256 colors only as 24bit support
+" is still a work in progress for tmux
+set t_Co=256
+set t_ut=
+"colorscheme gruvbox
+colorscheme onedark
 
 " To ignore plugin indent changes, instead use:
 "filetype plugin on

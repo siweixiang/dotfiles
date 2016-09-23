@@ -22,7 +22,8 @@ export PATH="/usr/lib/ccache/bin/:$PATH"
 export VDPAU_DRIVER=va_gl
 export LIBVA_DRIVER_NAME=i965
 
-export TERM="xterm"
+#export TERM="screen-256color-bce"
+export TERM="xterm-termite"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
@@ -48,7 +49,8 @@ alias pen1="configure.sh wlan1 monitor"
 alias pen2="configure.sh wlan2 monitor"
 
 
-
+# Tmux shortcuts
+alias tmux="tmux -2"
 
 
 # Pacman & Yaourt shortcuts 
@@ -162,6 +164,7 @@ alias Ga="git add ."
 alias Gc="git commit -m $1"
 alias Gp="git push"
 
+
 # Note taking app
 n() {
   if [ "$1" = "today" ];
@@ -207,5 +210,5 @@ ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
-
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 source $ZSH/oh-my-zsh.sh
