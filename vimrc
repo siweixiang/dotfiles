@@ -126,7 +126,7 @@ map <C-Down> <Esc>:tabclose<CR>
 
 " Automatically format the file when reading or writing 
 " to have correct indentaion
-autocmd BufRead,BufWritePre *.cpp,*.py,*.h,*.hpp,*.sh,*.awk normal gg=G
+autocmd BufRead,BufWritePre *.cpp,*.h,*.hpp,*.sh,*.awk,*.java,*.pl,*.c,*.py normal gg=G''zz
 
 " For further vim extensability go through this page for useful plugin list for c/c++:
 " http://stackoverflow.com/questions/4237817/help-with-configuring-vim-for-c
