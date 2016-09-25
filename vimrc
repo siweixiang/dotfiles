@@ -1,5 +1,5 @@
 " Setting tab width to 4
-set tabstop=4
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Turning on Line numbers
 set number
@@ -112,7 +112,11 @@ set background=dark
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+"filetype plugin indent on    " required
+
+
+" To ignore plugin indent changes, instead use:
+filetype indent on    " required
 set smartindent
 
 " Mapping tab switch keys changed due to Airline
@@ -122,7 +126,7 @@ map <C-Down> <Esc>:tabclose<CR>
 
 " Automatically format the file when reading or writing 
 " to have correct indentaion
-autocmd BufRead,BufWritePre *.cpp normal gg=G
+autocmd BufRead,BufWritePre *.cpp,*.py,*.h,*.hpp,*.sh,*.awk normal gg=G
 
 " For further vim extensability go through this page for useful plugin list for c/c++:
 " http://stackoverflow.com/questions/4237817/help-with-configuring-vim-for-c
@@ -135,9 +139,6 @@ set t_ut=
 colorscheme gruvbox
 "colorscheme onedark
 
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
