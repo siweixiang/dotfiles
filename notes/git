@@ -1,0 +1,12 @@
+Setting up an existing git repository and auto authenticating using ssh (not requiring password prompt everytime something gets pushed to repo)
+=======================================================================
+# Setting up new ssh-key if it doesn't exist. Do not enter password when prompted, just press enter.
+1) ssh-keygen -t rsa
+
+# Testing connection
+2) ssh -T git@github.com
+
+3) git config --global user.name "username"
+4) git config --global user.email "user@gmail.com"
+# Manually copy paste ssh key from ~/.ssh/id_rsa.pub into ur git web account> Add/Remove ssh keys 
+5) git remote set-url git@github.com:username/repo.git

@@ -1,7 +1,7 @@
 Wireless Connection from Commandline
 ====================================
 # Connecting to Wireless access pointr. Ctrl+A+C navigates to new screen session. Ctrl+A+A navigates back to previous window
-screen && wpa_supplicant -Dwext,nl80211 -i [interface] -c <("SSID NAME" "PASSPHRASE");
+screen && wpa_supplicant -Dwext,nl80211 -i [interface] -c <(wpa_passphrase "SSID NAME" "PASSPHRASE");
 # If wifi access point has some captive portal use elinks / links / lynx (commandline browser) to enter credentials
 elinks http://192.168.1.1
 

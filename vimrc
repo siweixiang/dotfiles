@@ -8,11 +8,21 @@ set number
 " to be shown all the time
 set laststatus=2
 
+" Mapping keys so we can visually move through lines
+" that is so big that it's placed over next line although
+" it's the same line
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
+
 " Turning on syntax highlighting 
 syntax on
 set termguicolors
 highlight Normal ctermbg=NONE guibg=NONE 
 highlight NonText ctermbg=NONE guibg=NONE
+
+
 " For solarized theme, make sure it's installed first
 " Make sure you also setup solarized theme for your terminal
 
@@ -52,7 +62,7 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'onedark'
+let g:airline_theme = 'gruvbox'
 let g:airline_powerline_fonts = 1
 
 
@@ -89,8 +99,10 @@ let g:UltiSnipsListSnippets="<c-d>"
 "Plugin 'flazz/vim-colorschemes'
 Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
+Plugin 'jacoborus/tender.vim'
+Plugin 'frankier/neovim-colors-solarized-truecolor-only'
 
-Plugin 'vim-scripts/Solarized'
+"Plugin 'vim-scripts/Solarized'
 set background=dark
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
@@ -101,19 +113,17 @@ set background=dark
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
+set smartindent
 
 " Mapping tab switch keys changed due to Airline
 map <C-Left> <Esc>:tabprevious<CR>
 map <C-Right> <Esc>:tabnext<CR>
 map <C-Down> <Esc>:tabclose<CR>
 
+" Automatically format the file when reading or writing 
+" to have correct indentaion
+autocmd BufRead,BufWritePre *.cpp normal gg=G
 
-
-"colorscheme badwolf
-
-"colorscheme 256-grayvim
-"colorscheme 256_noir
 " For further vim extensability go through this page for useful plugin list for c/c++:
 " http://stackoverflow.com/questions/4237817/help-with-configuring-vim-for-c
 
@@ -122,8 +132,8 @@ map <C-Down> <Esc>:tabclose<CR>
 " is still a work in progress for tmux
 set t_Co=256
 set t_ut=
-"colorscheme gruvbox
-colorscheme onedark
+colorscheme gruvbox
+"colorscheme onedark
 
 " To ignore plugin indent changes, instead use:
 "filetype plugin on

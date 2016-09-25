@@ -1,0 +1,8 @@
+1. 'K' (Capital K) looks up the keyword under the cursor using the man command.
+2. 'J' (Capital J) merges the line below with the cursor on the current line with a space.
+3. [ In visual mode you can use 'o' or 'O' to move to opposite or same sides of the corner respectively ].
+4. '*' can be used to move to the next instance of the word under cursor.
+5. '#' can be used to move to the previous instance of the word under cursor .
+6. '%' can be used to move to the next curly brace, brackets, etc. (quite useful in programming).
+7. '.' can be used to repeat the last action (very useful)
+8. 'A' is similar to 'a' but puts you into insert mode after the end of line.
