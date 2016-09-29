@@ -7,8 +7,18 @@
 
 // Searching for different versions offered for the same 
 // package
-1) make search key=[package name] show=FLAVORS
+1) cd /usr/ports/[package]/[sub-package]
+2) make show=FLAVORS
 
 // Installing with a particular flavor
 1) cd /etc/ports/[package]/[sub-package]
 2) env FLAVOR="[insert_flavor]" make install 
+
+// Cleaning after install 
+1) make clean (only cleans built package)
+2) make clean=depends ( does(1) + also cleans depends)
+3) make package BULK=Yes (to automatically cleanup after install)
+
+// Removing package
+1) cd /usr/ports/[package]/[sub-package]
+2) make uninstall 
