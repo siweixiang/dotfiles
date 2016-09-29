@@ -1,0 +1,14 @@
+
+[PACKAGE MANAGEMENT]
+
+// Searching for package
+1) cd /usr/ports
+2) make search key=[package name]
+
+// Searching for different versions offered for the same 
+// package
+1) make search key=[package name] show=FLAVORS
+
+// Installing with a particular flavor
+1) cd /etc/ports/[package]/[sub-package]
+2) env FLAVOR="[insert_flavor]" make install 
