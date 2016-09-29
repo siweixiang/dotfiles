@@ -95,6 +95,10 @@ bindsym XF86AudioRaiseVolume  exec "pactl set-sink-volume alsa_output.pci-0000_0
 bindsym XF86AudioMute  exec "pactl set-sink-mute 0 toggle";
 bindsym $mod+Shift+a exec "arandr";
 
+# Switching between keyboard layouts
+bindsym $mod+Shift+F10 exec "setxkbmap lv dvorak";
+bindsym $mod+F10 exec "setxkbmap us";
+
 
 
 
