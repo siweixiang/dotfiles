@@ -96,7 +96,7 @@ alias qi="emerge -av $1"
 alias qcu="dispatch-conf"
 
 # Removing package
-alias qr="emerge -C $1"
+alias qr="emerge --deselect $1 && emerge -aC"
 
 # Cleaning 
 alias qcl="emerge --depclean && eclean-dist"
