@@ -66,6 +66,11 @@ let g:airline_theme = 'gruvbox'
 let g:airline_powerline_fonts = 1
 
 
+
+
+
+
+
 " Plugin Nerd Tree
 Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
