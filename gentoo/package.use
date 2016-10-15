@@ -24,7 +24,7 @@ app-text/evince djvu
 >=app-text/poppler-0.42.0 cairo
 sys-libs/ncurses tinfo
 app-emulation/virtualbox extensions qt4
-net-p2p/transmission gtk lightweight
+net-p2p/transmission gtk lightweight 
 # required by x11-wm/i3-4.10.4::gentoo[pango]
 # required by @selected
 # required by @world (argument)
@@ -48,7 +48,7 @@ xfce-base/thunar libnotify
 media-plugins/gst-plugins-meta ogg opus vpx flac wavpack
 media-sound/clementine lastfm moodbar 
 >=media-libs/liblastfm-1.0.9 qt4
->=app-crypt/qca-2.1.1 qt4
+>=app-crypt/qca-2.1.1 qt4 
 sys-apps/dstat wifi
 media-sound/cmus opus wavpack
 media-video/mpv jpeg zsh-completion
@@ -719,3 +719,35 @@ app-emulation/wine abi_x86_32 staging
 app-pda/gtkpod flac gstreamer
 x11-terms/rxvt-unicode 256-color blink fading-colors iso14755 pixbuf unicode3 xft
 app-editors/viiim ruby racket lua vim-pager
+netlibs/gnutls openssl 
+net-analyzer/tcpdump 
+# required by net-misc/youtube-viewer-3.1.9::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=x11-libs/gdk-pixbuf-2.34.0 jpeg
+# required by dev-libs/glib-2.48.2::gentoo
+# required by app-accessibility/at-spi2-atk-2.20.1::gentoo
+# required by x11-libs/gtk+-3.20.9::gentoo[X]
+# required by dev-util/anjuta-3.20.0::gentoo
+# required by app-pda/gtkpod-2.1.5::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libpcre-8.38-r1 abi_x86_32
+sys-auth/consolekit policykit
+# required by app-editors/neovim-0.1.5::gentoo
+# required by dev-python/neovim-python-client-0.1.9::gentoo
+>=dev-lua/lpeg-1.0.0-r1 luajit
+# required by app-editors/neovim-0.1.5::gentoo
+# required by dev-python/neovim-python-client-0.1.9::gentoo
+>=dev-lua/mpack-1.0.2 luajit
+sys-fs/cryptsetup -gcrypt openssl
+dev-libs/boost doc 
+# required by app-text/calibre-1.20::gentoo 
+# required by app-text/calibre:0 (argument) 
+>=dev-python/PyQt4-4.11.4-r1 compat
+# required by x11-terms/termite-12::eroen
+# required by =x11-terms/termite-12 (argument)
+>=x11-libs/vte-0.44.2 termite-patch
+# required by sys-devel/clang-3.7.1-r100::gentoo
+# required by clang (argument)
+>=sys-devel/llvm-3.7.1-r3 clang
