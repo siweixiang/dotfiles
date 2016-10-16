@@ -6,3 +6,11 @@
 6. '%' can be used to move to the next curly brace, brackets, etc. (quite useful in programming).
 7. '.' can be used to repeat the last action (very useful)
 8. 'A' is similar to 'a' but puts you into insert mode after the end of line.
+9. 'saveas [name]' saves the current file with given name
+10. 'tabe [name]' edits the specified file in a new tab
+11. '<ctrl-o>' while in insert mode allows us to go to normal mode
+     for only one action and switches back to insert mode.
+    This is useful when navigation without having to manually
+    going to normal mode and back again to insert mode. (saves
+    keystroke)
+12. '<ctrl-r>' in insert mode allows us to paste from register

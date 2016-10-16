@@ -4,6 +4,26 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Turning on Line numbers
 set number
 
+" This wraps our text after 70 characters
+set textwidth=70
+
+" This wraps single lines that extend too far
+set wrap
+set linebreak
+
+" This shows > character in single lines that 
+" are wrapped on next lines for easier viewing but 
+" are not multiple lines and this makes it easier to
+" distinguish
+set showbreak=>\
+
+" This makes it easier to see whats top or bottom
+" of our current screen when scrolling 
+" We don't have to hit top or bottom to view 
+" whats next (shows us more stuff)
+set scrolloff=10
+
+
 " This is required to enable vim plugin Airline tabs
 " to be shown all the time
 set laststatus=2
@@ -56,7 +76,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 " Required for clang autocomplete to work with YouCompleteMe plugin.
 " Place that file on home directory
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 
 Plugin 'bling/vim-airline'
@@ -131,7 +152,8 @@ map <C-Down> <Esc>:tabclose<CR>
 
 " Automatically format the file when reading or writing 
 " to have correct indentaion
-autocmd BufRead,BufWritePre *.cpp,*.h,*.hpp,*.sh,*.awk,*.java,*.pl,*.c,*.py normal gg=G''zz
+autocmd BufRead,BufWritePre *.cpp,*.h,*.hpp,*.sh,*.awk,*.java,*.pl,*.c normal gg=G''zz
+
 
 " For further vim extensability go through this page for useful plugin list for c/c++:
 " http://stackoverflow.com/questions/4237817/help-with-configuring-vim-for-c
@@ -149,6 +171,11 @@ colorscheme gruvbox
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
+" These remeps help getting familiar with vim
+" as it basically makes arrow keys useless so
+" that we resort to using hjkl instead
+noremap <left> <nop>
+noremap <right> <nop>
+noremap <up> <nop>
+noremap <down> <nop>
