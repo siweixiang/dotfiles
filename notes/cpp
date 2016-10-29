@@ -1,16 +1,120 @@
 # Notes of advanced programming (C++)
 
-const (constant) usage:
-=======================
--	const int* var = 50;  // Constant data of type (int) which means the value can not be modified but the pointer can be modified to point to something else;
+const (constant) usage for pointer and reference:
+=================================================
+- If integer is const, both reference and pointer also has to be const. e.g:
+	const int MAX = 100;
+	int* p1 = &MAX; // Compilation error
+	const int* p1 = &MAX; // OK
+	int& r1 = &MAX; // Compilation error
+	const int& r1 = &MAX; // OK
 
--   const int* const var = 50; // Same as above but also constant pointer which means the pointer can not me modified to point to something else.
-	e.g var2 = 30; // Would fail cos of const int* declaration
-		var = &var2; // Would also fail cos of const var declaration
 
-- member functions should be set to const if it operates on const objects of the class otherwise compiler will complain
+
+Pointer:
+--------
+int* - pointer to int     
+int const * - pointer to const int     
+int * const - const pointer to int     
+int const * const - const pointer to const int  
+
+Now the first const can be on either side of the type so:      
+const int * == int const *     
+const int * const == int const * const
+
+
+Reference:
+----------
+- Reference can only be set to constant data type or in 
+otherwords make the data pointed to by reference read only 
+when accessed by that particular reference variable:
+	int x = 10;
+	const int& ref = x; 
+	int& const ref = x; // This is not allowed
+
+- member functions should be set to const if it operates 
+on const objects of the class otherwise compiler will 
+complain
 	e.g: 	int Time:getHour() const
-- compiler will only allow const functions to be called on const objects
+
+- compiler will only allow const functions to be called 
+on const objects
 
 
+
+
+Copy Constructor:
+=================
+- A Constructor is copy Constructor if it's first parameter 
+is a reference to a class type and any additional parameters 
+have default values.
+
+- The parameter must always be a reference to a const
+
+E.g:
+class Foo {
+	public:
+		Foo(); // default Constructor
+		Foo(const Foo&); // copy constructor
+}
+
+
+Arrays
+======
+
+- size fixed at compile time
+- arrays can not be assigned
+- arrays of references not allowed
+- functions cannot return arrays
+
+Use c library for manipulating strings <cstring>
+================================================
+
+
+- size_t is used to specify size in parameters of functions 
+or anything that has to do with size.
+
+- "const int [] scores" and "const int* scores" mean the 
+same thing, underneath the compiler changes array to pointer format.
+
+- const char* menu[4] = {"chicken", "beef", "salmon", "lamb"}
+  ^ above code means it's an array of 4 character pointers
+
+- Lifetime of global and local variables are stored in stack
+- Scope of global variable is accessible from anywhere and 
+for local variable it's limited to the scope of the function where 
+its declared.
+
+- Global variables are stored in data segment and local 
+variables are stored in stack segment
+
+- When new fails to get memory it returns NULL (in C) 
+and bad_alloc (in c++)
+
+- When an array of memory has been allocated on the heap
+use 'delete [] variablename' to delete cleanly 
+by calling destructor of the object.
+
+- Copy constructor: When we need to create and initialize 
+an object according to some given object.
+
+- Inline functions are declared to reduce overhead, to reduce 
+the penalty of function call. Recursive functions can not be inline.
+
+- Const member functions can only be called on const objects 
+and compiler will not allow non const member functions to be 
+called on const objects.
+
+- Every member function that doesn't modify the values in an 
+object should be declared as const. e.g: getName(), getID(), etc.
+
+
+Functors and function pointers
+==============================
+- Main reason to use functors instead of functions pointers 
+  is because in the case of functors the state is maintained so
+  whatever is passed in can be later used.
+
+- Efficieny, cos functors can be inlined by making operator()
+function to be inline
 

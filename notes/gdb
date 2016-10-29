@@ -1,0 +1,17 @@
+1) Ctrl+x+a brings in commandline interface
+    - You need to use list command first
+      otherwise it will complain about no
+      source being available
+2) Ctrl+l clears screen for you
+3) i) p [variable_name]
+      prints the specified variable, if it's
+      a pointer prints its address
+   ii) p *[pointer_name] 
+       prints the value held by specified pointer
+
+4) n = go to next line in function
+5) s = go to function call on the same line
+6) c = continue until next break point
+7) br [line number]
+    e.g: br 10
+    Breaks at the speified line number

@@ -14,3 +14,11 @@
     going to normal mode and back again to insert mode. (saves
     keystroke)
 12. '<ctrl-r>' in insert mode allows us to paste from register
+13. Ctrl+a increments number in normal mode
+14. Ctrl+x decrements number in normal mode
+15. q + [any key] starts macro, after you're done with
+    whatever you're doing press q again to store that macro in
+    that key. Press @[key] to execute that macro on current
+    line. [n]@[key] performs macro n number of times.
+
+
