@@ -5,7 +5,7 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set number
 
 " This wraps our text after 70 characters
-set textwidth=70
+set textwidth=60
 
 " This wraps single lines that extend too far
 set wrap
@@ -15,7 +15,7 @@ set linebreak
 " are wrapped on next lines for easier viewing but 
 " are not multiple lines and this makes it easier to
 " distinguish
-set showbreak=>\
+set showbreak=>\ 
 
 " This makes it easier to see whats top or bottom
 " of our current screen when scrolling 
@@ -153,6 +153,24 @@ map <C-Down> <Esc>:tabclose<CR>
 " Automatically format the file when reading or writing 
 " to have correct indentaion
 autocmd BufRead,BufWritePre *.cpp,*.h,*.hpp,*.sh,*.awk,*.java,*.pl,*.c normal gg=G''zz
+
+
+" If buffer modified, update any 'Last modified: ' in the first 20 lines.
+" 'Last modified: ' can have up to 10 characters before (they are retained).
+" Restores cursor and window position using save_cursor variable.
+function! LastModified()
+  if &modified
+    let save_cursor = getpos(".")
+    let n = min([20, line("$")])
+    keepjumps exe '1,' . n . 's#^\(.\{,10}Last Modified: \).*#\1' .
+          \ strftime('%a %b %d, %Y (%I:%M %p)') . '#e'
+    call histdel('search', -1)
+    call setpos('.', save_cursor)
+  endif
+endfun
+
+autocmd BufWritePre * call LastModified()
+
 
 
 " For further vim extensability go through this page for useful plugin list for c/c++:
