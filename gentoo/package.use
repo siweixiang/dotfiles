@@ -718,7 +718,7 @@ app-emulation/wine abi_x86_32 staging
 >=x11-proto/fixesproto-5.0-r1 abi_x86_32
 app-pda/gtkpod flac gstreamer
 x11-terms/rxvt-unicode 256-color blink fading-colors iso14755 pixbuf unicode3 xft
-app-editors/viiim ruby racket lua vim-pager
+app-editors/vim ruby lua vim-pager
 netlibs/gnutls openssl 
 net-analyzer/tcpdump 
 # required by net-misc/youtube-viewer-3.1.9::gentoo[gtk]
@@ -751,3 +751,14 @@ dev-libs/boost doc
 # required by sys-devel/clang-3.7.1-r100::gentoo
 # required by clang (argument)
 >=sys-devel/llvm-3.7.1-r3 clang
+sys-apps/firejail -busybox
+media-video/ffmpeg lzma x264
+# required by media-video/ffmpeg-2.8.8::gentoo[x264,encode]
+# required by @selected
+# required by @world (argument)
+>=media-libs/x264-0.0.20140308 abi_x86_32
+# required by media-video/ffmpeg-2.8.8::gentoo[lzma]
+# required by @selected
+# required by @world (argument)
+>=app-arch/xz-utils-5.2.2 abi_x86_32
+www-client/firefox system-cairo -dbus

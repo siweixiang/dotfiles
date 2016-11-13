@@ -1,13 +1,12 @@
 #!/bin/sh
 
-url=$(parcellite -c 2>/dev/null);
-
+url=$(xclip -o);
 
 if [ $? -eq 0 ] 
 then 
-		mpv $(echo "$url");
+    mpv $url;
 else 
-	exit 1;
+    exit 1;
 fi
 
 exit 0;

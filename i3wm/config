@@ -74,19 +74,19 @@ bindsym $mod+F1 exec pcmanfm
 bindsym $mod+n exec nitrogen 
 bindsym $mod+F2 exec termite -e ranger
 bindsym $mod+m exec termite -e 'cmus'
-bindsym $mod+Shift+m exec thunderbird
+bindsym $mod+Shift+m exec firejail thunderbird
 bindsym $mod+y exec /usr/bin/mpv-nodialog.sh
-bindsym $mod+u exec /usr/bin/open-elinks.sh
+bindsym $mod+u exec firejail /usr/bin/open-elinks.sh
 bindsym $mod+Shift+u exec /usr/bin/getpic.sh
 bindsym $mod+Ctrl+k exec --no-startup-id compton -b
 bindsym $mod+t exec firejail --seccomp transmission-gtk
 bindsym $mod+Shift+v exec Virtualbox
 bindsym $mod+o exec termite -e 'youtube-viewer'
-bindsym $mod+g exec termite -e 'elinks https://classic.startpage.com'
-bindsym $mod+Shift+g exec termite -e 'elinks https://www.google.com/?hl=en'
+bindsym $mod+g exec firejail termite -e 'elinks https://classic.startpage.com'
+bindsym $mod+Shift+g exec firejail termite -e 'elinks https://www.google.com/?hl=en'
 bindsym $mod+i	exec termite -e 'wicd-curses'
-bindsym $mod+Shift+F4 exec termite -e 'elinks https://wiki.gentoo.org/wiki/Main_Page'
-bindsym $mod+F4 exec termite -e 'elinks https://wiki.archlinux.org/index.php'
+bindsym $mod+Shift+F4 exec firejail termite -e 'elinks https://wiki.gentoo.org/wiki/Main_Page'
+bindsym $mod+F4 exec firejail termite -e 'elinks https://wiki.archlinux.org/index.php'
 bindsym $mod+Shift+w exec wireshark-gtk
 bindsym XF86MonBrightnessUp  exec "xbacklight -dec 5";
 bindsym XF86MonBrightnessDown  exec "xbacklight -inc 5";
@@ -98,8 +98,8 @@ bindsym XF86AudioMute  exec "pactl set-sink-mute 0 toggle";
 bindsym $mod+Shift+a exec "arandr";
 
 # Switching between keyboard layouts
-bindsym $mod+Shift+F10 exec  "setxkbmap us -variant dvp";
-bindsym $mod+F10 exec "setxkbmap us";
+# bindsym $mod+Shift+F10 exec  "setxkbmap us -variant dvp";
+# bindsym $mod+F10 exec "setxkbmap us";
 
 # Switching between different default screen & tv
 bindsym $mod+F5 exec "xrandr --output VIRTUAL1 --off --output eDP1 --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off && pactl set-card-profile alsa_card.pci-0000_00_1b.0 output:analog-stereo";
