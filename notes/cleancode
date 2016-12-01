@@ -30,10 +30,10 @@ understand the distinction and the differences they offer
    easier for testing ( <= 2 should be okay)
 7) It is a good rule to encode function argument names and combine
    it into function name
-8) Prefer exceptions of returning error code
+8) Prefer exceptions over returning error code
 9) Extract try catch blocks into functions of their own for improved
    readability
-10) Function should do one things, therefore a function that handles
+10) Function should do one thing, therefore a function that handles
     errors should do nothing else
 
 # Comments
@@ -45,7 +45,7 @@ meaningful as possible.
 code has changed after being modified at a later stage
 3) "Clear and expressive code with few comments is superior over 
 cluttered and complex code with lots of comments. Rather than
-spending time writing code to explain messy code, spend time
+spending time writing comments to explain messy code, spend time
 cleaning up the mess"
 4) The only truly good comment is the comment you found a way
 to not write
@@ -71,10 +71,10 @@ unnecessary to maintain log entries using comments at the start
 of every module: for example what features have been implemented
 on which date, what else needs to be done etc.
 12) Avoid writing noise comments by restating the obvious with
-no new information
+no new information. Example: // Default constructor
 13) Avoid commenting out code, delete them when not necessary
 as it just adds clutter
 14) Make the comment about the local code or the code that is
-near, avoid going into system wide or general information
+near, avoid describing system wide or general information
 15) Avoid writing too much information in the comment
 16) Avoid writing comment headers for functions that are small
