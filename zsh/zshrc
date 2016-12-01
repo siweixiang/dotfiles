@@ -40,7 +40,6 @@ eval $(dircolors ~/.dircolors)
 BROWSER=/usr/bin/firefox-bin
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-alias rasp='mosh boris@192.168.1.50 --ssh="ssh -p6969" --port 60001'
 alias wip="curl -s icanhazip.com"
 alias fix0="configure.sh wlan0 managed"
 alias fix1="configure.sh wlan1 managed"
@@ -121,12 +120,12 @@ decbin() {openssl enc -aes-256-cbc -d -in $1 > $2}
 enctxt() {openssl enc -aes-256-cbc -a -salt -in $1 -out $2}
 dectxt() {openssl enc -aes-256-cbc -a -d -in $1 > $2}
 
-alias du="du -h"
+alias du="du -sh"
 alias df="df -h"
 
 # Youtube single track audio download
-alias youa="youtube-dl --no-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
-alias youap="youtube-dl --yes-playlist -x --write-all-thumbnails --audio-quality 0 -i -c $1"
+alias youa="youtube-dl --no-playlist -x --write-all-thumbnails --audio-quality 0 -i --audio-format best -c $1"
+alias youap="youtube-dl --yes-playlist -x --write-all-thumbnails --audio-quality 0 -i --audio-format best -c $1"
 # Youtube video download
 alias youv="youtube-dl -f \"bestvideo[height<=?1080][vcodec!=vp9]+bestaudio/best\""
 alias youvp="youtube-dl --yes-playlist -f \"bestvideo[height<=?1080][vcodec!=vp9]+bestaudio/best\""
@@ -140,7 +139,7 @@ mpvp() {
 # Optimizing PDF books for Kindle Paperwhite 2
 alias kin="k2pdfopt $1 -dev kp2 -cmax 2 -s -g 0.5 -wt -1 -wrap+ -hy -ws -0.2"
 # Wget with proper output file naming
-alias wget="wget -c --content-disposition $1"
+wgetc() {wget -c --content-disposition $1}
 
 # Custom Functions that I use regularly
 #wkill() {systemctl stop NetworkManager.service; rfkill block wifi all}
@@ -165,10 +164,11 @@ alias Gc="git commit -m $1"
 alias Gp="git push"
 alias trr="tr -cd '[:print:]' < $1"
 
+alias lsb="lsblk -f"
 
 # G++ compiling and stuff
 # Cm [output filename]
-alias Cm="g++ -std=c++14 -ggdb *.cpp -o $1"
+alias Cm="g++ -std=c++11 -ggdb *.cpp -o $1"
 
 
 # Note taking app
@@ -210,11 +210,27 @@ usboff(){echo 0 > /sys/bus/usb/devices/usb*/authorized_default}
 #Enable usb devices 
 usbon(){echo 1 > /sys/bus/usb/devices/usb*/authorized_default}
 
+# WIRC
+wirc(){ 
+while true;                                                                
+do                                                                         
+    export TERM="xterm";                                                   
+    ssh boris@192.168.1.33 -t 'tmux a';                                    
+    sleep 2;                                                              
+done            
+}
 
+if [ -x /usr/bin/cowsay -a -x /usr/bin/fortune ]; then
+        fortune -a | cowsay
+fi
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
+
+
+
+
 #source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 source $ZSH/oh-my-zsh.sh
