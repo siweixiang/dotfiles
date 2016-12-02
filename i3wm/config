@@ -53,7 +53,7 @@ font pango:Source Code Pro Semibold 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite 
+bindsym $mod+Return exec urxvtc 
 
 # kill focused window
 bindsym $mod+q kill
@@ -72,8 +72,8 @@ bindsym $mod+p exec pavucontrol
 bindsym $mod+c exec  firejail --seccomp firefox
 bindsym $mod+F1 exec pcmanfm
 bindsym $mod+n exec nitrogen 
-bindsym $mod+F2 exec termite -e ranger
-bindsym $mod+m exec termite -e 'cmus'
+bindsym $mod+F2 exec urxvtc -e ranger
+bindsym $mod+m exec urxvtc -e 'cmus'
 bindsym $mod+Shift+m exec firejail thunderbird
 bindsym $mod+y exec /usr/bin/mpv-nodialog.sh
 bindsym $mod+u exec firejail /usr/bin/open-elinks.sh
@@ -81,12 +81,12 @@ bindsym $mod+Shift+u exec /usr/bin/getpic.sh
 bindsym $mod+Ctrl+k exec --no-startup-id compton -b
 bindsym $mod+t exec firejail --seccomp transmission-gtk
 bindsym $mod+Shift+v exec Virtualbox
-bindsym $mod+o exec termite -e 'youtube-viewer'
-bindsym $mod+g exec firejail termite -e 'elinks https://classic.startpage.com'
-bindsym $mod+Shift+g exec firejail termite -e 'elinks https://www.google.com/?hl=en'
-bindsym $mod+i	exec termite -e 'wicd-curses'
-bindsym $mod+Shift+F4 exec firejail termite -e 'elinks https://wiki.gentoo.org/wiki/Main_Page'
-bindsym $mod+F4 exec firejail termite -e 'elinks https://wiki.archlinux.org/index.php'
+bindsym $mod+o exec urxvtc -e 'youtube-viewer'
+bindsym $mod+g exec firejail urxvtc -e 'elinks https://classic.startpage.com'
+bindsym $mod+Shift+g exec firejail urxvtc -e 'elinks https://www.google.com/?hl=en'
+bindsym $mod+i	exec urxvtc -e 'wicd-curses'
+bindsym $mod+Shift+F4 exec firejail urxvtc -e 'elinks https://wiki.gentoo.org/wiki/Main_Page'
+bindsym $mod+F4 exec firejail urxvtc -e 'elinks https://wiki.archlinux.org/index.php'
 bindsym $mod+Shift+w exec wireshark-gtk
 bindsym XF86MonBrightnessUp  exec "xbacklight -dec 5";
 bindsym XF86MonBrightnessDown  exec "xbacklight -inc 5";
