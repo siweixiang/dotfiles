@@ -4,7 +4,7 @@ url=$(xclip -o);
 
 if [ $? -eq 0 ]
 then
-    /usr/bin/termite -e "/usr/bin/elinks $url";
+    urxvtc -e firejail elinks "$url";
 else
     exit 1;
 fi
