@@ -1,25 +1,34 @@
 URxvt.termName:         rxvt-256color
-!URxvt.reverseVideo:     True
 URxvt.perl-ext-common:  default,matcher
-URxvt.urlLauncher:      /usr/bin/firefox-bin
 URxvt.matcher.button:   1
-URxvt.scrollstyle:      simple
+
+!URxvt.font:             xft:Anonymous Pro:Bold:size=14:autohint=true
+!URxvt.font:             xft:Hack:bold:size=12:autohint=true
 URxvt.font:             xft:Fantasque Sans Mono:Bold:size=13
-URxvt.scrollBar:               0
-URxvt*shading:    50
-URxvt*transparent:true
-URxvt*secondaryScroll:    true
-URxvt*saveLines:         500
-URxvt*cursorBlink:       false
-URxvt*urgentOnBell:       true
+
+! == Scrolling related stuff
+URxvt.scrollBar:        0
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+URxvt*shading:          30
+URxvt*transparent:      true
+URxvt*secondaryScroll:  true
+URxvt*saveLines:        500
+URxvt*cursorBlink:      false
+URxvt*urgentOnBell:     true
 URxvt*override-redirect:false
 URxvt*borderLess:       false
-URxvt*internalBorder:       0
-URxvt*externalBorder:       0
-URxvt*cursorColor: #DA1F26
-URxvt.background:  #000000
-URxvt.foreground:  #EBEBFF
-URxvt.letterSpace: -1
+URxvt*internalBorder:   0
+URxvt*externalBorder:   0
+URxvt*cursorColor:      #DA1F26
+URxvt.background:       #000000
+URxvt.foreground:       #EBEBFF
+URxvt.letterSpace:      -1
 
 ! Copying text: ctrl+alt+c
 ! Pasting text: ctrl+alt+v
@@ -30,7 +39,8 @@ URxvt.letterSpace: -1
 ! o - open link in browser
 ! y - yank url
 ! Esc - cancel selection mode
-URxvt.perl-ext: default,url-select
-URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.perl-ext:         default,url-select
+URxvt.keysym.M-u:       perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
+
