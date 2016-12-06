@@ -2,9 +2,18 @@ URxvt.termName:         rxvt-256color
 URxvt.perl-ext-common:  default,matcher
 URxvt.matcher.button:   1
 
-!URxvt.font:             xft:Anonymous Pro:Bold:size=14:autohint=true
-!URxvt.font:             xft:Hack:bold:size=12:autohint=true
-URxvt.font:             xft:Fantasque Sans Mono:Bold:size=13
+URxvt.font:             xft:Fantasque Sans Mono:size=13:antialias=true,xft:powerline-symbols
+URxvt.boldFont:             xft:Fantasque Sans Mono:bold:size=13:antialias=true
+
+!URxvt.boldFont:             xft:Anonymous Pro:bold:size=13:antialias=true
+!URxvt.font:             xft:Anonymous Pro:size=13:antialias=true
+
+!URxvt.boldFont:             xft:inconsolata:bold:size=14;antialias=true;autohint=true;hinting=true
+!URxvt.font:             xft:inconsolata:regular:size=14:antialias=true;autohint=true;hinting=true
+
+
+! This makes sure font spacing is not too wide / far apart
+URxvt*letterSpace: -1                                               
 
 ! == Scrolling related stuff
 URxvt.scrollBar:        0
@@ -18,7 +27,7 @@ URxvt*scrollTtyKeypress: true
 URxvt*shading:          30
 URxvt*transparent:      true
 URxvt*secondaryScroll:  true
-URxvt*saveLines:        500
+URxvt*saveLines:        8192
 URxvt*cursorBlink:      false
 URxvt*urgentOnBell:     true
 URxvt*override-redirect:false
@@ -28,7 +37,6 @@ URxvt*externalBorder:   0
 URxvt*cursorColor:      #DA1F26
 URxvt.background:       #000000
 URxvt.foreground:       #EBEBFF
-URxvt.letterSpace:      -1
 
 ! Copying text: ctrl+alt+c
 ! Pasting text: ctrl+alt+v
@@ -44,3 +52,11 @@ URxvt.keysym.M-u:       perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
 
+! Xft Settings
+Xft.antialias: 1
+Xft.autohint: 0
+Xft.dpi: 96
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
