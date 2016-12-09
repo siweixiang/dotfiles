@@ -14,6 +14,15 @@
 1) cd /etc/ports/[package]/[sub-package]
 2) env FLAVOR="[insert_flavor]" make install 
 
+// Showing sub packages
+1) make show=MULTI_PACKAGES
+
+// To list the different packages built by a port, 
+1) make show=PKGNAMES
+
+// Installing sub package
+1) env SUBPACKAGE="-name" make install
+
 // Cleaning after install 
 1) make clean (only cleans built package)
 2) make clean=depends ( does(1) + also cleans depends)
@@ -22,3 +31,14 @@
 // Removing package
 1) cd /usr/ports/[package]/[sub-package]
 2) make uninstall 
+
+// Embedded devices without hardware clock
+- Usually ntpd should be enabled using rcctl
+    since most embedded do not have a hardware clock.
+
+    If the time seems weird or inaccurate, you can do 
+    two things:
+        1) Set the correct location first:
+           'ln -s /usr/share/zoneinfo/Asia/[Country] /etc/localtime'
+        2) Update ntpd immediately: 'ntpd -vs'
+

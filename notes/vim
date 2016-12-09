@@ -21,4 +21,6 @@
     that key. Press @[key] to execute that macro on current
     line. [n]@[key] performs macro n number of times.
 
-
+16. m[any a-z character] sets the mark on the current line. E.g: 'ma' 
+17. '[marked character] jumps to marked line
+18. 'Shift+d' or 'D' deleted from current cursor to end of line
