@@ -2,7 +2,48 @@ Xft.antialias: 1
 Xft.autohint: 0
 Xft.dpi: 96
 Xft.hinting: 1
-Xft.hintstyle: hintfull
+Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
+
+! URxvt Stuff
+URxvt.termName:         rxvt-256color
+URxvt.perl-ext-common:  default,matcher,selection-to-clipboard
+URxvt.matcher.button:   1
+
+URxvt*font:             xft:Fantasque Sans Mono:regular:size=12,xft:PowelineSymbols
+URxvt*boldFont:             xft:Fantasque Sans Mono:bold:size=12
+URxvt*letterSpace: -1
+
+!URxvt*font:             xft:hack:regular:pixelsize=15:antialias=true,xft:PowerlineSymbols 
+!URxvt*boldFont:             xft:hack:bold:pixelsize=15:antialias=true
+!URxvt*italicFont:             xft:hack:italic:pixelsize=15:antialias=true
+!URxvt*letterSpace: -2
+
+! == Scrolling related stuff
+URxvt.scrollBar:        0
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+URxvt*shading:          30
+URxvt*transparent:      true
+URxvt*secondaryScroll:  true
+URxvt*saveLines:        8192
+URxvt*cursorBlink:      false
+URxvt*urgentOnBell:     true
+URxvt*override-redirect:false
+URxvt*borderLess:       false
+URxvt*internalBorder:   0
+URxvt*externalBorder:   0
+URxvt*cursorColor:      #DA1F26
+URxvt.background:       #000000
+URxvt.foreground:       #EBEBFF
+URxvt.depth:            32
+URxvt.perl-ext:         default,url-select
+URxvt.keysym.M-u:       perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: false
 

@@ -1,0 +1,15 @@
+Follow this guide:
+https://wiki.gentoo.org/wiki/Fontconfig#Infinality
+
+
+Key points:
+1) eselect fontconfig enable 52-infinality.conf
+2) eselect infinality set ultimate-free
+3) eselect lcdfilter set ultimate
+
+- Make sure to disable all settings in fontconfig other 
+  than 52-infinality.conf
+
+- If you want ultimate-ms compile
+  media-fonts/infinality-ultimate-meta 
+  with +ms flag

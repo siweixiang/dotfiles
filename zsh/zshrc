@@ -23,7 +23,7 @@ export VDPAU_DRIVER=va_gl
 export LIBVA_DRIVER_NAME=i965
 
 #export TERM="screen-256color-bce"
-export TERM="xterm-termite"
+export TERM="rxvt-256color"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Preferred editor for local and remote sessions
@@ -140,6 +140,7 @@ mpvp() {
 alias kin="k2pdfopt $1 -dev kp2 -cmax 2 -s -g 0.5 -wt -1 -wrap+ -hy -ws -0.2"
 # Wget with proper output file naming
 wgetc() {wget -c --content-disposition $1}
+dmg() { dmesg --color=always | less }
 
 # Custom Functions that I use regularly
 #wkill() {systemctl stop NetworkManager.service; rfkill block wifi all}
@@ -220,6 +221,12 @@ do
 done            
 }
 
+# Clean Trash
+clean(){
+    rm -rvf $HOME/.local/share/Trash/files/*;
+    rm -rvf $HOME/.local/share/Trash/info/*;
+}
+
 if [ -x /usr/bin/cowsay -a -x /usr/bin/fortune ]; then
         fortune -a | cowsay
 fi
@@ -232,5 +239,5 @@ fi
 
 
 
-#source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 source $ZSH/oh-my-zsh.sh

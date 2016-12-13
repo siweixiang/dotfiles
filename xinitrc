@@ -7,4 +7,5 @@ xset r rate 200 30
 xbacklight -set 5
 export PATH="${PATH}:$HOME/.local/bin/"
 urxvtd -q -o -f
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 exec i3

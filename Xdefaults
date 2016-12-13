@@ -2,29 +2,33 @@ URxvt.termName:         rxvt-256color
 URxvt.perl-ext-common:  default,matcher,selection-to-clipboard
 URxvt.matcher.button:   1
 
-URxvt.font:             xft:Fantasque Sans Mono:regular:pixelsize=17,xft:powerline-symbols
-URxvt.boldFont:             xft:Fantasque Sans Mono:bold:pixelsize=17
-URxvt*letterSpace: -1
-
-!URxvt.font:             xft:ubuntu mono:pixelsize=18,xft:powerline-symbols
-!URxvt.boldFont:             xft:ubuntu mono:bold:pixelsize=18,xft:powerline-symbols
+!URxvt*font:             xft:Fantasque Sans Mono:regular:size=12,xft:PowerlineSymbols
+!URxvt*boldFont:             xft:Fantasque Sans Mono:bold:size=12
 !URxvt*letterSpace: -1
 
-!URxvt.boldFont:             xft:Anonymous Pro:bold:pixelsize=17:antialias=true,xft:powerline-symbols
-!URxvt.font:             xft:Anonymous Pro:pixelsize=17:antialias=true
-!URxvt*letterSpace: 0
-
-!URxvt.boldFont:             xft:inconsolata:bold:pixelsize=15:antialias=true
-!URxvt.font:             xft:inconsolata:medium:pixelsize=15:antialias=true,xft:powerline-symbols
-!URxvt*letterSpace: 0
-
-!URxvt.boldFont:             xft:source code pro:bold:pixelsize=15:antialias=true
-!URxvt.font:             xft:source code pro:medium:pixelsize=15:antialias=true,xft:powerline-symbols
+!URxvt*font:             xft:ubuntu mono:pixelsize=18,xft:PowerlineSymbols
+!URxvt*boldFont:             xft:ubuntu mono:bold:pixelsize=18,xft:PowerlineSymbols
 !URxvt*letterSpace: -1
 
-!URxvt.boldFont:             xft:hack:bold:pixelsize=15:antialias=true
-!URxvt.font:             xft:hack:regular:pixelsize=15:antialias=true,xft:powerline-symbols 
-!URxvt*letterSpace: -2
+!URxvt*font:             xft:monoid:regular:size=9,xft:PowerlineSymbols
+!URxvt*boldFont:             xft:monoid:bold:size=9,xft:PowerlineSymbols
+!URxvt*letterSpace: -1
+
+!URxvt*boldFont:             xft:Anonymous Pro:bold:size=13:antialias=true,xft:PowerlineSymbols
+!URxvt*font:             xft:Anonymous Pro:size=13:antialias=true
+!URxvt*letterSpace: 0
+
+!URxvt*boldFont:             xft:inconsolata:bold:pixelsize=15:antialias=true
+!URxvt*font:             xft:inconsolata:medium:pixelsize=15:antialias=true,xft:PowerlineSymbols
+!URxvt*letterSpace: 0
+
+!URxvt*boldFont:             xft:source code pro:bold:size=12:antialias=true
+!URxvt*font:             xft:source code pro:medium:size=12:antialias=true,xft:PowerlineSymbols
+!URxvt*letterSpace: -1
+
+URxvt*boldFont:             xft:hack:bold:pixelsize=15:antialias=true
+URxvt*font:             xft:hack:regular:pixelsize=15:antialias=true,xft:PowerlineSymbols 
+URxvt*letterSpace: -2
 
 ! == Scrolling related stuff
 URxvt.scrollBar:        0
@@ -48,6 +52,7 @@ URxvt*externalBorder:   0
 URxvt*cursorColor:      #DA1F26
 URxvt.background:       #000000
 URxvt.foreground:       #EBEBFF
+URxvt.depth:            32
 
 ! Copying text: ctrl+alt+c
 ! Pasting text: ctrl+alt+v
@@ -61,7 +66,7 @@ URxvt.foreground:       #EBEBFF
 URxvt.perl-ext:         default,url-select
 URxvt.keysym.M-u:       perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
-URxvt.url-select.underline: true
+URxvt.url-select.underline: false
 
 ! Xft Settings
 Xft.antialias: 1
