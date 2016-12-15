@@ -118,3 +118,45 @@ Functors and function pointers
 - Efficieny, cos functors can be inlined by making operator()
 function to be inline
 
+Global Functions:
+=================
+- We can make some functions like comparison functions '==',
+'!=', etc. global so that we can take advantage of implicit
+conversions.
+
+- We can also define constructors accepting single argument
+that converts objects to our own type which can be used in 
+conjunction with implicit conversions in global functions
+
+For example If we compare 2 objects, let's say a string and 
+a pointer to a c-style string, and if the comparison operators
+are global the compiler would automatically convert the 
+c-style string to a string object as long as there are such
+user defined functions available in order to make that conversion
+
+
+
+We hide constructors of iterator by making it private so that
+only the classes that have friendship declared on interator class itself
+can access it
+
+According to convention if it is post increment or decrement the compiler 
+will pass integer value therefore we use class::operator++(int) signature
+to distinguish between pre and post increment/decrement. Note the integer
+that has been passed. We don't make any use of it but it has been defined 
+as part of standard.
+
+For ROIterator we do not make constructor accepting single parameter as explicit
+because we want to allow automatic conversions from RWIterator to ROIterator
+This is specifically useful when making use of comparison operators that are made
+global so that the types are automatically converted from RWIterator to ROIterator 
+and makes comparison appropriately
+
+- Use name in prototype to make interface specification clear.
+    For example: void DArray(size_t inputSize);
+
+- If we make use of template and pass 2 or more type parameters we need to specify 
+our assumption in precondition section to clarify further
+
+- If we pass pointer * in functions its just passing a copy of the pointer, and if 
+we pass pointer as reference we are actually sending the exact pointer
