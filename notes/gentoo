@@ -89,4 +89,19 @@ Unmounting Partitions
 1) umount -R /mnt/gentoo
 
 
+Building packages for later use
+===============================
+Link: https://wiki.gentoo.org/wiki/Binary_package_guide
+a) i) add features="buildpkg" 
+   ii) emerge --buildpkg
 
+b) quickpkg
+
+
+Portage Stuff
+=============
+- A package that fails to be downloaded properly by portage
+due to link down or some other issue can be manually downloaded
+and put into the folder '/usr/portage/distfiles' and portage
+will automatically use that file, verify it and try to install
+it if the checksum matches

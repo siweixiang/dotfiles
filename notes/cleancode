@@ -1,80 +1,163 @@
-# Naming convention
+##################################################
+# Naming Convention                              #
+##################################################
 1) The name of a variable should be meaningful, it should
 tell us why it exists, what it does and how it is used.
+
 2) The name should reveal intent, if a comment is required
 to describe a name then we can assume that it is not
 meaningful enough
+
 3) Be specific when naming a variable, do not use a
 technical term which can mean something totally different
 from a programmers perspective
+
 4) If names must be different then they should also mean
 something different or should have meaningful distinction
 between them. For example: ProductData and ProductInfo may
 refer to the same thing and they are like noise words and
 noise words are unnecessary.
+
 5) Name variables in such a way so that the reader can
 understand the distinction and the differences they offer
 
-# Functions
+6) Pick one word per concept, example download/fetch/retrieve
+can all mean the same thing so better to stick with one and
+be consistent.
+
+7) Avoid using the same word for 2 purposes
+
+
+##################################################
+# Functions                                      #
+##################################################
 1) Try to make functions short, less than 20 lines
+
 2) Each function should only do one thing that is unique
    and meaningful at the same time
+
 3) One way to know if a function is doing more than one thing 
    can be detected by trying to extract another function out of 
    the existing function
+
 4) Functions should refactored to maintain a consistent level of 
    abstraction and the code should read like a top-down narrative
+
 5) Choose descriptive function names, each routine should do exactly
    what you expect it to and remain consistent with naming convention
+
 6) Try to keep number of function arguments to a minimum so that it is
    easier for testing ( <= 2 should be okay)
+
 7) It is a good rule to encode function argument names and combine
    it into function name
+
 8) Prefer exceptions over returning error code
+
 9) Extract try catch blocks into functions of their own for improved
    readability
+
 10) Function should do one thing, therefore a function that handles
     errors should do nothing else
 
-# Comments
+
+##################################################
+# Comments                                       #
+##################################################
 1) Before writing comments consider whether you can change existing
 code to be more meaningful and expressive so that you do not have to
 end up writing a comment. If not we try to make the comment to be as 
 meaningful as possible.
+
 2) Comments need to be updated everytime the current meaning of
 code has changed after being modified at a later stage
+
 3) "Clear and expressive code with few comments is superior over 
 cluttered and complex code with lots of comments. Rather than
 spending time writing comments to explain messy code, spend time
 cleaning up the mess"
+
 4) The only truly good comment is the comment you found a way
 to not write
+
 5) Use comments to act as a warning, for example why certain 
 function or feature is turned off or what could be the outcome
 if it is run, etc.
+
 6) TODO comments might be useful to keep as reminders in order
 to perhaps reimplment or refactor messy code or implement a
 feature, etc. But try to keep TODO comments at a minimum and
 put in the effort such that these are eliminated one by one
+
 7) Amplification: A comment can be used to amplify the importance
 of something that might not seem as that important
+
 8) If you decide to write a comment then put in the effort to
 make sure it is the best comment you can write
+
 9) Avoid writing comments that can be misleading. Says one thing
 with inaccurate precision or does something completely different
 in the code
+
 10) It's silly to comment every variable or function, for example
 in javadoc style..these not only make the code look more confusing
 but add clutter to code. Avoid them unless absolutely necessary.
+
 11) If you are using a version control system like git, it is 
 unnecessary to maintain log entries using comments at the start
 of every module: for example what features have been implemented
 on which date, what else needs to be done etc.
+
 12) Avoid writing noise comments by restating the obvious with
 no new information. Example: // Default constructor
+
 13) Avoid commenting out code, delete them when not necessary
 as it just adds clutter
+
 14) Make the comment about the local code or the code that is
 near, avoid describing system wide or general information
+
 15) Avoid writing too much information in the comment
+
 16) Avoid writing comment headers for functions that are small
+
+
+##################################################
+# Formatting                                     #
+##################################################
+1) Style and Discipline survives even if code does not. Formatting
+is important to be able to communicate the code better by improving
+readability
+
+// Vertical Formatting Guidelines
+=================================
+    2) "Concepts that are closely related should be kept vertially close
+    to one another. For concepts that are closely related Vertical separation 
+    should be a measure of how important each is to the understandability 
+    of the other"
+    
+    3) Variables should be declared as close to their code as possible
+    
+    4) Instance variables should be declared at the top of the class
+    
+    5) If one function calls another they should be vertically close.
+    The caller should be above the callee where possible, this gives
+    the program a natural flow and makes it easier to follow.
+    
+    6) Certain functions tend to have stronger conceptual affinity,
+    if that is the case they should have less vertical distance among
+    them. Affinity can be due to inter-dependence for example calling
+    each other or doing similar categories of operation(s) or sharing
+    the same naming scheme.
+    e.g: void assertInitialized();
+         void assertValidRanger();
+
+// Horizontal Formatting Guidelines
+===================================
+    7) Make sure the horizontal spacing is no more than 100-120
+    characters wide for each line
+    
+    8) Use common sense to indent accordingly. For example everything
+    inside a class is indented to the right, blocks within a function
+    are indented to the right of the function, etc.
+
