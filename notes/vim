@@ -20,7 +20,15 @@
     whatever you're doing press q again to store that macro in
     that key. Press @[key] to execute that macro on current
     line. [n]@[key] performs macro n number of times.
-
 16. m[any a-z character] sets the mark on the current line. E.g: 'ma' 
 17. '[marked character] jumps to marked line
 18. 'Shift+d' or 'D' deleted from current cursor to end of line
+19. 'zfap' or 'zf}' folds an entire paragraph or block
+20. 'zf[number]gg' folds from current cursor to the line number
+21. 'zo' opens fold on specific line
+22. 'zc' closes fold that already exists on specific line
+23. 'zr' automatically opens next fold without going to specific line
+23. 'zm' automatically closes next fold without going to specific line
+24. 'mkview [number]' e.g mkview 1, stores current state of folds in view 1
+     Note: each file can have maximum of upto 10 views
+25. 'loadview [number]' e.g loadview 1, loads current state of folds from view 1
