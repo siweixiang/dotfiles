@@ -1,47 +1,58 @@
-Wireless Connection from Commandline
-====================================
+##################################################
+# Wireless Connection from Commandline           #
+##################################################
+
 # Connecting to Wireless access pointr. Ctrl+A+C navigates to new screen session. Ctrl+A+A navigates back to previous window
 screen && wpa_supplicant -Dwext,nl80211 -i [interface] -c <(wpa_passphrase "SSID NAME" "PASSPHRASE");
+
 # If wifi access point has some captive portal use elinks / links / lynx (commandline browser) to enter credentials
 elinks http://192.168.1.1
 
 
+##################################################
+# Cloning Hard Disk:                             #
+##################################################
 
-Cloning Hard Disk:
-==================
 # Cloning 
 1) dd if=/dev/sdx conv=sync,noerror bs=64K| gzip -c > gentoo.img.gz
+
 # Creating hash file of image
 2) md5sum gentoo.img.gz > hash.txt
+
 # Storing hard disk info
 3) fdisk -l /dev/sdx > hdisk.info
 
-# Restoring 
-# verifying hash
+# Restoring & verifying hash
 1) md5sum -c hash.txt 
+
 # Restoring backed up image
 2) gunzip -c gentoo.img.gz | dd of=/dev/sdx
 
 
-Veracrypt
-=========
+##################################################
+# Veracrypt                                      #
+##################################################
+
 # Mounting from commandline
 1) veracrypt -t -k "" /dev/sdx /media/veracrypt1
+
 # Dismounting
 2) veracrypt -d
 
 
 
-Partitioning Drives
-===================
+##################################################
+# Partitioning Drives                            #
+##################################################
 fdisk /dev/sdx
 o (create new gpt partition)
 n (p,1,2048, +512M)
 n (p,2,default, default)
 n (2,8E(luks))
 
-Luks Encryption
-===============
+##################################################
+# Luks Encryption                                #
+##################################################
 1) cryptsetup luksFormat -v -c aes-xts-plain64 -i 10000  -s 512 -y -h sha512 /dev/sdx2
 2) cryptsetup open --type luks /dev/sdx2 lvm
 3) pvcreate /dev/mapper/lvm
@@ -49,14 +60,16 @@ Luks Encryption
 5) lvcreate -l 100%FREE [name] -n root
 6) mkfs.ext4 /dev/mapper/[name]-root 
 
-Mounting Partitions
-===================
+##################################################
+# Mounting Partitions
+##################################################
 1) mount /dev/mapper/[name]-root /mnt/gentoo
 2) mount /dev/sdx1 /mnt/gentoo/boot/
 
 
-Chrooting 
-=========
+##################################################
+# Chrooting                                      #
+##################################################
 mount -t proc proc /mnt/gentoo/proc
 mount --rbind /dev /mnt/gentoo/dev
 mount --make-rslave /mnt/gentoo/dev
@@ -70,8 +83,9 @@ export PS1="(chroot) $PS1"
 # Automated kernel compilation
 1) genkernel --menuconfig --save-config --luks --iscsi --lvm --install all
 
-Installing Bootloader
-=====================
+##################################################
+# Installing Bootloader                          #
+##################################################
 1) Edit /etc/default/grub and insert the following values
 # i8042.nopnp=1 is required for clickpads to work properly
 GRUB_CMDLINE_LINUX="crypt_root=/dev/sda1 real_root=/dev/mapper/[name]-root dolvm i915.enable_rc6=7 i915.enable_fbc=1 ipv6.disable=1 i915.enable_psr=1 i915.preliminary_hw_support=1 ath9k.ps_enable=1 i8042.nopnp=1"
@@ -84,13 +98,13 @@ GRUB_DISTRIBUTOR="Gentoo"
 2) grub2-install --modules="linux crypto search-fs_uuid luks lvm" --recheck --boot-directory=/boot --removable /dev/sdx
 3) grub2-mkconfig -o /boot/grub/grub.cfg'
 
-Unmounting Partitions
-=====================
+# Unmounting Partitions
 1) umount -R /mnt/gentoo
 
 
-Building packages for later use
-===============================
+##################################################
+# Building packages for later use                #
+##################################################
 Link: https://wiki.gentoo.org/wiki/Binary_package_guide
 a) i) add features="buildpkg" 
    ii) emerge --buildpkg
@@ -98,10 +112,18 @@ a) i) add features="buildpkg"
 b) quickpkg
 
 
-Portage Stuff
-=============
+##################################################
+# Portage Stuff                                  #
+##################################################
 - A package that fails to be downloaded properly by portage
 due to link down or some other issue can be manually downloaded
 and put into the folder '/usr/portage/distfiles' and portage
 will automatically use that file, verify it and try to install
 it if the checksum matches
+
+
+##################################################
+# Security Stuff                                 #
+##################################################
+1) Checking system for potential vulnerabilities:
+    glsa-check -t all

@@ -51,6 +51,23 @@ alias pen2="configure.sh wlan2 monitor"
 # Tmux shortcuts
 alias tmux="tmux -2"
 
+# Grep, Less, Other stuff
+alias L="less"
+alias G="grep"
+alias Gi="grep -i"
+alias E="vim"
+
+# Find Function
+FF() 
+{
+    if [[ $# = 1 ]]; then # FF "patten"
+        find . -type f -name $1
+    elif [[ $# = 2 ]]; then # FF "pattern" path
+        find $2 -type f -name $1
+    else
+        echo "[!] Search Failed: Invalid Arguments"
+    fi
+}
 
 # Pacman & Yaourt shortcuts 
 #alias pacu="pacman -Syyu --noconfirm"
@@ -98,7 +115,11 @@ alias qcu="dispatch-conf"
 alias qr="emerge --deselect $1 && emerge -aC"
 
 # Cleaning 
-alias qcl="emerge --depclean && eclean-dist"
+qcl() 
+{ 
+    emerge --depclean; 
+    eclean-dist --deep --package-names;
+}
 
 
 
@@ -132,7 +153,7 @@ alias youvp="youtube-dl --yes-playlist -f \"bestvideo[height<=?1080][vcodec!=vp9
 
 # MPV youtube playlist playback
 mpvp() {
-	playID="`echo -e "$1" | cut -d'=' -f3`";
+	playID="`echo -e "$1" | cut -d'=' -f2`";
 	mpv "https://www.youtube.com/playlist?list=$playID";
 }
 
