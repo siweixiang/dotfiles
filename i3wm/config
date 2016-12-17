@@ -85,6 +85,7 @@ bindsym $mod+o exec urxvtc -e 'youtube-viewer'
 bindsym $mod+g exec urxvtc -e firejail elinks 'https://classic.startpage.com'
 bindsym $mod+Shift+g exec urxvtc -e firejail elinks 'https://www.google.com/?hl=en'
 bindsym $mod+i	exec urxvtc -e 'wicd-curses'
+bindsym $mod+F3 exec urxvtc -e firejail elinks 'https://forums.gentoo.org/index.php'
 bindsym $mod+Shift+F4 exec urxvtc -e firejail elinks 'https://wiki.gentoo.org/wiki/Main_Page'
 bindsym $mod+F4 exec urxvtc -e firejail elinks 'https://wiki.archlinux.org/index.php'
 bindsym $mod+Shift+w exec wireshark-gtk
@@ -120,7 +121,9 @@ exec --no-startup-id pulseaudio
 exec --no-startup-id compton -b
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id  dunst -conf ~/.config/dunst/dunstrc
-exec --no-startup-id "blueman-applet &"
+exec --no-startup-id urxvtd -q -o -f
+exec --no-startup-id xrdb -merge ~/.Xresources
+#exec --no-startup-id "blueman-applet &"
 #exec --no-startup-id udiskie -2 -s -t & 
 #exec --no-startup-id mount-gtk -s & 
 #exec --no-startup-id wicd-gtk
