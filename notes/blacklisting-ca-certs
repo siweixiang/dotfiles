@@ -1,0 +1,4 @@
+Perform all operations as root:
+1) Edit /etc/ca-certificates.conf
+2) Comment out untrusted certificate with #
+3) Run update-ca-certificates -f

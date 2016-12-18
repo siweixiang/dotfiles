@@ -11,13 +11,33 @@ URxvt.termName:         rxvt-256color
 URxvt.perl-ext-common:  default,matcher,selection-to-clipboard
 URxvt.matcher.button:   1
 
-!URxvt*font:             9x15,xft:PowerlineSymbols 
-!URxvt*boldFont:         9x15bold 
-!URxvt*letterSpace: 0
+URxvt*font:             xft:Roboto Mono for Powerline:Regular:size=11
+URxvt*boldFont:             xft:Roboto Mono for Powerline:Bold:size=11
+URxvt*italicFont:           xft:Roboto Mono for Powerline:Italic:size=11
+URxvt*letterSpace: -1
 
 !URxvt*font:             xft:Fantasque Sans Mono:regular:size=13
 !URxvt*boldFont:             xft:Fantasque Sans Mono:bold:size=13
 !URxvt*letterSpace: -1
+
+
+!URxvt*font:             xft:monofur for Powerline:Regular:size=13
+!URxvt*boldFont:             xft:monofur for Powerline:bold:size=13
+!URxvt*letterSpace: 0
+
+!URxvt*font:             xft:Cousine for Powerline:Regular:size=11
+!URxvt*boldFont:             xft:Cousine for Powerline:Bold:size=11
+!URxvt*italicFont:           xft:Cousine for Powerline:Bold Italic:size=11
+!URxvt*letterSpace: -2
+
+!URxvt*font:             xft:Fira Mono for Powerline:Regular:size=12
+!URxvt*boldFont:             xft:Fira Mono for Powerline:Bold:size=12
+!URxvt*letterSpace: -2
+
+!URxvt*font:             xft:Liberation Mono for Powerline:Regular:size=11
+!URxvt*boldFont:             xft:Liberation Mono for Powerline:Bold:size=11
+!URxvt*letterSpace: -2
+
 
 !URxvt*font:             xft:Anonymice Powerline:Regular:size=12
 !URxvt*boldFont:             xft:Anonymice Powerline Bold:Bold:size=12
@@ -26,10 +46,6 @@ URxvt.matcher.button:   1
 !URxvt*font:             xft:Terminess Powerline:Regular:size=12
 !URxvt*boldFont:             xft:Terminess Powerline:Bold:size=12
 !URxvt*letterSpace: 0
-
-URxvt*font:             xft:Roboto Mono for Powerline:Regular:size=11
-URxvt*boldFont:             xft:Roboto Mono for Powerline:Bold:size=11
-URxvt*letterSpace: -1
 
 !URxvt*font:                 xft:Droid Sans Mono Slashed for Powerline:pixelsize=14:antialias=true:hinting=true:autohint=true
 !URxvt*boldFont:             xft:Droid Sans Mono Slashed for Powerline:pixelsize=14:antialias=true:hinting=true:autohint=true
@@ -63,7 +79,7 @@ URxvt*externalBorder:   0
 URxvt*cursorColor:      #DA1F26
 URxvt.background:       #000000
 URxvt.foreground:       #EBEBFF
-!URxvt.depth:            32
+URxvt.depth:            32
 URxvt.perl-ext:         default,url-select
 URxvt.keysym.M-u:       perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
