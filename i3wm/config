@@ -10,11 +10,12 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+#set $mod Mod1
 
 # Removin window title bars
-for_window [class="^.*"] border pixel 2
-for_window [class="Chromium"] border none floating disable
-for_window [class="Firefox"] border none floating disable
+for_window [class="^.*"] border pixel 1
+for_window [class="Chromium"] border none pixel 1 floating disable
+for_window [class="Firefox"] border none pixel 1 floating disable
 
 hide_edge_borders both
 new_window normal 2
@@ -41,9 +42,10 @@ set $red                #CC6666
 set $darkred            #A54242
 set $green              #B5BD56
 set $customRed          #E4E3ED
+set $orange             #BE6129 
 
 #class                  border      backgr.     text        split
-client.focused          $white     $white       $black      $red
+client.focused          $orange     $orange     $white      $red
 client.focused_inactive $grey       $grey       $lightgrey  $grey
 client.unfocused        $grey       $grey       $lightgrey  $grey
 client.urgent           $red        $red        $black      $red
@@ -317,7 +319,7 @@ bar {
 	    statusline #E4E3ED
             separator #666666
 
-            focused_workspace  #852C2F #DA1F26 #ffffff
+            focused_workspace  #852C2F #D65D0E #ffffff
             active_workspace   #333333 #5f676a #ffffff
             inactive_workspace #333333 #222222 #888888
             urgent_workspace   #2f343a #900000 #ffffff
