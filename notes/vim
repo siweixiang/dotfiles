@@ -32,3 +32,8 @@
 24. 'mkview [number]' e.g mkview 1, stores current state of folds in view 1
      Note: each file can have maximum of upto 10 views
 25. 'loadview [number]' e.g loadview 1, loads current state of folds from view 1
+26. 'ZZ' save and exit current file
+27. 'ZQ' discard changes and exit current file
+28. '~' in visual mode switches case of selected text or character under cursor
+        in normal mode
+29. 'I' insert at the beginning of line in normal mode
