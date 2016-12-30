@@ -21,19 +21,36 @@
     that key. Press @[key] to execute that macro on current
     line. [n]@[key] performs macro n number of times.
 16. m[any a-z character] sets the mark on the current line. E.g: 'ma' 
-17. '[marked character] jumps to marked line
-18. 'Shift+d' or 'D' deleted from current cursor to end of line
-19. 'zfap' or 'zf}' folds an entire paragraph or block
-20. 'zf[number]gg' folds from current cursor to the line number
-21. 'zo' opens fold on specific line
-22. 'zc' closes fold that already exists on specific line
-23. 'zr' automatically opens next fold without going to specific line
-23. 'zm' automatically closes next fold without going to specific line
-24. 'mkview [number]' e.g mkview 1, stores current state of folds in view 1
+17. '[marked character]' jumps to marked line
+18. 'delmarks [character]' deletes specific mark that is mapped
+     to that character
+19. Lower case marks are stored within that file, Uppers case marks
+    are stored across different files and can be accessed from anywhere
+20. Numbers 0-9 represent marks used by vim to keep track of where 
+    the cursor was most recently, useful for making jumps
+21. 'Shift+d' or 'D' deleted from current cursor to end of line
+22. 'zfap' or 'zf}' folds an entire paragraph or block
+23. 'zf[number]gg' folds from current cursor to the line number
+24. 'zo' opens fold on specific line
+25. 'zc' closes fold that already exists on specific line
+26. 'zr' automatically opens next fold without going to specific line
+27. 'zm' automatically closes next fold without going to specific line
+28. 'mkview [number]' e.g mkview 1, stores current state of folds in view 1
      Note: each file can have maximum of upto 10 views
-25. 'loadview [number]' e.g loadview 1, loads current state of folds from view 1
-26. 'ZZ' save and exit current file
-27. 'ZQ' discard changes and exit current file
-28. '~' in visual mode switches case of selected text or character under cursor
+29. 'loadview [number]' e.g loadview 1, loads current state of folds from view 1
+30. 'ZZ' save and exit current file
+31. 'ZQ' discard changes and exit current file
+32. '~' in visual mode switches case of selected text or character under cursor
         in normal mode
-29. 'I' insert at the beginning of line in normal mode
+33. 'I' insert at the beginning of line in normal mode
+34. 'gd' Go to declaration, useful to find where a specific function
+    under the cursor was declared without manually jumping to that spot
+35. '[n]<C-x>' or '[n]<C-a>' Decrements or Increments number on a given
+line by the specified amount
+36. 'db' deletes word backword or 'dw' deletes word forwards
+37. 'da)' or 'da}' deletes everything within and including the specified
+parenthesis
+38. 'di)' or 'di}' deletes everything except the specified parenthesis that is
+bounded by it
+39. 'U' converts selected text to uppercase and 'u' to lowercase
+
