@@ -127,3 +127,10 @@ it if the checksum matches
 ##################################################
 1) Checking system for potential vulnerabilities:
     glsa-check -t all
+
+
+##################################################
+# Timezone                                       #
+##################################################
+1) Edit /etc/timezone: Asia/City
+2) Run 'emerge --config timezone-data'

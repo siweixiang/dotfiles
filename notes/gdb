@@ -15,3 +15,12 @@
 7) br [line number]
     e.g: br 10
     Breaks at the speified line number
+8) 'info locals' to show value of current variables
+9) 'x/10i $eip' shows next 10 instructions of eip
+10) 'x/s $register' shows the string value stored in specified register
+11) 'x/cb $register' show character value in register
+12) 'i r $register' shows info about particular register
+13) 'disas main' disassembles instruction of function main
+14) 'bt' is used to show output of stack backtrace
+15) 'cont' continues running the program until next breakpoint
+
