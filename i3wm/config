@@ -147,6 +147,8 @@ exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id  dunst -conf ~/.config/dunst/dunstrc
 exec --no-startup-id urxvtd -q -o -f
 exec --no-startup-id xrdb -load ~/.Xresources
+exec --no-startup-id unclutter -idle 3 -root
+exec --no-startup-id redshift
 #exec --no-startup-id "blueman-applet &"
 #exec --no-startup-id udiskie -2 -s -t & 
 #exec --no-startup-id mount-gtk -s & 
