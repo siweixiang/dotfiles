@@ -4,8 +4,8 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Turning on Line numbers
 set number
 
-" This wraps our text after 70 characters
-set textwidth=60
+" This wraps our text after 80 characters
+set textwidth=80
 
 " This wraps single lines that extend too far
 set wrap
@@ -38,9 +38,9 @@ nnoremap $ g$
 
 " Turning on syntax highlighting 
 syntax on
-set termguicolors
-highlight Normal ctermbg=NONE guibg=NONE 
-highlight NonText ctermbg=NONE guibg=NONE
+"set termguicolors
+"highlight Normal ctermbg=NONE guibg=NONE 
+"highlight NonText ctermbg=NONE guibg=NONE
 
 
 " For solarized theme, make sure it's installed first
@@ -80,15 +80,81 @@ Plugin 'Valloric/YouCompleteMe'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 
-Plugin 'bling/vim-airline'
+"Plugin 'itchyny/lightline.vim'
+"
+"" lightline configuration
+"let g:lightline = {
+"      \ 'colorscheme': 'paper',
+"      \ 'mode_map': { 'c': 'NORMAL' },
+"      \ 'active': {
+"      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+"      \ },
+"      \ 'component_function': {
+"      \   'modified': 'LightlineModified',
+"      \   'readonly': 'LightlineReadonly',
+"      \   'fugitive': 'LightlineFugitive',
+"      \   'filename': 'LightlineFilename',
+"      \   'fileformat': 'LightlineFileformat',
+"      \   'filetype': 'LightlineFiletype',
+"      \   'fileencoding': 'LightlineFileencoding',
+"      \   'mode': 'LightlineMode',
+"      \ },
+"      \ }
+"
+"function! LightlineModified()
+"  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+"endfunction
+"
+"function! LightlineReadonly()
+"  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+"endfunction
+"
+"function! LightlineFilename()
+"  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+"        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+"        \  &ft == 'unite' ? unite#get_status_string() :
+"        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+"        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+"        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+"endfunction
+"
+"function! LightlineFugitive()
+"  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+"    let branch = fugitive#head()
+"    return branch !=# '' ? '⭠ '.branch : ''
+"  endif
+"  return ''
+"endfunction
+"
+"function! LightlineFileformat()
+"  return winwidth(0) > 70 ? &fileformat : ''
+"endfunction
+"
+"function! LightlineFiletype()
+"  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+"endfunction
+"
+"function! LightlineFileencoding()
+"  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+"endfunction
+"
+"function! LightlineMode()
+"  return winwidth(0) > 60 ? lightline#mode() : ''
+"endfunction
+"
+"" Required to remove vim's default status bar since
+"" we are using lightline plugin as status
+set noshowmode
+
+
+" Airline Plugin
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'gruvbox'
+"let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
-
-
-
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_theme='badcat'
 
 
 
@@ -98,6 +164,7 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 
 " EasyMotion
 Plugin 'easymotion/vim-easymotion'
@@ -126,8 +193,7 @@ let g:UltiSnipsListSnippets="<c-d>"
 Plugin 'morhetz/gruvbox'
 Plugin 'joshdick/onedark.vim'
 Plugin 'jacoborus/tender.vim'
-Plugin 'frankier/neovim-colors-solarized-truecolor-only'
-
+Plugin 'w0ng/vim-hybrid'
 "Plugin 'vim-scripts/Solarized'
 set background=dark
 "let g:solarized_termcolors=256
@@ -171,6 +237,13 @@ endfun
 
 autocmd BufWritePre * call LastModified()
 
+" Preloading author/license info from $VIMHOME
+" mkdir ~/.vim/templates 
+" put cpp.tpl, py.tpl, etc. in templates folder
+" that automatically get proloaded when creating
+" new file with that extension
+let $VIMHOME = $HOME."/.vim/"
+autocmd BufNewFile * silent! 0r $VIMHOME/templates/%:e.tpl
 
 
 " For further vim extensability go through this page for useful plugin list for c/c++:
@@ -179,10 +252,9 @@ autocmd BufWritePre * call LastModified()
 "This is needed for vim colors to work properly inside tmux,
 " to fall back to supporting 256 colors only as 24bit support
 " is still a work in progress for tmux
-set t_Co=256
-set t_ut=
-colorscheme gruvbox
-"colorscheme onedark
+"set t_Co=256
+"set t_ut=
+colorscheme hybrid
 
 " Brief help
 " :PluginList       - lists configured plugins
