@@ -1,0 +1,72 @@
+# mpv version >= 0.23
+
+hwdec=vaapi
+sws-scaler=gauss
+stop-screensaver=yes
+
+# Default, average quality
+vo=opengl
+
+# Higher quality
+gamma-auto
+scale=spline36
+scale-antiring=0.5
+temporal-dither
+blend-subtitles=yes
+target-prim=bt.709
+target-trc=srgb
+opengl-gamma=1.25
+opengl-glfinish
+
+# Enable the options below to increase video quality
+# It will increase power consumption dramatically
+interpolation
+video-sync=display-resample
+
+# Highest quality (Only for dedicated graphics card like nVidia/Radeon)
+#vo=opengl-hq:scale=ewa_lanczossharp:scale-antiring=0.5:target-prim=bt.709:target-trc=srgb:gamma=1.25:blend-subtitles=yes:interpolation:dither-depth=8:video-sync=display-resample
+
+
+
+ao=pulse
+msg-level=vd=debug
+fullscreen=yes
+
+
+#ytdl-format=bestvideo[height<=?1080][vcodec!=vp9]+bestaudio/best
+#ytdl-format=bestvideo[height<=?720][vcodec!=vp9]+bestaudio/best
+ytdl-format="299+bestaudio/137+bestaudio/298+bestaudio/136+bestaudio/22/best"
+#ytdl-format=bestvideo[ext=mp4]+bestaudio[ext=m4a]
+
+
+#########
+# Cache #
+#########
+cache=yes
+cache-default=100000                     # size in KB
+#cache-backbuffer=25000                 # size in KB
+cache-initial=0                         # start playback when your cache is filled up with x kB
+cache-secs=10                           # how many seconds of audio/video to prefetch if the cache is active
+
+# the following options only apply to subtitles without own styling (i.e. not ASS but e.g. SRT)
+sub-font="Fantasque Sans Mono Regular"
+sub-font-size=25
+sub-color="#E1D7D7"
+#sub-color="#FFFFFF"
+
+# Yellow subtitle
+#sub-color="#EBAF30"
+#
+sub-border-color="#1D1812"
+sub-border-size=3
+sub-shadow-offset=3
+sub-shadow-color="#33000000"
+sub-spacing=0
+slang=en,eng
+
+no-resume-playback
+#save-position-on-quit
+no-border                               # no window title bar
+msg-module                              # prepend module name to log messages
+msg-color                               # color log messages on terminal
+
