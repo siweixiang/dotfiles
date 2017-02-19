@@ -55,7 +55,12 @@ alias tmux="tmux -2"
 alias L="less"
 alias G="grep"
 alias Gi="grep -i"
+
+# Shortcut to check specified FLAG on running kernel config
+KC() {zgrep $1 /proc/config.gz}
+
 alias E="vim"
+alias Wee="TERM='tmux-256color' && weechat"
 
 # Find Function
 FF() 
@@ -103,7 +108,7 @@ alias qum="emerge --ask --autounmask-write $1"
 alias qu="emerge --sync"
 
 # Installing updates
-alias qui="emerge -uDNAav --with-bdeps=y @world"
+alias qui="emerge -uDNAav --quiet --keep-going --with-bdeps=y @world"
 
 # Installing package
 alias qi="emerge -av $1"
@@ -113,6 +118,10 @@ alias qcu="dispatch-conf"
 
 # Removing package
 alias qr="emerge --deselect $1 && emerge -aC"
+
+# Select current top 5 fastest mirrors among Asian servers
+alias mirror-http="mirrorselect -R 'Asia' -s5 -b10 -D"
+alias mirror-rsync="mirrorselect -i -r -o >> /etc/portage/repos.conf/gentoo.conf"
 
 # Cleaning 
 qcl() 
@@ -129,7 +138,6 @@ qcl()
 alias ckill="killall chrome; ps aux |  grep chrome | grep -v 'grep' | awk '{print $2}' | xargs kill;"
 
 
-alias mount="mount | column -t"
 
 # Install scrot and pbpst
 alias scrotp="scrot -cd5 /tmp/screenshot.png && pbpst -S -e png -f /tmp/screenshot.png"
@@ -167,11 +175,15 @@ dmg() { dmesg --color=always | less }
 #wkill() {systemctl stop NetworkManager.service; rfkill block wifi all}
 getlog() {grep -A3 -i $1 ~/.weechat/logs/*log | grep -v joined | grep -v "has quit" | cut -f2,3 | less}
 getip() {grep -i $1 ~/.weechat/logs/*log | grep "joined" | cut -f3 | sort| uniq -u}
+
+# Requires root access
+cpuinfo() {watch -n1 cpupower monitor}
 #wkill() {systemctl stop wicd.service; rfkill block wifi all}
 wkill() {/etc/init.d/NetworkManager stop; rfkill block wifi all}
 wstart() {rfkill unblock wifi all; fix0; /etc/init.d/NetworkManager start}
 wnet() {netstat "-naultp"}
 wmon() {nethogs "wlan0"}
+
 
 Lss() {livestreamer "$1" "source"}
 Lsh() {livestreamer "$1" "high"}
@@ -188,6 +200,29 @@ alias trr="tr -cd '[:print:]' < $1"
 
 alias lsb="lsblk -f"
 
+# Short form of the following command
+# ls /path | grep 'pattern'
+# Example: lsg Downloads rar
+lsg() {
+    if [ $# = 2 ];
+    then
+        ls $1 | grep $2;
+    else
+        exit 1;
+    fi
+}
+
+
+psg() {
+    if [ $# = 1 ];
+    then
+        sleep 0.1;
+        ps aux | grep -i $1;
+    else
+        exit 1;
+    fi
+}
+
 # G++ compiling and stuff
 # Cm [output filename]
 alias Cm="g++ -std=c++11 -ggdb *.cpp -o $1"
@@ -202,19 +237,41 @@ n() {
     $EDITOR ~/notes/"$*"
   fi
 }
+
 nls() {
   ls -c ~/notes/ | grep "$*"
 }
+
 ns() {
 	egrep -RHi "$*" ~/notes/*
 }
+
 nrd() {
   cat ~/notes/"$*"
 }
-nwr() {
-  $EDITOR ~/notes/"$*"
-}
 
+
+status() {
+    { echo -e "\nuptime:"
+      uptime
+      echo -e "\ndisk space:"
+      df -h 2> /dev/null
+      echo -e "\ninodes:"
+      df -i 2> /dev/null
+      echo -e "\nblock devices:"
+      blkid
+      echo -e "\nmemory:"
+      free -m
+      if [[ -r /var/log/syslog ]]; then
+        echo -e "\nsyslog:"
+        tail /var/log/syslog
+      fi
+      if [[ -r /var/log/messages ]]; then
+        echo -e "\nmessages:"
+        tail /var/log/messages
+      fi
+    } | less
+}
 
 # Pyrit functions for WPA handshakes
 # pirate [source] [destination] [BSSID]

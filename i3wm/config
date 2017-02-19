@@ -138,6 +138,7 @@ bindsym $mod+Shift+F5 exec "xrandr --output VIRTUAL1 --off --output eDP1 --off -
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id "dbus-launch nm-applet &"
+exec --no-startup-id "dbus-launch blueman-applet &"
 exec --no-startup-id parcellite
 exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
@@ -149,7 +150,6 @@ exec --no-startup-id urxvtd -q -o -f
 exec --no-startup-id xrdb -load ~/.Xresources
 exec --no-startup-id unclutter -idle 3 -root
 exec --no-startup-id redshift
-#exec --no-startup-id "blueman-applet &"
 #exec --no-startup-id udiskie -2 -s -t & 
 #exec --no-startup-id mount-gtk -s & 
 #exec --no-startup-id wicd-gtk
@@ -260,7 +260,11 @@ for_window [class="(?i)Wicd"] floating enable border normal
 for_window [class="Gpicview"] floating enable border normal
 for_window [class="Arandr"] floating enable border normal
 for_window [class="URxvt"] floating disable border pixel 1
-#for_window [class="mpv"] floating enable border normal
+for_window [class="blueman-manager"] floating enable border normal
+
+# To always move video to workspace 5, regardless of 
+# where it is launched from
+#for_window [class="mpv"] move container to workspace 5
 
 # reload the configuration file
 #bindsym $mod+Shift+c reload
