@@ -121,6 +121,11 @@ and put into the folder '/usr/portage/distfiles' and portage
 will automatically use that file, verify it and try to install
 it if the checksum matches
 
+- --oneshot flag will emerge the given package but will not add it
+world favorites file so next time depclean is run that package will
+be automatically removed. This flag is good for dependencies that might
+have issues thus this flag can temporarily solve problems
+
 
 ##################################################
 # Security Stuff                                 #
@@ -134,3 +139,11 @@ it if the checksum matches
 ##################################################
 1) Edit /etc/timezone: Asia/City
 2) Run 'emerge --config timezone-data'
+
+
+##################################################
+# Kernel Hacking                                 #
+##################################################
+1) make localmodconfig  - Update current config disabling modules not loaded
+2) make localyesconfig  - Update current config converting local mods to core
+

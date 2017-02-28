@@ -1,4 +1,9 @@
-GRUB_CMDLINE_LINUX="crypt_root=/dev/sda1 real_root=/dev/mapper/divine-root dolvm i915.enable_rc6=7 i915.enable_fbc=1 ipv6.disable=1 i915.enable_psr=1 i915.preliminary_hw_support=1 ath9k.ps_enable=1 i8042.nopnp=1"
+GRUB_CMDLINE_LINUX="crypt_root=/dev/sda1 real_root=/dev/mapper/divine-root dolvm i915.enable_rc6=1 i915.edp_vswing=1 i915.enable_fbc=1 ipv6.disable=1 i915.enable_psr=1 i915.preliminary_hw_support=1 ath9k.ps_enable=1 i8042.nopnp=1 intel_iommu=igfx_off quiet"
+
+# intel_iommu=igfx_off //This is required to prevent crashes due to 4k video on braswell hardware
+# i8042.nopnp=1 //This is required to enable detection of clickpads and make them work properly
+# net.ifnames=0 // Disables renaming of network interfaces
+
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
