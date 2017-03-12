@@ -91,7 +91,8 @@ bindsym $mod+b workspace back_and_forth
 
 # Start Applications
 bindsym $mod+p exec pavucontrol
-bindsym $mod+c exec  firejail --seccomp firefox
+bindsym $mod+c exec firefox
+#bindsym $mod+c exec  firejail --seccomp firefox
 bindsym $mod+F1 exec pcmanfm
 bindsym $mod+n exec nitrogen 
 bindsym $mod+F2 exec urxvtc -e ranger
@@ -100,7 +101,7 @@ bindsym $mod+Shift+m exec firejail thunderbird
 bindsym $mod+y exec /usr/bin/mpv-nodialog.sh
 bindsym $mod+u exec /usr/bin/open-elinks.sh
 bindsym $mod+Shift+u exec /usr/bin/getpic.sh
-bindsym $mod+Ctrl+k exec --no-startup-id compton -b
+#bindsym $mod+Ctrl+k exec --no-startup-id compton -b
 bindsym $mod+t exec firejail --seccomp transmission-gtk
 bindsym $mod+Shift+v exec Virtualbox
 bindsym $mod+o exec urxvtc -e 'youtube-viewer'
@@ -111,9 +112,14 @@ bindsym $mod+F3 exec urxvtc -e firejail elinks 'https://forums.gentoo.org/index.
 bindsym $mod+Shift+F4 exec urxvtc -e firejail elinks 'https://wiki.gentoo.org/wiki/Main_Page'
 bindsym $mod+F4 exec urxvtc -e firejail elinks 'https://wiki.archlinux.org/index.php'
 bindsym $mod+Shift+w exec wireshark-gtk
-bindsym XF86MonBrightnessUp  exec "xbacklight -dec 5";
-bindsym XF86MonBrightnessDown  exec "xbacklight -inc 5";
-bindsym $mod+Shift+s  exec "xbacklight -set 1";
+#bindsym XF86MonBrightnessUp  exec "xbacklight -dec 5";
+#bindsym XF86MonBrightnessDown  exec "xbacklight -inc 5";
+
+# Modesetting driver doesn't have xbacklight control,
+# so changing brightness manually
+bindsym XF86MonBrightnessUp  exec "xbacklight_ddx.sh dec";
+bindsym XF86MonBrightnessDown  exec "xbacklight_ddx.sh inc";
+bindsym $mod+Shift+s  exec "xbacklight_ddx.sh min";
 
 bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -10%";
 bindsym XF86AudioRaiseVolume  exec "pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +10%";
@@ -138,11 +144,10 @@ bindsym $mod+Shift+F5 exec "xrandr --output VIRTUAL1 --off --output eDP1 --off -
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id "dbus-launch nm-applet &"
-exec --no-startup-id "dbus-launch blueman-applet &"
+#exec --no-startup-id "dbus-launch blueman-applet &"
 exec --no-startup-id parcellite
 exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
-# exec --no-startup-id blueman
 exec --no-startup-id compton -b
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id  dunst -conf ~/.config/dunst/dunstrc

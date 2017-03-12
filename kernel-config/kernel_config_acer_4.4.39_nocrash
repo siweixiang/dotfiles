@@ -6,6 +6,7 @@
 # 2) Trimmed kernel with 'make localmodconfig && make localyesconfig'
 # 3) Removed third party 'mei_txe', 'proc_thermal' and 
 #    bluetooth modules to make things more secure and stable
+# 4) Removed MMC support as its considered unstable
 
 #
 # Gentoo Linux
@@ -1224,8 +1225,7 @@ CONFIG_BLK_DEV=y
 # CONFIG_BLK_DEV_FD is not set
 # CONFIG_PARIDE is not set
 # CONFIG_BLK_DEV_PCIESSD_MTIP32XX is not set
-CONFIG_BLK_CPQ_CISS_DA=y
-CONFIG_CISS_SCSI_TAPE=y
+# CONFIG_BLK_CPQ_CISS_DA is not set
 # CONFIG_BLK_DEV_DAC960 is not set
 # CONFIG_BLK_DEV_UMEM is not set
 # CONFIG_BLK_DEV_COW_COMMON is not set
@@ -1239,9 +1239,7 @@ CONFIG_BLK_DEV_SX8=y
 CONFIG_BLK_DEV_RAM=y
 CONFIG_BLK_DEV_RAM_COUNT=16
 CONFIG_BLK_DEV_RAM_SIZE=16384
-CONFIG_CDROM_PKTCDVD=y
-CONFIG_CDROM_PKTCDVD_BUFFERS=8
-# CONFIG_CDROM_PKTCDVD_WCACHE is not set
+# CONFIG_CDROM_PKTCDVD is not set
 # CONFIG_ATA_OVER_ETH is not set
 # CONFIG_VIRTIO_BLK is not set
 # CONFIG_BLK_DEV_HD is not set
@@ -2981,7 +2979,7 @@ CONFIG_USB_EHCI_PCI=y
 # CONFIG_USB_ISP1362_HCD is not set
 # CONFIG_USB_FOTG210_HCD is not set
 # CONFIG_USB_OHCI_HCD is not set
-CONFIG_USB_UHCI_HCD=y
+# CONFIG_USB_UHCI_HCD is not set
 # CONFIG_USB_SL811_HCD is not set
 # CONFIG_USB_R8A66597_HCD is not set
 # CONFIG_USB_HCD_TEST_MODE is not set
@@ -3074,36 +3072,7 @@ CONFIG_USB_STORAGE=y
 # CONFIG_USB_GADGET is not set
 CONFIG_USB_LED_TRIG=y
 # CONFIG_UWB is not set
-CONFIG_MMC=y
-# CONFIG_MMC_DEBUG is not set
-
-#
-# MMC/SD/SDIO Card Drivers
-#
-CONFIG_MMC_BLOCK=y
-CONFIG_MMC_BLOCK_MINORS=8
-CONFIG_MMC_BLOCK_BOUNCE=y
-# CONFIG_SDIO_UART is not set
-# CONFIG_MMC_TEST is not set
-
-#
-# MMC/SD/SDIO Host Controller Drivers
-#
-CONFIG_MMC_SDHCI=y
-CONFIG_MMC_SDHCI_PCI=y
-CONFIG_MMC_RICOH_MMC=y
-CONFIG_MMC_SDHCI_ACPI=y
-# CONFIG_MMC_SDHCI_PLTFM is not set
-# CONFIG_MMC_WBSD is not set
-CONFIG_MMC_TIFM_SD=y
-# CONFIG_MMC_SDRICOH_CS is not set
-# CONFIG_MMC_CB710 is not set
-# CONFIG_MMC_VIA_SDMMC is not set
-# CONFIG_MMC_VUB300 is not set
-# CONFIG_MMC_USHC is not set
-# CONFIG_MMC_USDHI6ROL0 is not set
-# CONFIG_MMC_TOSHIBA_PCI is not set
-# CONFIG_MMC_MTK is not set
+# CONFIG_MMC is not set
 # CONFIG_MEMSTICK is not set
 CONFIG_NEW_LEDS=y
 CONFIG_LEDS_CLASS=y
@@ -3529,8 +3498,8 @@ CONFIG_F2FS_FS_XATTR=y
 CONFIG_F2FS_FS_POSIX_ACL=y
 CONFIG_F2FS_FS_SECURITY=y
 CONFIG_F2FS_CHECK_FS=y
-CONFIG_F2FS_FS_ENCRYPTION=y
-CONFIG_F2FS_IO_TRACE=y
+# CONFIG_F2FS_FS_ENCRYPTION is not set
+# CONFIG_F2FS_IO_TRACE is not set
 # CONFIG_FS_DAX is not set
 CONFIG_FS_POSIX_ACL=y
 CONFIG_EXPORTFS=y
