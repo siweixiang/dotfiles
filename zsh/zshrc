@@ -47,6 +47,10 @@ alias pen0="configure.sh wlan0 monitor"
 alias pen1="configure.sh wlan1 monitor"
 alias pen2="configure.sh wlan2 monitor"
 
+# Mounting filesystem in async mode which allows
+# 1) Faster transfer for data 5-6x that of sync mode
+# 2) Sync mode reduces lifespan of flash devices so async better
+alias mrem="sudo mount -o async"
 
 # Tmux shortcuts
 alias tmux="tmux -2"
@@ -56,8 +60,32 @@ alias L="less"
 alias G="grep"
 alias Gi="grep -i"
 
+# Turning off screen blanking & powersaving
+# Useful when you are reading a book / doing something
+# and don't want the screen to poweroff
+alias xs="xset -dpms s off"
+
 # Shortcut to check specified FLAG on running kernel config
 KC() {zgrep $1 /proc/config.gz}
+
+# Shortcut for removing kernel & dependencies
+rmkern() {
+    eselect_version=$(eselect kernel list | grep $1 | cut -d'*' -f1 | cut -d']' -f2) | tr -d "[:space:]";
+    kern_version=$(echo $eselect_version | cut -d '-' -f2);
+    module_version=$(printf "%s-gentoo" $kern_version);
+    revision=$(echo $eselect_version | cut -d '-' -f4);
+    portage_version=$(echo "sys-kernel/gentoo-sources-$kern_version");
+
+    if [ ! -z $revision ]; then # If string not null
+        portage_version=$(printf "%s-%s" $portage_version $revision);
+    fi
+
+    emerge -aC $portage_version;
+    find /usr/src/ -name "*$kern_version*" | xargs 'rm -rvf';
+    rm -rvf /lib/modules/$module_version;
+    find /boot -name "*$kern_version*" | xargs rm;
+    grub-mkconfig -o /boot/grub/grub.cfg;
+}
 
 alias E="vim"
 alias Wee="TERM='tmux-256color' && weechat"
@@ -113,11 +141,12 @@ alias qui="emerge -uDNAav --quiet --keep-going --with-bdeps=y @world"
 # Installing package
 alias qi="emerge -av $1"
 
+
 # Dispatch-conf shortcut for updating configurations
 alias qcu="dispatch-conf"
 
 # Removing package
-alias qr="emerge --deselect $1 && emerge -aC"
+alias qr="emerge --deselect $1 && emerge -aC $1"
 
 # Select current top 5 fastest mirrors among Asian servers
 alias mirror-http="mirrorselect -R 'Asia' -s5 -b10 -D"
@@ -169,7 +198,12 @@ mpvp() {
 alias kin="k2pdfopt $1 -dev kp2 -cmax 2 -s -g 0.5 -wt -1 -wrap+ -hy -ws -0.2"
 # Wget with proper output file naming
 wgetc() {wget -c --content-disposition $1}
+
+# Dmesg stuff
+dme() { dmesg --color=always --level=err }
+dmf() { dmesg --color=always -w }
 dmg() { dmesg --color=always | less }
+dms() { dmesg --color=always | grep -i $1 }
 
 # Custom Functions that I use regularly
 #wkill() {systemctl stop NetworkManager.service; rfkill block wifi all}
@@ -181,7 +215,7 @@ cpuinfo() {watch -n1 cpupower monitor}
 #wkill() {systemctl stop wicd.service; rfkill block wifi all}
 wkill() {/etc/init.d/NetworkManager stop; rfkill block wifi all}
 wstart() {rfkill unblock wifi all; fix0; /etc/init.d/NetworkManager start}
-wnet() {netstat "-naultp"}
+wnet() {watch netstat "-naultp"}
 wmon() {nethogs "wlan0"}
 
 

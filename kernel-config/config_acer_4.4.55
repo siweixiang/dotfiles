@@ -1,12 +1,7 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 4.4.39-gentoo Kernel Configuration
+# Linux/x86 4.4.55-gentoo Kernel Configuration
 #
-# 1) No random crash
-# 2) Trimmed kernel with 'make localmodconfig && make localyesconfig'
-# 3) Removed third party 'mei_txe', 'proc_thermal' and 
-#    bluetooth modules to make things more secure and stable
-# 4) Removed MMC support as its considered unstable
 
 #
 # Gentoo Linux
@@ -3122,21 +3117,7 @@ CONFIG_LEDS_TRIGGERS=y
 # CONFIG_LEDS_TRIGGER_TRANSIENT is not set
 # CONFIG_LEDS_TRIGGER_CAMERA is not set
 # CONFIG_ACCESSIBILITY is not set
-CONFIG_INFINIBAND=y
-# CONFIG_INFINIBAND_USER_MAD is not set
-# CONFIG_INFINIBAND_USER_ACCESS is not set
-CONFIG_INFINIBAND_ADDR_TRANS=y
-# CONFIG_INFINIBAND_MTHCA is not set
-# CONFIG_INFINIBAND_QIB is not set
-# CONFIG_INFINIBAND_CXGB3 is not set
-# CONFIG_INFINIBAND_CXGB4 is not set
-# CONFIG_MLX4_INFINIBAND is not set
-# CONFIG_INFINIBAND_NES is not set
-# CONFIG_INFINIBAND_OCRDMA is not set
-# CONFIG_INFINIBAND_USNIC is not set
-# CONFIG_INFINIBAND_IPOIB is not set
-# CONFIG_INFINIBAND_SRP is not set
-CONFIG_INFINIBAND_ISER=y
+# CONFIG_INFINIBAND is not set
 CONFIG_EDAC_ATOMIC_SCRUB=y
 CONFIG_EDAC_SUPPORT=y
 CONFIG_EDAC=y
@@ -3242,8 +3223,7 @@ CONFIG_ASYNC_TX_DMA=y
 # CONFIG_DMATEST is not set
 CONFIG_DMA_ENGINE_RAID=y
 CONFIG_DCA=y
-CONFIG_AUXDISPLAY=y
-# CONFIG_KS0108 is not set
+# CONFIG_AUXDISPLAY is not set
 CONFIG_UIO=y
 # CONFIG_UIO_CIF is not set
 # CONFIG_UIO_PDRV_GENIRQ is not set
@@ -3293,7 +3273,6 @@ CONFIG_STAGING=y
 # CONFIG_SPEAKUP is not set
 # CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI4 is not set
 # CONFIG_STAGING_MEDIA is not set
-# CONFIG_STAGING_RDMA is not set
 
 #
 # Android
@@ -3492,14 +3471,7 @@ CONFIG_FS_MBCACHE=y
 # CONFIG_GFS2_FS is not set
 # CONFIG_BTRFS_FS is not set
 # CONFIG_NILFS2_FS is not set
-CONFIG_F2FS_FS=y
-CONFIG_F2FS_STAT_FS=y
-CONFIG_F2FS_FS_XATTR=y
-CONFIG_F2FS_FS_POSIX_ACL=y
-CONFIG_F2FS_FS_SECURITY=y
-CONFIG_F2FS_CHECK_FS=y
-# CONFIG_F2FS_FS_ENCRYPTION is not set
-# CONFIG_F2FS_IO_TRACE is not set
+# CONFIG_F2FS_FS is not set
 # CONFIG_FS_DAX is not set
 CONFIG_FS_POSIX_ACL=y
 CONFIG_EXPORTFS=y
@@ -3511,7 +3483,7 @@ CONFIG_FANOTIFY=y
 # CONFIG_FANOTIFY_ACCESS_PERMISSIONS is not set
 CONFIG_QUOTA=y
 CONFIG_QUOTA_NETLINK_INTERFACE=y
-CONFIG_PRINT_QUOTA_WARNING=y
+# CONFIG_PRINT_QUOTA_WARNING is not set
 # CONFIG_QUOTA_DEBUG is not set
 CONFIG_QUOTA_TREE=y
 # CONFIG_QFMT_V1 is not set
@@ -3595,26 +3567,7 @@ CONFIG_PSTORE=y
 # CONFIG_PSTORE_RAM is not set
 # CONFIG_SYSV_FS is not set
 # CONFIG_UFS_FS is not set
-CONFIG_NETWORK_FILESYSTEMS=y
-CONFIG_NFS_FS=y
-# CONFIG_NFS_V2 is not set
-# CONFIG_NFS_V3 is not set
-# CONFIG_NFS_V4 is not set
-# CONFIG_NFS_SWAP is not set
-CONFIG_NFS_FSCACHE=y
-# CONFIG_NFSD is not set
-CONFIG_GRACE_PERIOD=y
-CONFIG_LOCKD=y
-CONFIG_NFS_COMMON=y
-CONFIG_SUNRPC=y
-# CONFIG_RPCSEC_GSS_KRB5 is not set
-# CONFIG_SUNRPC_DEBUG is not set
-# CONFIG_SUNRPC_XPRT_RDMA is not set
-# CONFIG_CEPH_FS is not set
-# CONFIG_CIFS is not set
-# CONFIG_NCP_FS is not set
-# CONFIG_CODA_FS is not set
-# CONFIG_AFS_FS is not set
+# CONFIG_NETWORK_FILESYSTEMS is not set
 CONFIG_NLS=y
 CONFIG_NLS_DEFAULT="utf8"
 CONFIG_NLS_CODEPAGE_437=y
