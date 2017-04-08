@@ -1,6 +1,6 @@
 Xft.antialias: 1
 Xft.autohint: 0
-Xft.dpi: 96
+Xft.dpi: 120
 Xft.hinting: 1
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
@@ -12,52 +12,51 @@ URxvt.reverseVideo:     False
 URxvt.perl-ext-common:  default,matcher,selection-to-clipboard
 URxvt.matcher.button:   1
 
-!URxvt*font:             xft:Roboto Mono for Powerline:Regular:size=11,xft:PowerlineSymbols:Medium
-!URxvt*boldFont:             xft:Roboto Mono for Powerline:Bold:size=11
-!URxvt*italicFont:           xft:Roboto Mono for Powerline:Italic:size=11
+!URxvt*font:             xft:Roboto Mono for Powerline:Regular:size=13,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Roboto Mono for Powerline:Bold:size=13
+!URxvt*italicFont:           xft:Roboto Mono for Powerline:Italic:size=13
 !URxvt*letterSpace: -1
 
-URxvt*font:             xft:Fantasque Sans Mono:regular:size=13
+URxvt*font:             xft:Fantasque Sans Mono:regular:size=13,xft:PowerlineSymbols:Medium
 URxvt*boldFont:             xft:Fantasque Sans Mono:bold:size=13
 URxvt*letterSpace: -1
 
-
-!URxvt*font:             xft:monofur for Powerline:Regular:size=13
-!URxvt*boldFont:             xft:monofur for Powerline:bold:size=13
+!URxvt*font:             xft:Fixed:regular:size=14,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Fixed:bold:size=14
 !URxvt*letterSpace: 0
 
-!URxvt*font:             xft:Cousine for Powerline:Regular:size=11
+!URxvt*font:             xft:monofur for Powerline:Regular:size=13,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:monofur for Powerline:bold:size=13
+!URxvt*italicFont:           xft:monofur for Powerline:italic:size=13
+!URxvt*letterSpace: 0
+
+!URxvt*font:             xft:Cousine for Powerline:Regular:size=11,xft:PowerlineSymbols:Medium
 !URxvt*boldFont:             xft:Cousine for Powerline:Bold:size=11
 !URxvt*italicFont:           xft:Cousine for Powerline:Bold Italic:size=11
 !URxvt*letterSpace: -2
 
-!URxvt*font:             xft:Fira Mono for Powerline:Regular:size=12
+!URxvt*font:             xft:Fira Mono for Powerline:Regular:size=12,xft:PowerlineSymbols:Medium
 !URxvt*boldFont:             xft:Fira Mono for Powerline:Bold:size=12
 !URxvt*letterSpace: -2
 
-!URxvt*font:             xft:Liberation Mono for Powerline:Regular:size=11
+!URxvt*font:             xft:Liberation Mono for Powerline:Regular:size=11,xft:PowerlineSymbols:Medium
 !URxvt*boldFont:             xft:Liberation Mono for Powerline:Bold:size=11
 !URxvt*letterSpace: -2
 
 
-!URxvt*font:             xft:Anonymice Powerline:Regular:size=12
+!URxvt*font:             xft:Anonymice Powerline:Regular:size=12,xft:PowerlineSymbols:Medium
 !URxvt*boldFont:             xft:Anonymice Powerline Bold:Bold:size=12
 !URxvt*letterSpace: 0
 
-!URxvt*font:             xft:Terminess Powerline:Regular:size=12
+!URxvt*font:             xft:Terminess Powerline:Regular:size=12,xft:PowerlineSymbols:Medium
 !URxvt*boldFont:             xft:Terminess Powerline:Bold:size=12
 !URxvt*letterSpace: 0
 
-!URxvt*font:                 xft:Droid Sans Mono Slashed for Powerline:pixelsize=14:antialias=true:hinting=true:autohint=true
-!URxvt*boldFont:             xft:Droid Sans Mono Slashed for Powerline:pixelsize=14:antialias=true:hinting=true:autohint=true
-!URxvt*italicFont:           xft:Droid Sans Mono Slashed for Powerline:pixelsize=14:antialias=true:autohint=true:hinting=true
-!URxvt*bolditalicFont:       xft:Droid Sans Mono slashed for Powerline:pixelsize=14:antialias=true:autohint=true:hinting=true 
-!URxvt*letterSpace: -1
-
-!URxvt*font:             xft:hack:regular:pixelsize=15:antialias=true,xft:PowerlineSymbols 
+!Rxvt*font: xft:hack:regular:pixelsize=15:antialias=true,xft:PowerlineSymbols:Medium
 !URxvt*boldFont:             xft:hack:bold:pixelsize=15:antialias=true
 !URxvt*italicFont:             xft:hack:italic:pixelsize=15:antialias=true
-!URxvt*letterSpace: -2
+!URxvt*letterSpace: -1
+
 !
 ! == Scrolling related stuff
 URxvt.scrollBar:        0
@@ -121,22 +120,59 @@ URxvt*color250: #d5c4a1
 
 ! Gruvbox dark colorscheme by github.com/morhetz
 ! hard contrast: *background: #1d2021
-URxvt*background: #282828
-URxvt*foreground: #FBF1C7
-URxvt*color0:  #282828
-URxvt*color8:  #928374
-URxvt*color1:  #cc241d
-URxvt*color9:  #fb4934
-URxvt*color2:  #98971a
-URxvt*color10: #b8bb26
-URxvt*color3:  #d79921
-URxvt*color11: #fabd2f
-URxvt*color4:  #458588
-URxvt*color12: #83a598
-URxvt*color5:  #b16286
-URxvt*color13: #d3869b
-URxvt*color6:  #689d6a
-URxvt*color14: #8ec07c
-URxvt*color7:  #a89984
-URxvt*color15: #ebdbb2
+!URxvt*background: #282828
+!URxvt*foreground: #FBF1C7
+!URxvt*color0:  #282828
+!URxvt*color8:  #928374
+!URxvt*color1:  #cc241d
+!URxvt*color9:  #fb4934
+!URxvt*color2:  #98971a
+!URxvt*color10: #b8bb26
+!URxvt*color3:  #d79921
+!URxvt*color11: #fabd2f
+!URxvt*color4:  #458588
+!URxvt*color12: #83a598
+!URxvt*color5:  #b16286
+!URxvt*color13: #d3869b
+!URxvt*color6:  #689d6a
+!URxvt*color14: #8ec07c
+!URxvt*color7:  #a89984
+!URxvt*color15: #ebdbb2
 
+! Monmon.deviantart.com
+
+*.foreground:   #ffffff
+*.background:   #2b2c37
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #2a2b3a
+*.color8:       #404152
+
+! red
+*.color1:       #ea596d
+*.color9:       #d85d6e
+
+! green
+*.color2:       #5a9f50
+*.color10:      #85c17c
+
+! yellow
+*.color3:       #c99135
+*.color11:      #dcb15e
+
+! blue
+*.color4:       #547599
+*.color12:      #5d8fc6
+
+! magenta
+*.color5:       #9f5079
+*.color13:      #e486b7
+
+! cyan
+*.color6:       #3d7982
+*.color14:      #8abeb7
+
+! white
+*.color7:       #d3d7cf
+*.color15:      #ffffff
