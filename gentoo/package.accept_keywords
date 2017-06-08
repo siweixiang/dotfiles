@@ -1,10 +1,5 @@
 # required by thermald (argument)
 =sys-power/thermald-1.4.2-r1 ~amd64
-# required by x11-terms/termite-11::eroen
-# required by x11-terms/termite (argument)
-=x11-libs/vte-0.42.4 ~amd64
-# required by x11-terms/termite (argument)
-=x11-terms/termite-11 ~amd64
 # required by app-laptop/tlp-0.8::tlp
 # required by app-laptop/tlp (argument)
 =sys-power/linux-x86-power-tools-3.17 ~amd64
@@ -353,3 +348,262 @@
 =dev-util/radare2-0.10.4 ~amd64
 # required by fantasque-sans-mono (argument)
 =media-fonts/fantasque-sans-mono-2014.07 ~amd64
+# required by nbwmon (argument)
+=net-analyzer/nbwmon-0.5.2 ~amd64
+# required by net-wireless/blueman (argument)
+=net-wireless/blueman-2.0.4 ~amd64
+# required by =x11-misc/arandr-0.1.9 (argument)
+=x11-misc/arandr-0.1.9 ~amd64
+# required by =dev-libs/libressl-2.4.2 (argument)
+# required by =net-misc/networkmanager-1.4.2 (argument)
+=net-misc/networkmanager-1.4.2 ~amd64
+# required by app-editors/neovim-0.1.5::gentoo[python]
+# required by =app-editors/neovim-0.1.5 (argument)
+=dev-python/neovim-python-client-0.1.9 ~amd64
+# required by app-editors/neovim-0.1.5::gentoo
+# required by dev-python/neovim-python-client-0.1.9::gentoo
+=dev-lua/lpeg-1.0.0-r1 ~amd64
+# required by app-editors/neovim-0.1.5::gentoo
+# required by dev-python/neovim-python-client-0.1.9::gentoo
+=dev-libs/unibilium-1.1.4 ~amd64
+# required by =app-editors/neovim-0.1.5 (argument)
+=app-editors/neovim-0.1.5 ~amd64
+# required by app-editors/neovim-0.1.5::gentoo
+# required by dev-python/neovim-python-client-0.1.9::gentoo
+=dev-libs/libtermkey-0.18 ~amd64
+# required by app-editors/neovim-0.1.5::gentoo
+# required by dev-python/neovim-python-client-0.1.9::gentoo
+=dev-libs/msgpack-1.1.0 ~amd64
+# required by app-editors/neovim-0.1.5::gentoo
+# required by dev-python/neovim-python-client-0.1.9::gentoo
+=dev-libs/libvterm-0.0_pre20160305 ~amd64
+# required by app-editors/neovim-0.1.5::gentoo
+# required by dev-python/neovim-python-client-0.1.9::gentoo
+=dev-lua/mpack-1.0.2 ~amd64
+# required by =sys-devel/gcc-5.4.0 (argument)
+=sys-devel/gcc-5.4.0 ~amd64
+# required by =x11-terms/termite-10 (argument)
+=x11-terms/termite-10 ~amd64
+# required by =x11-terms/termite-9 (argument)
+=x11-terms/termite-9 ~amd64
+# required by =x11-terms/termite-12 (argument)
+=x11-terms/termite-12 ~amd64
+# required by x11-terms/termite-12::eroen
+# required by =x11-terms/termite-12 (argument)
+=x11-libs/vte-0.44.2 ~amd64
+# required by dev-ruby/asciidoctor (argument)
+=dev-ruby/asciidoctor-1.5.5 ~amd64
+# required by steamfonts (argument)
+=media-fonts/steamfonts-1 ~amd64
+# required by =app-text/mupdf-1.8 (argument)
+=app-text/mupdf-1.8 ~amd64
+# required by =sys-apps/firejail-0.9.42 (argument)
+=sys-apps/firejail-0.9.42 ~amd64
+# required by =app-crypt/veracrypt-1.19 (argument)
+=app-crypt/veracrypt-1.19 **
+# required by =sys-apps/firejail-0.9.42-r1 (argument)
+=sys-apps/firejail-0.9.42-r1 ~amd64
+# required by x11-misc/shutter (argument)
+=x11-misc/shutter-0.93.1-r1 ~amd64
+# required by @__auto_slot_operator_replace_installed__ (argument)
+=app-crypt/pinentry-1.0.0 ~amd64
+# required by media-fonts/monoid (argument)
+=media-fonts/monoid-0.61 ~amd64
+# required by hermit (argument)
+=media-fonts/hermit-1.21 ~amd64
+# required by montecarlo (argument)
+=media-fonts/montecarlo-0 ~amd64
+# required by media-fonts/infinality-ultimate-meta-1::gentoo[-minimal,ms]
+# required by infinality-ultimate-meta (argument)
+=media-fonts/paratype-2.5 ~amd64
+# required by games-strategy/0ad-0.0.21_alpha::gentoo
+# required by 0ad (argument)
+=games-strategy/0ad-data-0.0.21_alpha ~amd64
+# required by 0ad (argument)
+=games-strategy/0ad-0.0.21_alpha ~amd64
+# required by app-text/par (argument)
+=app-text/par-1.52 ~amd64
+# required by net-misc/wireguard (argument)
+=net-misc/wireguard-0.0.20161230 ~amd64
+# required by =dev-python/pip-9.0.1-r1 (argument)
+=dev-python/pip-9.0.1-r1 ~amd64
+# required by =x11-misc/nitrogen-1.6.0 (argument)
+=x11-misc/nitrogen-1.6.0 ~amd64
+# required by wps-office (argument)
+=app-office/wps-office-10.1.0.5672_alpha21 ~amd64
+# required by =gnome-extra/nm-applet-1.4.2 (argument)
+=gnome-extra/nm-applet-1.4.2 ~amd64
+# required by =x11-misc/unclutter-8-r3 (argument)
+=x11-misc/unclutter-8-r3 ~amd64
+# required by =xf86-video-intel-2.99.917_p20161206 (argument)
+# required by nethack (argument)
+=games-roguelike/nethack-3.6.0-r3 ~amd64
+# required by media-fonts/firacode (argument)
+=media-fonts/firacode-1.204 **
+# required by =app-laptop/tlp-0.9:0 (argument)
+=app-laptop/tlp-0.9 ~amd64
+# required by =sys-apps/inxi-2.3.4_p20161104 (argument)
+=sys-apps/inxi-2.3.4_p20161104 ~amd64
+# required by =www-client/firefox-bin-51.0 (argument)
+=www-client/firefox-bin-51.0 ~amd64
+# required by @__auto_slot_operator_replace_installed__ (argument)
+=dev-python/sip-4.19 ~amd64
+# required by x11-libs/xcb-util-0.4.0::gentoo
+# required by x11-apps/xbacklight-1.2.1-r1::gentoo
+# required by @selected
+# required by @world (argument)
+=x11-proto/xproto-7.0.31 ~amd64
+# required by =www-client/firefox-bin-51.0.1:0 (argument)
+=www-client/firefox-bin-51.0.1 ~amd64
+# required by =x11-misc/compton-9999:0 (argument)
+=x11-misc/compton-9999 **
+# required by app-office/libreoffice-9999::gentoo
+# required by =app-office/libreoffice-9999:0 (argument)
+=app-text/libstaroffice-0.0.2 ~amd64
+# required by app-office/libreoffice-9999::gentoo
+# required by =app-office/libreoffice-9999:0 (argument)
+=media-libs/libzmf-0.0.1 ~amd64
+# required by =media-video/mpv-0.24.0:0 (argument)
+=media-video/mpv-0.24.0 ~amd64
+# required by =media-libs/mesa-13.0.5:0 (argument)
+=media-libs/mesa-13.0.5 ~amd64
+# required by ffcast (argument)
+=media-video/ffcast-2.4.8 ~amd64
+# required by =x11-drivers/xf86-video-intel-2.99.917_p20170216:0 (argument)
+=x11-drivers/xf86-video-intel-2.99.917_p20170216 ~amd64
+# required by =sys-kernel/gentoo-sources-4.4.53:4.4.53 (argument)
+=sys-kernel/gentoo-sources-4.4.53 ~amd64
+# required by =sys-kernel/gentoo-sources-4.10.2:4.10.2 (argument)
+=sys-kernel/gentoo-sources-4.10.2 ~amd64
+# required by =sys-kernel/gentoo-sources-4.4.55 (argument)
+=sys-kernel/gentoo-sources-4.4.55 ~amd64
+# required by =media-fonts/noto-20160531:0 (argument)
+=media-fonts/noto-20160531 ~amd64
+# required by =sys-kernel/linux-firmware-20170314:0 (argument)
+=sys-kernel/linux-firmware-20170314 ~amd64
+# required by =sys-kernel/gentoo-sources-4.4.57:4.4.57 (argument)
+=sys-kernel/gentoo-sources-4.4.57 ~amd64
+# required by =app-text/calibre-2.80.0:0 (argument)
+=app-text/calibre-2.80.0 ~amd64
+# required by =sys-kernel/gentoo-sources-4.4.59:4.4.59 (argument)
+=sys-kernel/gentoo-sources-4.4.59 ~amd64
+# required by www-client/firefox-52.0.1-r1::gentoo
+# required by =www-client/firefox-52.0.1-r1:0 (argument)
+=dev-libs/nss-3.30 ~amd64
+# required by =www-client/firefox-52.0.1-r1:0 (argument)
+=www-client/firefox-52.0.1-r1 ~amd64
+# required by =app-editors/neovim-0.1.7:0 (argument)
+=app-editors/neovim-0.1.7 ~amd64
+# required by =media-libs/mesa-17.0.3:0 (argument)
+=media-libs/mesa-17.0.3 ~amd64
+# required by icclib (argument)
+=media-libs/icclib-2.14 ~amd64
+# required by =sys-kernel/gentoo-sources-4.4.61:4.4.61 (argument)
+=sys-kernel/gentoo-sources-4.4.61 ~amd64
+# required by =www-client/firefox-52.0.2:0 (argument)
+=www-client/firefox-52.0.2 ~amd64
+# required by dev-qt/qtwebkit-5.6.2::gentoo
+# required by dev-python/PyQt5-5.7.1::gentoo[webkit]
+# required by @selected
+# required by @world (argument)
+=virtual/rubygems-13 ~amd64
+# required by dev-lang/ruby-2.2.7::gentoo[rdoc]
+# required by dev-ruby/json-2.0.4::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.1.9::gentoo
+# required by dev-ruby/rake-12.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/racc-1.4.14::gentoo[-test,ruby_targets_ruby22]
+=dev-ruby/rdoc-5.1.0 ~amd64
+# required by dev-lang/ruby-2.2.7::gentoo
+# required by dev-ruby/json-2.0.4::gentoo[ruby_targets_ruby22]
+# required by dev-ruby/rdoc-5.1.0::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.1.9::gentoo[rdoc]
+# required by dev-ruby/rake-12.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/racc-1.4.14::gentoo[-test,ruby_targets_ruby22]
+=dev-ruby/test-unit-3.2.3-r1 ~amd64
+# required by virtual/rubygems-13::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/json-2.0.4::gentoo
+# required by dev-ruby/rdoc-5.1.0::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.2.7::gentoo[rdoc]
+# required by dev-ruby/rake-12.0.0::gentoo[ruby_targets_ruby22]
+# required by dev-ruby/racc-1.4.14::gentoo[-test,ruby_targets_ruby22]
+=dev-ruby/rubygems-2.6.11 ~amd64
+# required by dev-lang/ruby-2.2.7::gentoo
+# required by dev-ruby/json-2.0.4::gentoo[ruby_targets_ruby22]
+# required by dev-ruby/rdoc-5.1.0::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.1.9::gentoo[rdoc]
+# required by dev-ruby/rake-12.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/racc-1.4.14::gentoo[-test,ruby_targets_ruby22]
+=dev-ruby/power_assert-1.0.1-r1 ~amd64
+# required by dev-ruby/rdoc-5.1.0::gentoo
+# required by dev-lang/ruby-2.2.7::gentoo[rdoc]
+# required by dev-ruby/json-2.0.4::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.1.9::gentoo
+# required by dev-ruby/rake-12.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/racc-1.4.14::gentoo[-test,ruby_targets_ruby22]
+=app-eselect/eselect-ruby-20161226 ~amd64
+# required by dev-lang/ruby-2.2.7::gentoo
+# required by dev-ruby/json-2.0.4::gentoo[ruby_targets_ruby22]
+# required by dev-ruby/rdoc-5.1.0::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.1.9::gentoo[rdoc]
+# required by dev-ruby/rake-12.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/racc-1.4.14::gentoo[-test,ruby_targets_ruby22]
+=dev-ruby/minitest-5.10.1 ~amd64
+# required by dev-ruby/rake-12.0.0::gentoo[ruby_targets_ruby22]
+# required by dev-ruby/json-2.0.4::gentoo[-test,ruby_targets_ruby22]
+# required by dev-ruby/rdoc-5.1.0::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.1.9::gentoo[rdoc]
+# required by dev-ruby/kpeg-1.1.0::gentoo[ruby_targets_ruby21]
+=dev-lang/ruby-2.2.7 ~amd64
+# required by dev-ruby/rdoc-5.1.0::gentoo[ruby_targets_ruby21]
+# required by dev-lang/ruby-2.2.7::gentoo[rdoc]
+# required by dev-ruby/json-2.0.4::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.1.9::gentoo
+# required by dev-ruby/rake-12.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/json-1.8.2-r1::gentoo[-test,-doc,ruby_targets_ruby21]
+=dev-ruby/racc-1.4.14 ~amd64
+# required by dev-ruby/rdoc-5.1.0::gentoo[ruby_targets_ruby21]
+# required by dev-lang/ruby-2.2.7::gentoo[rdoc]
+# required by dev-ruby/json-2.0.4::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.1.9::gentoo
+# required by dev-ruby/rake-12.0.0::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/racc-1.4.14::gentoo[-test,ruby_targets_ruby22]
+=dev-ruby/kpeg-1.1.0 ~amd64
+# required by dev-lang/ruby-2.1.9::gentoo
+# required by dev-ruby/json-2.0.4::gentoo[ruby_targets_ruby21]
+# required by dev-ruby/rdoc-5.1.0::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.2.7::gentoo[rdoc]
+# required by dev-ruby/kpeg-1.1.0::gentoo[ruby_targets_ruby22]
+=dev-ruby/rake-12.0.0 ~amd64
+# required by dev-ruby/rdoc-5.1.0::gentoo[ruby_targets_ruby22]
+# required by dev-lang/ruby-2.2.7::gentoo[rdoc]
+# required by dev-ruby/rake-12.0.0::gentoo[ruby_targets_ruby22]
+# required by dev-ruby/racc-1.4.14::gentoo[-test,ruby_targets_ruby22]
+=dev-ruby/json-2.0.4 ~amd64
+=x11-terms/rxvt-unicode-9.22-r4 ~amd64
+# required by =x11-terms/rxvt-unicode-9.22-r1:0 (argument)
+=x11-terms/rxvt-unicode-9.22-r1 ~amd64
+# required by =media-video/mpv-0.25.0:0 (argument)
+=media-video/mpv-0.25.0 ~amd64
+# required by media-libs/mesa-17.1.0::gentoo
+# required by =media-libs/mesa-17.1.0:0 (argument)
+=x11-libs/libdrm-2.4.80 ~amd64
+# required by =media-libs/mesa-17.1.0:0 (argument)
+=media-libs/mesa-17.1.0 ~amd64
+# required by =sys-kernel/gentoo-sources-4.4.68:4.4.68 (argument)
+=sys-kernel/gentoo-sources-4.4.68 ~amd64
+# required by =sys-kernel/gentoo-sources-4.11.1:4.11.1 (argument)
+=sys-kernel/gentoo-sources-4.11.1 ~amd64
+# required by =sys-boot/grub-2.02:2/2.02 (argument)
+=sys-boot/grub-2.02 ~amd64
+# required by =net-libs/gloox-1.0.20:0/17 (argument)
+=net-libs/gloox-1.0.20 ~amd64
+# required by =app-forensics/aide-0.15.1:0 (argument)
+=app-forensics/aide-0.15.1 ~amd64
+# required by =app-editors/vim-8.0.0386-r1:0 (argument)
+=app-editors/vim-8.0.0386-r1 ~amd64
+# required by =net-wireless/wpa_supplicant-2.6-r1:0 (argument)
+=net-wireless/wpa_supplicant-2.6-r1 ~amd64
+# required by =sys-kernel/gentoo-sources-4.11.3:4.11.3 (argument)
+=sys-kernel/gentoo-sources-4.11.3 ~amd64
+# required by =sys-kernel/gentoo-sources-4.4.70:4.4.70 (argument)
+=sys-kernel/gentoo-sources-4.4.70 ~amd64
