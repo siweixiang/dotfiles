@@ -24,7 +24,7 @@ app-text/evince djvu
 >=app-text/poppler-0.42.0 cairo
 sys-libs/ncurses tinfo
 app-emulation/virtualbox extensions qt4
-net-p2p/transmission gtk lightweight 
+net-p2p/transmission gtk 
 # required by x11-wm/i3-4.10.4::gentoo[pango]
 # required by @selected
 # required by @world (argument)
@@ -40,7 +40,7 @@ media-gfx/gimp dbus doc exif jpeg jpeg2k pdf png postscript svg
 >=app-text/poppler-0.42.0 qt4
 # required by app-text/calibre-1.20::gentoo
 # required by app-text/calibre (argument)
->=dev-python/PyQt4-4.11.1 webkit svg
+>=dev-python/PyQt4-4.11.1 webkit svg -opengl
 dev-qt/qtwebkit icu
 #www-client/chromium -hangouts
 >=dev-libs/libpcre-8.38-r1 pcre16
@@ -745,9 +745,6 @@ dev-libs/boost doc
 # required by app-text/calibre-1.20::gentoo 
 # required by app-text/calibre:0 (argument) 
 >=dev-python/PyQt4-4.11.4-r1 compat
-# required by x11-terms/termite-12::eroen
-# required by =x11-terms/termite-12 (argument)
->=x11-libs/vte-0.44.2 termite-patch
 # required by sys-devel/clang-3.7.1-r100::gentoo
 # required by clang (argument)
 >=sys-devel/llvm-3.7.1-r3 clang
@@ -761,4 +758,82 @@ media-video/ffmpeg lzma x264
 # required by @selected
 # required by @world (argument)
 >=app-arch/xz-utils-5.2.2 abi_x86_32
-www-client/firefox system-cairo -dbus
+www-client/firefox system-cairo hardened 
+www-client/chromium debian gtk3 -hangouts -suid -ungoogled system-ffmpeg widevine inox 
+# required by www-client/chromium-54.0.2840.101::pg_overlay
+# required by =www-client/chromium-54.0.2840.101 (argument)
+>=dev-libs/libxml2-2.9.4 icu
+# required by dev-libs/libxml2-2.9.4::gentoo[icu]
+# required by www-client/chromium-54.0.2840.101::pg_overlay
+# required by =www-client/chromium-54.0.2840.101 (argument)
+>=dev-libs/icu-58.1-r1 abi_x86_32
+# required by www-client/chromium-54.0.2840.101::pg_overlay
+# required by =www-client/chromium-54.0.2840.101 (argument)
+>=sys-libs/zlib-1.2.8-r1 minizip
+# required by www-client/chromium-54.0.2840.101::pg_overlay
+# required by =www-client/chromium-54.0.2840.101 (argument)
+>=media-libs/libvpx-1.5.0 svc
+app-pda/libplist -python
+# required by gnome-base/gnome-keyring-3.20.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=app-crypt/pinentry-1.0.0 gnome-keyring
+media-fonts/infinality-ultimate-meta ms
+sys-apps/busybox pam -static
+# required by games-strategy/openra-20141029-r2::gentoo
+# required by openra (argument)
+>=media-libs/libsdl2-2.0.4 opengl
+dev-lang/mono minimal
+
+# required by games-fps/urbanterror-4.2.023::gentoo[sdl,-dedicated]
+# required by urbanterror (argument)
+>=media-libs/libsdl-1.2.15-r9 opengl
+# required by games-strategy/wesnoth-1.12.6::gentoo[-dedicated]
+# required by wesnoth (argument)
+>=media-libs/sdl-image-1.2.12-r1 jpeg png
+# required by games-strategy/wesnoth-1.12.6::gentoo[-dedicated]
+# required by wesnoth (argument)
+>=media-libs/sdl-mixer-1.2.12-r4 vorbis
+# required by app-text/calibre-2.78.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/PyQt5-5.5.1 network svg gui webkit widgets printsupport
+# required by dev-python/PyQt5-5.5.1::gentoo[webkit]
+# required by app-text/calibre-2.78.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-qt/qtwebkit-5.6.2 printsupport
+# required by app-text/calibre-2.78.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=app-text/poppler-0.45.0 qt5
+# required by dev-qt/qtwebkit-5.6.2::gentoo
+# required by dev-python/PyQt5-5.5.1::gentoo[webkit]
+# required by app-text/calibre-2.78.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-qt/qtcore-5.6.2-r1 icu
+x11-drivers/xf86-video-intel dri3
+# required by x11-base/xorg-drivers-1.19::gentoo[video_cards_i965]
+# required by x11-base/xorg-server-1.18.4::gentoo[xorg]
+# required by x11-drivers/xf86-input-evdev-2.10.5::gentoo
+>=x11-base/xorg-server-1.19.2 glamor
+# required by net-libs/gnutls-3.5.12::gentoo[idn]
+# required by net-misc/networkmanager-1.4.4-r1::gentoo[gnutls]
+# required by @selected
+# required by @world (argument)
+>=net-dns/libidn2-0.16-r1 abi_x86_32
+# required by net-libs/gnutls-3.5.12::gentoo
+# required by net-misc/networkmanager-1.4.4-r1::gentoo[gnutls]
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libunistring-0.9.7 abi_x86_32
+app-forensics/aide zlib
+
+# required by net-print/cups-filters-1.13.5::gentoo[postscript]
+# required by net-print/cups-2.1.4::gentoo
+# required by dev-java/icedtea-bin-7.2.6.8::gentoo[cups,-multilib]
+# required by @selected
+# required by @world (argument)
+>=app-text/ghostscript-gpl-9.20-r1 cups
+net-wireless/wpa_supplicant wps wimax smartcard
