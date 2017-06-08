@@ -41,4 +41,5 @@
         1) Set the correct location first:
            'ln -s /usr/share/zoneinfo/Asia/[Country] /etc/localtime'
         2) Update ntpd immediately: 'ntpd -vs'
+        3) rdate -v pool.ntp.org
 

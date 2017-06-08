@@ -126,6 +126,12 @@ world favorites file so next time depclean is run that package will
 be automatically removed. This flag is good for dependencies that might
 have issues thus this flag can temporarily solve problems
 
+- 'emerge @x11-module-rebuild --autounmask-write' can be used after upgrading
+  or downgrading xorg-server so that previous dependencies can be built against
+  the new version.
+
+- 'emerge @preserved-rebuild' can be used to rebuild old dependencies against
+   newer libraries. Useful after a big update where lot of things have changed.
 
 ##################################################
 # Security Stuff                                 #
@@ -146,4 +152,5 @@ have issues thus this flag can temporarily solve problems
 ##################################################
 1) make localmodconfig  - Update current config disabling modules not loaded
 2) make localyesconfig  - Update current config converting local mods to core
+
 

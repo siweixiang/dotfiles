@@ -54,3 +54,16 @@ parenthesis
 bounded by it
 39. 'U' converts selected text to uppercase and 'u' to lowercase
 
+
+Insert mode keybindings:
+1) <C-w> deletes one word to the left
+2) <C-h> deletes one character to the left
+
+
+Other:
+======
+ctags utility can be used to generate tags for source files allowing navigation
+to and for definition
+e.g: ctags *.cpp
+1) '<C-[' Jumps to definition of the function/class under the cursor
+2) 'C-t' Jumps back to the previous location

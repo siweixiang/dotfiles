@@ -1,0 +1,52 @@
+Tips:
+=====
+Reference:
+https://forums.gentoo.org/viewtopic-t-1060490-highlight-.html
+
+1) Shell scripts don't require semicolon ( ; ) at the end of a line,
+it's only really needed to separate two commands if they are on the
+same line. 
+
+2) Use double square brackets when testing a condition 
+   e.g: '[[ $condition == blah ]]'
+
+   Note: Single square brackets '[ $condition = blah ]' is posix 
+         compliant test condition which might not be what you're aiming for.
+
+3) Use 'read -r variable_name < /path/to/file' to read information
+   into variables instead of using cat.
+
+4) Use case statements instead of if/else statements in bash scripting
+   where ever possible to reduce code redundancy / to be more efficient.
+
+e.g. 
+
+case "$group" in
+[...]
+    video)
+      case "$action" in
+        brightnessup) /etc/acpi/actions/backlight.sh up ;;
+        brightnessdown) /etc/acpi/actions/backlight.sh down ;;
+        *) log_unhandled $* ;;
+      esac ;;
+[...]
+esac
+
+5) To check exit status of a command we can use '$?', but 
+    we can also do it in a condition without the test command
+    like this:
+    if ! grep ^root: /etc/passwd > /dev/null 2>&1; then
+        echo 'blah blah';
+    fi
+
+6) Use '(( ))' double parenthesis for arithmetic operations
+    e.g ((a = a + 8))
+
+7) To store output value of a command and assign to variable,
+    you can do it like this:
+    newvariable=$(ls -l /tmp)
+
+8) Extended brace expansion
+    echo {file1,file2,file3} 
+    # No space in between curly braces
+

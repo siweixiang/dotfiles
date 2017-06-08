@@ -30,8 +30,10 @@ export TERM="rxvt-256color"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vi'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
+
+alias vim='nvim'
 
 eval $(dircolors ~/.dircolors)
 # Compilation flags
@@ -48,9 +50,13 @@ alias pen1="configure.sh wlan1 monitor"
 alias pen2="configure.sh wlan2 monitor"
 
 # Mounting filesystem in async mode which allows
-# 1) Faster transfer for data 5-6x that of sync mode
+# 1) Faster transfer for data (not always)
 # 2) Sync mode reduces lifespan of flash devices so async better
 alias mrem="sudo mount -o async"
+
+# Copying using rsync
+alias rcp="rsync -a --progress"
+alias cpa="cp -av"
 
 # Tmux shortcuts
 alias tmux="tmux -2"
@@ -69,25 +75,47 @@ alias xs="xset -dpms s off"
 KC() {zgrep $1 /proc/config.gz}
 
 # Shortcut for removing kernel & dependencies
+# Example: rmkern 4.9.6
 rmkern() {
     eselect_version=$(eselect kernel list | grep $1 | cut -d'*' -f1 | cut -d']' -f2) | tr -d "[:space:]";
-    kern_version=$(echo $eselect_version | cut -d '-' -f2);
+    kern_version=$(echo "$eselect_version" | cut -d '-' -f2);
     module_version=$(printf "%s-gentoo" $kern_version);
     revision=$(echo $eselect_version | cut -d '-' -f4);
     portage_version=$(echo "sys-kernel/gentoo-sources-$kern_version");
 
-    if [ ! -z $revision ]; then # If string not null
+    if [ ! -z "$revision" ]; then # If string not null
         portage_version=$(printf "%s-%s" $portage_version $revision);
     fi
 
-    emerge -aC $portage_version;
-    find /usr/src/ -name "*$kern_version*" | xargs 'rm -rvf';
-    rm -rvf /lib/modules/$module_version;
-    find /boot -name "*$kern_version*" | xargs rm;
+    emerge -aC "$portage_version";
+    find /usr/src/ -name "*$kern_version*" -type d -exec rm -rf "{}" "+"
+    rm -rf /lib/modules/$module_version;
+    find /boot -name "*$kern_version*" -exec rm -rf "{}" "+"
     grub-mkconfig -o /boot/grub/grub.cfg;
 }
 
-alias E="vim"
+rmf() {
+
+    trashPath="$HOME/.local/share/Trash"
+    
+    if [[ "$1" == "" ]]; then
+        return 1
+    fi
+    
+    # Checking if trash path exists
+    if ! [[ -d "$trashPath" ]]; then
+        mkdir -p "$trashPath" 
+    fi
+    
+    for file in "$@"
+    do
+        mv "$file" "$trashPath" 
+    done
+    
+    return 0;
+}
+
+
 alias Wee="TERM='tmux-256color' && weechat"
 
 # Find Function
@@ -141,12 +169,14 @@ alias qui="emerge -uDNAav --quiet --keep-going --with-bdeps=y @world"
 # Installing package
 alias qi="emerge -av $1"
 
-
 # Dispatch-conf shortcut for updating configurations
 alias qcu="dispatch-conf"
 
 # Removing package
 alias qr="emerge --deselect $1 && emerge -aC $1"
+
+# Get compile time taken for package
+alias qt="qlop -tH $1"
 
 # Select current top 5 fastest mirrors among Asian servers
 alias mirror-http="mirrorselect -R 'Asia' -s5 -b10 -D"
@@ -158,14 +188,6 @@ qcl()
     emerge --depclean; 
     eclean-dist --deep --package-names;
 }
-
-
-
-## Custom app shortcuts
-
-# Killing chromium zombie processes (run as root)
-alias ckill="killall chrome; ps aux |  grep chrome | grep -v 'grep' | awk '{print $2}' | xargs kill;"
-
 
 
 # Install scrot and pbpst
@@ -200,10 +222,10 @@ alias kin="k2pdfopt $1 -dev kp2 -cmax 2 -s -g 0.5 -wt -1 -wrap+ -hy -ws -0.2"
 wgetc() {wget -c --content-disposition $1}
 
 # Dmesg stuff
-dme() { dmesg --color=always --level=err }
-dmf() { dmesg --color=always -w }
-dmg() { dmesg --color=always | less }
-dms() { dmesg --color=always | grep -i $1 }
+dme() { dmesg --color=always -T --level=err }
+dmf() { dmesg --color=always -w -T }
+dmg() { dmesg --color=always -T | less }
+dms() { dmesg --color=always -T | grep -i $1 }
 
 # Custom Functions that I use regularly
 #wkill() {systemctl stop NetworkManager.service; rfkill block wifi all}
@@ -232,7 +254,8 @@ alias Gc="git commit -m $1"
 alias Gp="git push"
 alias trr="tr -cd '[:print:]' < $1"
 
-alias lsb="lsblk -f"
+alias lb="lsblk -f"
+alias check="aide --check --config=/etc/aide/aide.conf"
 
 # Short form of the following command
 # ls /path | grep 'pattern'
@@ -250,16 +273,16 @@ lsg() {
 psg() {
     if [ $# = 1 ];
     then
-        sleep 0.1;
         ps aux | grep -i $1;
     else
-        exit 1;
+        return 1;
     fi
 }
 
 # G++ compiling and stuff
 # Cm [output filename]
 alias Cm="g++ -std=c++11 -ggdb *.cpp -o $1"
+alias iot="iotop -o"
 
 
 # Note taking app
@@ -284,6 +307,8 @@ nrd() {
   cat ~/notes/"$*"
 }
 
+# _n_completion() { local f; for f in "$HOME/notes/$2"*; do [[ -e $f ]] && COMPREPLY+=( "${f##*/}" ); done; }; 
+#    complete -F _n_completion nls nrd
 
 status() {
     { echo -e "\nuptime:"
@@ -327,21 +352,22 @@ usbon(){echo 1 > /sys/bus/usb/devices/usb*/authorized_default}
 wirc(){ 
 while true;                                                                
 do                                                                         
-    export TERM="xterm";                                                   
-    ssh boris@192.168.1.33 -t 'tmux a';                                    
+    #export TERM="xterm";                                                   
+    export TERM="rxvt-unicode-256color";                                                   
+    ssh irenicus@192.168.1.33 -t 'tmux a';                                    
     sleep 2;                                                              
 done            
 }
 
 # Clean Trash
 clean(){
-    rm -rvf $HOME/.local/share/Trash/files/*;
-    rm -rvf $HOME/.local/share/Trash/info/*;
+    rm -rvf $HOME/.local/share/Trash/*;
 }
 
 if [ -x /usr/bin/cowsay -a -x /usr/bin/fortune ]; then
         fortune -a | cowsay
 fi
+
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -349,7 +375,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 
-
-
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+#source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 source $ZSH/oh-my-zsh.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

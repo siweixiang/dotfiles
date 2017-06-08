@@ -1,71 +1,20 @@
-# Installing stuff from AUR
-yaourt -S termite-git infinality-bundle;  
-yaourt -S --noconfirm --needed terminess-powerline-font-git netdiscover
-ettercap mlocate extra-cmake-modules mpv-git;  
+# Disable pulse audio from listening on the network by comment out the line below from /etc/pulse/default.pa
+load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1
 
-# Copying various configs
-cp -rf compton.conf ~/.config/;
-cp -rf dunst ~/.config/;
-cp -rf ranger ~/.config/;
-cp -rf termite ~/.config/;
-cp -rf livestreamerrc ~/.config/.livestreamerrc;
-
-# i3 Wm Stuff
-cp -rf i3config ~/.i3/config 
-cp -rf i3status.conf ~/.i3status.conf
-
-
-# TODO
-# 1) Do PluginInstall in Vim to install all required plugins
-# 2) Execute the following command in ~/.vim/bundle/YouCompleteMe/
-# python2 install.py --clang-completer --tern-completer
-git clone https://github.com/VundleVim/Vundle.vim.git
-~/.vim/bundle/Vundle.vim;
-cp -rf vimrc ~/.vimrc;
-
-
-# Disable pulse audio from listening on the network by comment out the line
-below from /etc/pulse/default.pa
-# load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1
+# Add to sudoers file, change username
+username ALL=NOPASSWD: /usr/sbin/halt,/usr/sbin/poweroff,/usr/sbin/reboot,/usr/sbin/pm-suspend,/usr/bin/xbacklight_ddx.sh
+%wheel ALL=(ALL) NOPASSWD: ALL
 
 # ZSH Stuff
 cp -rf zshrc ~/.zshrc; 
 dircolors -p > ~/.dircolors;
-sh -c "$(wget
-https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 
 # Firefox nightly extensions
 # SSleuth, UBlock Origin, Self Destructing Cookies, NoScript, HTTPS
-Everywhere, Ghostery, Random Agent Spoofer
-
-# Infinality fonts installation
-echo '[infinality-bundle]' >> /etc/pacman.conf;
-echo 'Server = http://bohoomil.com/repo/$arch' >> /etc/pacman.conf;
-pacman-key --populate && pacman-key --refresh && pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58 && pacman -Syy; 
-
-
-# Installing Required Packages
-pacman -S --force --noconfirm --needed zsh thunderbird vlc wireshark-gtk cmus mplayer youtube-viewer calibre livestreamer nethogs nodejs npm lm_sensors transmission-gtk macchanger aircrack-ng gcolor2 calibre arp-scan whois nmap automake cmake clang llvm ranger wine redshift dunst ufw gufw libva-intel-driver;
-
+# Everywhere, Ghostery, Random Agent Spoofer
 
 # Rolling back to old interface naming convention for usability purposes
 ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
 
-# System script for automating randomization of wireless interfaces @boot
-sudo cp -rf randomize-mac.sh /usr/bin/
-sudo cp -rf macchanger@wlan0.service /etc/systemd/system/
-
-# Wireless automation scripts. Works on intel card (ath9k) and Alfa awus036NH (rtl
-cp FixIntel.sh /usr/bin/ &&  cp FixAlpha.sh /usr/bin/ &&  cp configure.sh /usr/bin/;
-
-# Blacklisting webcam and bluetooth modules
-cp -rf blacklist*.conf /etc/modprobe.d/
-
-# Copying hosts file to block specific domains / sites
-cp -rf hosts /etc/hosts
-
-
-# TODO 
-# 1) Automate /etc/default/grub with flags from grub_conf
-# 2) Automate installing inox extensions

@@ -1,7 +1,11 @@
 // YouCompleteMe
-To change c++ versions make sure you edit ~/.ycm_extra_conf.py 
-and change this line to '-std=c++14'
+1) To change c++ versions make sure you edit ~/.ycm_extra_conf.py 
+and change this line to '-std=c++11'
+2) Also run ./install.py --clang-completer --system-libclang    
+(Note that in #2 --system-libclang is only necessary 
+when you run into problems with YCM) 
 
 // Compiling manually
 If you are compiling manually from commandline make sure you pass 
-'-std=c++14' as commandline argument to the g++ compiler
+'-std=c++11' as commandline argument to the g++ compiler
+

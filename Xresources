@@ -1,39 +1,71 @@
 Xft.antialias: 1
 Xft.autohint: 0
-Xft.dpi: 120
+Xft.dpi: 110
 Xft.hinting: 1
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
 ! URxvt Stuff
-URxvt.termName:         rxvt-256color
+URxvt.termName: rxvt-unicode-256color
+URxvt.enable-256-color: 1
 URxvt.reverseVideo:     False
 URxvt.perl-ext-common:  default,matcher,selection-to-clipboard
 URxvt.matcher.button:   1
 
-!URxvt*font:             xft:Roboto Mono for Powerline:Regular:size=13,xft:PowerlineSymbols:Medium
-!URxvt*boldFont:             xft:Roboto Mono for Powerline:Bold:size=13
-!URxvt*italicFont:           xft:Roboto Mono for Powerline:Italic:size=13
+!URxvt*font:             xft:Roboto Mono for Powerline:Regular:size=12,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Roboto Mono for Powerline:Bold:size=12
+!URxvt*italicFont:           xft:Roboto Mono for Powerline:Italic:size=12
+!URxvt*boldItalicFont:           xft:Roboto Mono for Powerline:Bold Italic:size=12
+!URxvt*letterSpace: -1
+
+!URxvt*font:             xft:Roboto Mono Medium for Powerline:Medium:size=11,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Roboto Mono for Powerline:Bold:size=11
+!URxvt*italicFont:           xft:Roboto Mono Medium Italic for Powerline:Medium Italic:size=11
+!URxvt*boldItalicFont:           xft:Roboto Mono for Powerline:Bold Italic:size=11
 !URxvt*letterSpace: -1
 
 URxvt*font:             xft:Fantasque Sans Mono:regular:size=13,xft:PowerlineSymbols:Medium
 URxvt*boldFont:             xft:Fantasque Sans Mono:bold:size=13
+URxvt*italicFont:           xft:Fantasque Sans Mono:Italic:size=13
+URxvt*boldItalicFont:           xft:Fantasque Sans Mono:Bold Italic:size=13
 URxvt*letterSpace: -1
 
-!URxvt*font:             xft:Fixed:regular:size=14,xft:PowerlineSymbols:Medium
+!URxvt*font: xft:Fixed:SemiCondensed:size=14,xft:PowerlineSymbols:Medium
 !URxvt*boldFont:             xft:Fixed:bold:size=14
+!URxvt*italicFont:           xft:Fixed:Oblique:size=14
 !URxvt*letterSpace: 0
 
 !URxvt*font:             xft:monofur for Powerline:Regular:size=13,xft:PowerlineSymbols:Medium
 !URxvt*boldFont:             xft:monofur for Powerline:bold:size=13
 !URxvt*italicFont:           xft:monofur for Powerline:italic:size=13
-!URxvt*letterSpace: 0
+!URxvt*letterSpace: -1
 
 !URxvt*font:             xft:Cousine for Powerline:Regular:size=11,xft:PowerlineSymbols:Medium
 !URxvt*boldFont:             xft:Cousine for Powerline:Bold:size=11
-!URxvt*italicFont:           xft:Cousine for Powerline:Bold Italic:size=11
+!URxvt*italicFont:           xft:Cousine for Powerline:Italic:size=11
 !URxvt*letterSpace: -2
+
+!URxvt*font:             xft:Source Code Pro for Powerline:Medium:size=12,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Source Code Pro for Powerline:Bold:size=12
+!URxvt*letterSpace: -2
+
+
+!URxvt*font:             xft:Inconsolata\-g for Powerline:dz:size=13,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Inconsolata\-g for Powerline:Bold:size=13
+!URxvt*italicFont:           xft:Inconsolata\-g for Powerline:Italic:size=13
+!URxvt*boldItalic:           xft:Inconsolata\-g for Powerline:BoldItalic:size=13
+!URxvt*letterSpace: -1
+
+!URxvt*font: xft:Monoid:Regular:size=size=10,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Monoid:Bold:size=10
+!URxvt*italicFont:           xft:Monoid:Italic:size=10
+
+!URxvt*letterSpace: -1
+
+!URxvt*font:             xft:Terminus:Regular:size=12,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Terminus:Bold:size=12
+!URxvt*letterSpace: 0
 
 !URxvt*font:             xft:Fira Mono for Powerline:Regular:size=12,xft:PowerlineSymbols:Medium
 !URxvt*boldFont:             xft:Fira Mono for Powerline:Bold:size=12
@@ -44,17 +76,24 @@ URxvt*letterSpace: -1
 !URxvt*letterSpace: -2
 
 
-!URxvt*font:             xft:Anonymice Powerline:Regular:size=12,xft:PowerlineSymbols:Medium
-!URxvt*boldFont:             xft:Anonymice Powerline Bold:Bold:size=12
+!URxvt*font:             xft:Anonymice Powerline:Regular:size=13,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Anonymice Powerline:Bold:size=13
+!URxvt*italicFont:             xft:Anonymice Powerline:Italic:size=13
+!URxvt*letterSpace: -1
+
+!URxvt*font:             xft:Liberation Mono for Powerline:Regular:size=12,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Liberation Mono for Powerline:Bold:size=12
+!URxvt*italicFont:             xft:Liberation Mono for Powerline:Italic:size=12
+!URxvt*letterSpace: -2
+
+!URxvt*font:             xft:Terminess Powerline:Regular:size=17,xft:PowerlineSymbols:Medium
+!URxvt*boldFont:             xft:Terminess Powerline:Bold:size=17
 !URxvt*letterSpace: 0
 
-!URxvt*font:             xft:Terminess Powerline:Regular:size=12,xft:PowerlineSymbols:Medium
-!URxvt*boldFont:             xft:Terminess Powerline:Bold:size=12
-!URxvt*letterSpace: 0
-
-!Rxvt*font: xft:hack:regular:pixelsize=15:antialias=true,xft:PowerlineSymbols:Medium
-!URxvt*boldFont:             xft:hack:bold:pixelsize=15:antialias=true
-!URxvt*italicFont:             xft:hack:italic:pixelsize=15:antialias=true
+!URxvt*font: xft:Hack:Regular:size=11
+!URxvt*boldFont:             xft:Hack:Bold:size=11
+!URxvt*italicFont:             xft:Hack:Italic:size=11
+!URxvt*boldItalicFont:           xft:Hack:Bold Italic:size=11
 !URxvt*letterSpace: -1
 
 !
@@ -118,8 +157,48 @@ URxvt*color246: #a89984
 URxvt*color248: #bdae93
 URxvt*color250: #d5c4a1
 
+
+! flatcolor theme
+!*.foreground:   #cbe3e7
+!*.background:   #1e1c31
+!*.cursorColor:  #fbfcfc
+!
+!! black
+!*.color0:       #565575
+!*.color8:       #100e23
+!
+!! red
+!*.color1:       #ff8080
+!*.color9:       #ff5458
+!
+!! green
+!*.color2:       #95ffa4
+!*.color10:      #62d196
+!
+!! yellow
+!*.color3:       #ffe9aa
+!*.color11:      #ffb378
+!
+!! blue
+!*.color4:       #91ddff
+!*.color12:      #65b2ff
+!
+!! magenta
+!*.color5:       #c991e1
+!*.color13:      #906cff
+!
+!! cyan
+!*.color6:       #aaffe4
+!*.color14:      #63f2f1
+!
+!! white
+!*.color7:       #cbe3e7
+!*.color15:      #a6b3cc
+
+
 ! Gruvbox dark colorscheme by github.com/morhetz
 ! hard contrast: *background: #1d2021
+!*background: #1d2021
 !URxvt*background: #282828
 !URxvt*foreground: #FBF1C7
 !URxvt*color0:  #282828
@@ -138,6 +217,7 @@ URxvt*color250: #d5c4a1
 !URxvt*color14: #8ec07c
 !URxvt*color7:  #a89984
 !URxvt*color15: #ebdbb2
+
 
 ! Monmon.deviantart.com
 
