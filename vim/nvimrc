@@ -1,0 +1,251 @@
+" Setting tab width to 4
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
+" Turning on Line numbers
+set number
+
+" This wraps our text after 80 characters
+set textwidth=80
+
+" This wraps single lines that extend too far
+set wrap
+set linebreak
+
+" This shows > character in single lines that 
+" are wrapped on next lines for easier viewing but 
+" are not multiple lines and this makes it easier to
+" distinguish
+set showbreak=>\ 
+
+" This makes it easier to see whats top or bottom
+" of our current screen when scrolling 
+" We don't have to hit top or bottom to view 
+" whats next (shows us more stuff)
+set scrolloff=10
+
+
+" This is required to enable vim plugin Airline tabs
+" to be shown all the time
+set laststatus=2
+
+" Mapping keys so we can visually move through lines
+" that is so big that it's placed over next line although
+" it's the same line
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
+
+" <C-s> to save file
+nnoremap <C-S> :update<CR>
+
+" Returns back to insert mode after saving
+"inoremap <C-S> <Esc>:update<CR>gi
+
+" Quitting everything
+nnoremap <C-Q> :qall<CR>
+
+inoremap <C-S> <Esc>:update<CR>
+
+" Turning on syntax highlighting 
+syntax on
+"set termguicolors
+"highlight Normal ctermbg=NONE guibg=NONE 
+"highlight NonText ctermbg=NONE guibg=NONE
+
+
+" For solarized theme, make sure it's installed first
+" Make sure you also setup solarized theme for your terminal
+
+" For improved readability consider manually installing 
+" custom fonts from this repo:
+" https://github.com/powerline/fonts
+
+" favourite fonts: monofur for powerline regular 10, 
+" source code pro for powerline medium 9
+
+" Note that powerline fonts above are required for plugin airline
+
+
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" Enabling blowfish2 crypto for encrypted vim files
+" Encryption of a file is done by typing :X
+"setlocal cm=blowfish2
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+
+Plugin 'Valloric/YouCompleteMe'
+" Required for clang autocomplete to work with YouCompleteMe plugin.
+" Place that file on home directory
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+set noshowmode
+
+
+" Airline Plugin
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+"let g:airline_theme='flatcolor'
+let g:airline_theme='badcat'
+
+
+" Plugin Nerd Tree
+Plugin 'scrooloose/nerdtree'
+map <C-n> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Make terminal open automatically upon entering vim
+autocmd VimEnter * nested vsplit term://zsh
+" Make terminal / new window appear to the right
+set splitright
+" Change mode of terminal to always start with insert mode when focused
+autocmd BufWinEnter,WinEnter term://* startinsert
+
+
+
+" EasyMotion
+Plugin 'easymotion/vim-easymotion'
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+let g:EasyMotion_smartcase = 1
+
+"Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use
+"https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsUsePythonVersion = 2
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsListSnippets="<c-d>"
+
+" Color schemes for vim
+Plugin 'flazz/vim-colorschemes'
+Plugin 'morhetz/gruvbox'
+Plugin 'joshdick/onedark.vim'
+Plugin 'jacoborus/tender.vim'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'vim-scripts/Solarized'
+Plugin 'mhartington/oceanic-next'
+Plugin 'iCyMind/NeoSolarized'
+Plugin 'mhinz/vim-janah'
+Plugin 'MaxSt/FlatColor'
+
+set background=dark
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+"let g:solarized_style="dark"
+
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+"filetype plugin indent on    " required
+
+
+" To ignore plugin indent changes, instead use:
+filetype indent on    " required
+set smartindent
+
+" Mapping tab switch keys changed due to Airline
+map <C-Left> <Esc>:tabprevious<CR>
+map <C-Right> <Esc>:tabnext<CR>
+map <C-Down> <Esc>:tabclose<CR>
+
+" Automatically format the file when reading or writing 
+" to have correct indentaion
+autocmd BufRead,BufWritePre *.cpp,*.h,*.hpp,*.sh,*.awk,*.java,*.pl,*.c normal gg=G''zz
+
+
+" If buffer modified, update any 'Last modified: ' in the first 20 lines.
+" 'Last modified: ' can have up to 10 characters before (they are retained).
+" Restores cursor and window position using save_cursor variable.
+function! LastModified()
+  if &modified
+    let save_cursor = getpos(".")
+    let n = min([20, line("$")])
+    keepjumps exe '1,' . n . 's#^\(.\{,10}Last Modified: \).*#\1' .
+          \ strftime('%a %b %d, %Y (%I:%M %p)') . '#e'
+    call histdel('search', -1)
+    call setpos('.', save_cursor)
+  endif
+endfun
+
+autocmd BufWritePre * call LastModified()
+
+" Preloading author/license info from $VIMHOME
+" mkdir ~/.vim/templates 
+" put cpp.tpl, py.tpl, etc. in templates folder
+" that automatically get proloaded when creating
+" new file with that extension
+let $VIMHOME = $HOME."/.vim/"
+autocmd BufNewFile * silent! 0r $VIMHOME/templates/%:e.tpl
+
+
+" For further vim extensability go through this page for useful plugin list for c/c++:
+" http://stackoverflow.com/questions/4237817/help-with-configuring-vim-for-c
+
+"This is needed for vim colors to work properly inside tmux,
+" to fall back to supporting 256 colors only as 24bit support
+" is still a work in progress for tmux
+"set t_Co=256
+"set t_ut=
+"colorscheme monokain
+"colorscheme hybrid_material
+colorscheme holokai
+"colorscheme 256_noir
+"colorscheme hybrid
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+" These remeps help getting familiar with vim
+" as it basically makes arrow keys useless so
+" that we resort to using hjkl instead
+noremap <left> <nop>
+noremap <right> <nop>
+noremap <up> <nop>
+noremap <down> <nop>
+
+" Neovim bindings for easier navigation
+tnoremap <Esc> <C-\><C-n>
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
