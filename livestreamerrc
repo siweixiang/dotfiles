@@ -1,5 +1,0 @@
-# Player options
-player=mpv --cache 4096 
-hls-segment-threads=3
-player-no-close
-

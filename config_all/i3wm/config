@@ -100,17 +100,17 @@ bindsym $mod+F3 exec urxvtc -e firejail elinks 'https://forums.gentoo.org/index.
 bindsym $mod+Shift+F4 exec urxvtc -e firejail elinks 'https://wiki.gentoo.org/wiki/Main_Page'
 bindsym $mod+F4 exec urxvtc -e firejail elinks 'https://wiki.archlinux.org/index.php'
 bindsym $mod+m exec urxvtc -e 'cmus'
-bindsym $mod+Shift+m exec firejail thunderbird
+bindsym $mod+Shift+m exec thunderbird-bin
 bindsym $mod+n exec nitrogen 
 bindsym $mod+y exec /usr/bin/mpv-nodialog.sh
 bindsym $mod+u exec /usr/bin/open-elinks.sh
 bindsym $mod+Shift+u exec /usr/bin/getpic.sh
-#bindsym $mod+Ctrl+k exec --no-startup-id compton -b
+bindsym $mod+Ctrl+k exec --no-startup-id compton -b
 bindsym $mod+t exec firejail --seccomp transmission-gtk
 bindsym $mod+Shift+v exec Virtualbox
 bindsym $mod+o exec urxvtc -e 'youtube-viewer'
-bindsym $mod+g exec urxvtc -e firejail elinks 'https://classic.startpage.com'
-bindsym $mod+Shift+g exec urxvtc -e firejail elinks 'https://www.google.com/?hl=en'
+bindsym $mod+g exec urxvtc -e elinks-search.sh startpage
+bindsym $mod+Shift+g exec urxvtc -e elinks-search.sh google
 bindsym $mod+i	exec urxvtc -e 'wicd-curses'
 bindsym $mod+Shift+w exec wireshark-gtk
 #bindsym XF86MonBrightnessUp  exec "xbacklight -dec 5";
@@ -144,7 +144,7 @@ bindsym $mod+Shift+F5 exec "xrandr --output VIRTUAL1 --off --output eDP1 --off -
 # Autostart applications
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id "dbus-launch nm-applet &"
+#exec --no-startup-id "dbus-launch nm-applet &"
 exec --no-startup-id "sudo xbacklight_ddx.sh min"
 #exec --no-startup-id "dbus-launch blueman-applet &"
 exec --no-startup-id parcellite
@@ -268,6 +268,8 @@ for_window [class="Gpicview"] floating enable border normal
 for_window [class="Arandr"] floating enable border normal
 for_window [class="URxvt"] floating disable border pixel 1
 for_window [class="blueman-manager"] floating enable border normal
+for_window [class="Thunderbird"] floating enable border normal
+for_window [class="PCmanfm"] floating enable border normal
 
 # To always move video to workspace 5, regardless of 
 # where it is launched from

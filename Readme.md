@@ -1,5 +1,5 @@
 Dotfiles
 =========================================
 * Mix of scripts, configs, etc. that I use on my system.
-* Please do not blindly copy the config files and expect them to work. 
+* Use what you want, bug reports will be appreciated :]
 

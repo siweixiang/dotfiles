@@ -1,0 +1,426 @@
+# Path to your oh-my-zsh installation.
+ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="clean"
+DISABLE_AUTO_UPDATE="true"
+HIST_STAMPS="mm/dd/yyyy"
+
+plugins=(git)
+
+export PATH="${PATH}:$HOME/.local/bin/"
+
+# Hardware Acceleration Stuff
+export VDPAU_DRIVER=va_gl
+export LIBVA_DRIVER_NAME=i965
+
+#export TERM="screen-256color-bce"
+export TERM="rxvt-256color"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vi'
+else
+  export EDITOR='nvim'
+fi
+
+alias vim='nvim'
+alias mank='man -k'
+
+eval $(dircolors ~/.dircolors)
+
+export BROWSER=/usr/bin/firefox
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+alias wip="curl -s icanhazip.com"
+
+# Mounting filesystem in async mode which allows
+# 1) Faster transfer for data (not always)
+# 2) Sync mode reduces lifespan of flash devices so async better
+mrem() {
+    [[ "$#" -ne 2 ]] && printf "[!] Invalid arguments\n" \
+        && return 1
+
+    if [[ "$EUID" -ne 0 ]]; then
+        sudo mount -o async "$1" "$2"
+    else
+        mount -o async "$1" "$2"
+    fi
+}
+
+# Function to safely unmount & poweroff drives
+# Requires udisksctl utility
+# moff [/dev/sdx]
+moff() {
+    [[ "$#" -ne 1 ]] && printf "[!] Invalid arguments\n" \
+        && return 1
+
+    local device="$1"
+
+    if [[ "$EUID" -ne 0 ]]; then
+
+        if [[ "$( mount | grep $device )" ]]; then
+            sudo umount "$device"
+        fi
+
+        wait
+        sudo udisksctl power-off -b "$device"
+    else
+
+        if [[ "$( mount | grep $device )" ]]; then
+            umount "$device"
+        fi
+
+        wait
+        udisksctl power-off -b "$device"
+    fi
+}
+
+# Secure delete input directory & contents with 7 passes
+deld() {
+    [[ "$#" -ne 1 ]] && printf "[!] Invalid arguments\n" \
+        && return 1
+
+    local directory="$1"
+
+    find "$directory" -type f -exec shred -vzuf -n7 {} \;
+    rm -rvf "$directory"
+}
+
+# Secure delete input file with 7 passes
+delf() {
+    [[ "$#" -ne 1 ]] && printf "[!] Invalid arguments\n" \
+        && return 1
+
+    local filename="$1"
+
+    shred -vzuf -n7 "$filename"
+}
+
+
+# Copying using rsync
+alias rcp="rsync -aW --progress"
+alias cpa="cp -av"
+
+# Tmux shortcuts
+alias tmux="tmux -2"
+
+# Grep, Less, Other stuff
+alias L="less"
+alias G="grep"
+alias Gi="grep -i"
+
+# Turning off screen blanking & powersaving
+# Useful when you are reading a book / doing something
+# and don't want the screen to poweroff
+alias xs="xset -dpms s off"
+
+# Shortcut to check specified FLAG on running kernel config
+KC() {zgrep $1 /proc/config.gz}
+
+# Shortcut for removing kernel & dependencies
+# Example: rmkern 4.9.6
+rmkern() {
+    eselect_version=$(eselect kernel list | grep $1 | cut -d'*' -f1 | cut -d']' -f2) | tr -d "[:space:]";
+    kern_version=$(echo "$eselect_version" | cut -d '-' -f2);
+    module_version=$(printf "%s-gentoo" $kern_version);
+    revision=$(echo $eselect_version | cut -d '-' -f4);
+    portage_version=$(echo "sys-kernel/gentoo-sources-$kern_version");
+
+    if [ ! -z "$revision" ]; then # If string not null
+        portage_version=$(printf "%s-%s" $portage_version $revision);
+    fi
+
+    emerge -aC "$portage_version";
+    find /usr/src/ -name "*$kern_version*" -type d -exec rm -rf "{}" "+"
+    rm -rf /lib/modules/$module_version;
+    find /boot -name "*$kern_version*" -exec rm -rf "{}" "+"
+    grub-mkconfig -o /boot/grub/grub.cfg;
+}
+
+rmf() {
+
+    trashPath="$HOME/.local/share/Trash"
+    
+    if [[ "$1" == "" ]]; then
+        return 1
+    fi
+    
+    # Checking if trash path exists
+    if ! [[ -d "$trashPath" ]]; then
+        mkdir -p "$trashPath" 
+    fi
+    
+    for file in "$@"
+    do
+        mv "$file" "$trashPath" 
+    done
+    
+    return 0;
+}
+
+
+alias Wee="TERM='tmux-256color' && weechat"
+
+# Find Function
+FF() 
+{
+    if [[ $# = 1 ]]; then # FF "patten"
+        find . -type f -name $1
+    elif [[ $# = 2 ]]; then # FF "pattern" path
+        find $2 -type f -name $1
+    else
+        echo "[!] Search Failed: Invalid Arguments"
+    fi
+}
+
+#===============================
+# Gentoo Linux portage shortcuts
+#===============================
+
+# Fast search
+alias qs="qsearch $1"
+
+# Thorough time consuming search
+alias qss="emerge -sS $1"
+
+# Preview useflags & version of a package
+alias qp="emerge -pv $1"
+
+# Searching for all available versions of a package
+alias qa="equery list -po $1"
+
+# Autounmasking a package, run dispatch-conf (qcu) to apply changes
+alias qum="emerge --ask --autounmask-write $1"
+
+# Updating portage
+alias qu="emerge --sync"
+
+# Installing updates
+alias qui="emerge -uDNAav --quiet --keep-going --with-bdeps=y @world"
+
+# Installing packages, verbose mode
+qi() 
+{
+    [[ "$#" -lt 1 ]] && return 1
+
+    emerge -f "$@" && emerge -av "$@"
+}
+
+# Installing packages with less verbose options to speedup build
+qq() 
+{
+    [[ "$#" -lt 1 ]] && return 1
+
+    emerge -f "$@" && emerge -q "$@"
+}
+
+# Dispatch-conf shortcut for updating configurations
+alias qcu="dispatch-conf"
+
+# Removing package
+alias qr="emerge --deselect $1 && emerge -aC $1"
+
+# Get compile time taken for package
+alias qt="qlop -tH $1"
+
+# Select current top 5 fastest mirrors among Asian servers
+alias mirror-http="mirrorselect -R 'Asia' -s5 -b10 -D \
+    >> /etc/portage/repos.conf/gentoo.conf"
+alias mirror-rsync="mirrorselect -i -r -o \
+    >> /etc/portage/repos.conf/gentoo.conf"
+
+# Find which package a command / utility belongs in
+alias whichpkg="equery b "
+
+# Find dependencies of a package
+alias whichdep="equery d "
+
+
+# Cleaning 
+qcl() 
+{ 
+    emerge --depclean; 
+    eclean-dist --deep --package-names;
+}
+
+
+#=========================================
+# File encryption/decryption using openssl
+#=========================================
+
+# ssle [input] [output]
+encbin() {openssl enc -aes-256-cbc -salt -in $1 -out $2}
+decbin() {openssl enc -aes-256-cbc -d -in $1 > $2}
+enctxt() {openssl enc -aes-256-cbc -a -salt -in $1 -out $2}
+dectxt() {openssl enc -aes-256-cbc -a -d -in $1 > $2}
+
+alias du="du -sh"
+alias df="df -h"
+
+
+#=========================================
+#             Youtube stuff
+#=========================================
+
+# Youtube single track audio download
+alias youa="youtube-dl --no-playlist --audio-quality 0 -i -c -f best --extract-audio --audio-format flac $1"
+alias youap="youtube-dl --yes-playlist --audio-quality 0 -i -c -f best --extract-audio --audio-format flac $1"
+# Youtube video download
+alias youv="youtube-dl -f \"bestvideo[height<=?1080][vcodec!=vp9]+bestaudio/best\""
+alias youvp="youtube-dl --yes-playlist -f \"bestvideo[height<=?1080][vcodec!=vp9]+bestaudio/best\""
+
+# MPV youtube playlist playback
+mpvp() {
+	playID="`echo -e "$1" | cut -d'=' -f2`";
+	mpv "https://www.youtube.com/playlist?list=$playID";
+}
+
+# Optimizing PDF books for Kindle Paperwhite 2
+alias kin="k2pdfopt $1 -dev kp2 -cmax 2 -s -g 0.5 -wt -1 -wrap+ -hy -ws -0.2"
+# Wget with proper output file naming
+wgetc() {wget -c --content-disposition $1}
+
+
+#=========================================
+#            Monitoring System
+#=========================================
+dme() { dmesg --color=always -T --level=err }
+dmf() { dmesg --color=always -w -T }
+dmg() { dmesg --color=always -T | less }
+dms() { dmesg --color=always -T | grep -i $1 }
+
+getlog() {grep -A3 -i $1 ~/.weechat/logs/*log | grep -v joined | grep -v "has quit" | cut -f2,3 | less}
+getip() {grep -i $1 ~/.weechat/logs/*log | grep "joined" | cut -f3 | sort| uniq -u}
+
+# Requires root access
+cpuinfo() {watch -n1 cpupower monitor}
+
+wkill() { 
+    killall wpa_supplicant && killall dhcpcd
+    rfkill block wifi all
+}
+
+wnet() {watch netstat "-naultp"}
+wmon() {nethogs "wlan0"}
+
+status() {
+    { echo -e "\nuptime:"
+      uptime
+      echo -e "\ndisk space:"
+      df -h 2> /dev/null
+      echo -e "\ninodes:"
+      df -i 2> /dev/null
+      echo -e "\nblock devices:"
+      blkid
+      echo -e "\nmemory:"
+      free -m
+      if [[ -r /var/log/syslog ]]; then
+        echo -e "\nsyslog:"
+        tail /var/log/syslog
+      fi
+      if [[ -r /var/log/messages ]]; then
+        echo -e "\nmessages:"
+        tail /var/log/messages
+      fi
+    } | less
+}
+
+alias lb="lsblk -f"
+alias check="aide --check --config=/etc/aide/aide.conf"
+
+# Short form of the following command
+# ls /path | grep 'pattern'
+# Example: lsg Downloads rar
+lsg() {
+    if [ $# = 2 ];
+    then
+        ls $1 | grep $2;
+    else
+        exit 1;
+    fi
+}
+
+
+psg() {
+    if [ $# = 1 ];
+    then
+        ps aux | grep -i $1;
+    else
+        return 1;
+    fi
+}
+
+
+#=========================================
+#       Programming & Productivity
+#=========================================
+# Git shortcuts
+alias Gs="git status"
+alias Ga="git add ."
+alias Gc="git commit -m $1"
+alias Gp="git push"
+alias trr="tr -cd '[:print:]' < $1"
+# G++ compiling and stuff
+# Cm [output filename]
+alias Cm="g++ -std=c++11 -ggdb *.cpp -o $1"
+alias iot="iotop -o"
+
+
+# Note taking app
+n() {
+  if [ "$1" = "today" ];
+  then
+    $EDITOR ~/notes/`date +%y%m%d`
+  else
+    $EDITOR ~/notes/"$*"
+  fi
+}
+
+nls() {
+  ls -c ~/notes/ | grep "$*"
+}
+
+ns() {
+	egrep -RHi "$*" ~/notes/*
+}
+
+nrd() {
+  cat ~/notes/"$*"
+}
+
+# Pyrit functions for WPA handshakes
+# pirate [source] [destination] [BSSID]
+pirate(){pyrit -r $1 -o $2 -b $3 strip}
+
+# Reaver & Bully shortcuts
+# Pix [bssid] [channel] [interface]
+Pix(){bully -b $1 -c $2 -d $3}
+
+usbstat(){cat /sys/bus/usb/devices/usb*/authorized_default}
+
+# Disable usb devices to mitigate rubber ducky style attacks
+usboff(){echo 0 > /sys/bus/usb/devices/usb*/authorized_default}
+
+#Enable usb devices 
+usbon(){echo 1 > /sys/bus/usb/devices/usb*/authorized_default}
+
+# Clean Trash
+clean(){
+    rm -rvf $HOME/.local/share/Trash/*;
+}
+
+if [ -x /usr/bin/cowsay -a -x /usr/bin/fortune ]; then
+        fortune -a | cowsay
+fi
+
+ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+
+#source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+source $ZSH/oh-my-zsh.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
